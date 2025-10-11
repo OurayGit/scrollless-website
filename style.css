@@ -27,16 +27,22 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     z-index: 1000;
     backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Transparent navbar on policy pages */
+body.policy-page .navbar {
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     justify-content: flex-end;
     align-items: center;
 }
@@ -44,13 +50,13 @@ body {
 .nav-links a {
     color: var(--color-white);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.3px;
     opacity: 0.8;
     transition: all 0.3s ease;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.3rem 0;
 }
 
 .nav-links a::after {
