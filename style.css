@@ -182,8 +182,33 @@ body {
     font-weight: bold;
 }
 
+/* Screenshots Section */
+.screenshots-section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
 
+.screenshots-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
 
+.screenshot {
+    width: 180px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.15);
+}
 
 /* Footer */
 footer {
@@ -209,6 +234,22 @@ footer a:hover {
 }
 
 /* Policy Pages */
+body:has(.policy-container) {
+    background: var(--color-white);
+}
+
+body:has(.policy-container) .navbar .nav-links a {
+    color: var(--color-black);
+}
+
+body:has(.policy-container) footer a {
+    color: var(--color-black);
+}
+
+body:has(.policy-container) .separator {
+    color: var(--color-black);
+}
+
 .policy-container {
     max-width: 900px;
     margin: 40px auto;
@@ -218,7 +259,7 @@ footer a:hover {
 .policy-container h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: var(--color-white);
+    color: var(--color-black);
     border-bottom: 3px solid var(--color-red);
     padding-bottom: 15px;
 }
@@ -227,21 +268,21 @@ footer a:hover {
     font-size: 1.8rem;
     margin-top: 40px;
     margin-bottom: 15px;
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .policy-container h3 {
     font-size: 1.3rem;
     margin-top: 25px;
     margin-bottom: 10px;
-    color: var(--color-white);
+    color: var(--color-black);
     opacity: 0.9;
 }
 
 .policy-container p, .policy-container li {
     margin-bottom: 15px;
     line-height: 1.8;
-    color: var(--color-white);
+    color: var(--color-black);
     opacity: 0.8;
 }
 
@@ -251,7 +292,7 @@ footer a:hover {
 }
 
 .policy-date {
-    color: var(--color-white);
+    color: var(--color-black);
     opacity: 0.7;
     font-style: italic;
     margin-bottom: 30px;
@@ -301,6 +342,14 @@ footer a:hover {
     .download-btn {
         padding: 16px 50px;
         font-size: 1.1rem;
+    }
+    
+    .screenshot {
+        width: 140px;
+    }
+    
+    .screenshots-grid {
+        gap: 1rem;
     }
     
     .policy-container {
