@@ -254,7 +254,13 @@ body.policy-page .navbar {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     cursor: default;
-    pointer-events: none;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
 }
 
 .feature-icon {
