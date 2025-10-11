@@ -58,14 +58,25 @@ body {
 }
 
 /* Hero Section */
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 6rem 2rem 4rem;
-    text-align: center;
-    width: 100%;
+    .hero-section {
+        padding: 6rem 1.5rem 4rem;
+        min-height: 60vh;
+    }
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+    z-index: 0;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Logo Container */
@@ -161,12 +172,10 @@ body {
 /* Features Grid */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 3rem 0;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3rem auto;
+    max-width: 900px;
 }
 
 .feature-card {
@@ -386,9 +395,9 @@ body.policy-page .separator {
     .nav-links a {
         font-size: 0.85rem;
     }
-    
     .hero-section {
-        padding: 5rem 1.5rem 3rem;
+        padding: 6rem 1.5rem 4rem;
+        min-height: 60vh;
     }
     
     .logo-icon {
@@ -442,6 +451,9 @@ body.policy-page .separator {
         font-size: 1.5rem;
     }
 }
+
+
+
 
 
 
