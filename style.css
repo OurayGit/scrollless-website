@@ -211,7 +211,6 @@ body {
 .screenshots-section {
     margin: 3rem 0 4rem;
     text-align: center;
-    overflow: hidden;
 }
 
 .screenshots-section h2 {
@@ -223,51 +222,49 @@ body {
 
 .screenshots-container {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     overflow-x: auto;
-    padding: 3rem 0;
+    overflow-y: hidden;
+    padding: 2rem 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-red) rgba(255, 255, 255, 0.1);
     scroll-behavior: smooth;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: calc(50vw - 150px);
-    padding-right: calc(50vw - 150px);
 }
 
 .screenshots-container::-webkit-scrollbar {
-    display: none;
+    height: 10px;
+}
+
+.screenshots-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.screenshots-container::-webkit-scrollbar-thumb {
+    background: var(--color-red);
+    border-radius: 5px;
+}
+
+.screenshots-container::-webkit-scrollbar-thumb:hover {
+    background: #ff1744;
 }
 
 .screenshot {
     flex: 0 0 auto;
-    height: 450px;
+    height: 500px;
     width: auto;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    scroll-snap-align: center;
-    opacity: 0.5;
-    transform: scale(0.85);
-    filter: blur(2px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
+    cursor: pointer;
 }
 
 .screenshot:hover {
-    opacity: 0.7;
-}
-
-.screenshots-container:hover .screenshot {
-    opacity: 0.5;
-}
-
-.screenshots-container .screenshot:nth-child(3),
-.screenshots-container .screenshot:nth-child(8) {
-    opacity: 1;
-    transform: scale(1.1);
-    filter: blur(0);
-    box-shadow: 0 20px 60px rgba(220, 20, 60, 0.4);
-    z-index: 10;
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
 }
 
 /* Footer */
@@ -420,9 +417,12 @@ body.policy-page .separator {
     .content-block p {
         font-size: 1.1rem;
     }
-    
     .screenshot {
         height: 400px;
+    }
+    
+    .screenshots-container {
+        padding: 1.5rem 0.5rem;
     }
     
     .screenshots-container {
@@ -442,6 +442,8 @@ body.policy-page .separator {
         font-size: 1.5rem;
     }
 }
+
+
 
 
 
