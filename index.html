@@ -3,43 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scrollless - A simple, elegant website">
-    <title>Scrollless</title>
+    <meta name="description" content="Scrollless - Take control of your screen time. Break free from endless scrolling.">
+    <title>Scrollless - Break Free from Endless Scrolling</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Scrollless</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
-            <h1>Scrollless</h1>
-            <p class="tagline">Simple. Elegant. Focused.</p>
+        <header class="hero">
+            <h1>Break Free from Endless Scrolling</h1>
+            <p class="tagline">Take back control of your time and attention</p>
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">Download Now</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
         </header>
         
         <main>
-            <section class="hero">
-                <h2>Welcome to Scrollless</h2>
-                <p>This is your simple website foundation. Customize it to make it yours.</p>
+            <section id="about" class="section">
+                <h2>What is Scrollless?</h2>
+                <p class="intro-text">Scrollless is a powerful app designed to help you break free from the endless scroll. Regain control of your digital life, reduce distractions, and focus on what truly matters.</p>
             </section>
-            
-            <section class="content">
-                <div class="card">
-                    <h3>About</h3>
-                    <p>Add your content here. Keep it simple and focused.</p>
+
+            <section id="features" class="section features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Time Control</h3>
+                    <p>Set limits on your app usage and stick to them with smart reminders and blocks.</p>
                 </div>
                 
-                <div class="card">
-                    <h3>Features</h3>
-                    <p>Clean design, fast loading, and ready to deploy.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Focus Mode</h3>
+                    <p>Block distracting apps and websites when you need to concentrate.</p>
                 </div>
                 
-                <div class="card">
-                    <h3>Contact</h3>
-                    <p>Reach out at your preferred contact method.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Insights</h3>
+                    <p>Track your screen time and understand your digital habits better.</p>
                 </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data stays on your device. We don't track or sell your information.</p>
+                </div>
+            </section>
+
+            <section id="download" class="section download-section">
+                <h2>Get Started Today</h2>
+                <p>Available on Android</p>
+                <a href="#" class="btn btn-primary btn-large">Download from Play Store</a>
             </section>
         </main>
         
         <footer>
-            <p>&copy; 2025 Scrollless. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="terms.html">Terms of Use</a>
+                    <span class="separator">|</span>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="mailto:support@scrollless.ch">Contact</a>
+                </div>
+                <p class="copyright">&copy; 2025 Scrollless. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 </body>
