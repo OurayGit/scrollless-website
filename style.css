@@ -234,19 +234,19 @@ footer a:hover {
 }
 
 /* Policy Pages */
-body:has(.policy-container) {
+body.policy-page {
     background: var(--color-white);
 }
 
-body:has(.policy-container) .navbar .nav-links a {
+body.policy-page .navbar .nav-links a {
     color: var(--color-black);
 }
 
-body:has(.policy-container) footer a {
+body.policy-page footer a {
     color: var(--color-black);
 }
 
-body:has(.policy-container) .separator {
+body.policy-page .separator {
     color: var(--color-black);
 }
 
