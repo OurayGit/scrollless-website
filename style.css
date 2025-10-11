@@ -439,6 +439,11 @@ body.policy-page .separator {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        background: #000000;
+        background: linear-gradient(to bottom, #000000, #0a0a0a);
+    }
+    
     .features-grid {
         display: flex;
         flex-direction: column;
@@ -449,7 +454,7 @@ body.policy-page .separator {
     
     .feature-card {
         padding: 2rem 1.5rem;
-        transition: all 0.15s ease;
+        transition: all 0.05s ease;
         pointer-events: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
