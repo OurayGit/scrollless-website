@@ -27,23 +27,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Highlight centered feature card on mobile
+    // Highlight centered feature card on mobile (vertical scroll)
     function highlightCenteredCard() {
         if (window.innerWidth <= 768) {
-            const featuresGrid = document.querySelector('.features-grid');
-            if (!featuresGrid) return;
+            const cards = document.querySelectorAll('.feature-card');
+            if (!cards.length) return;
             
-            const cards = featuresGrid.querySelectorAll('.feature-card');
-            const containerRect = featuresGrid.getBoundingClientRect();
-            const containerCenter = containerRect.left + containerRect.width / 2;
+            const viewportCenter = window.innerHeight / 2;
             
             let closestCard = null;
             let closestDistance = Infinity;
             
             cards.forEach(card => {
                 const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + cardRect.width / 2;
-                const distance = Math.abs(containerCenter - cardCenter);
+                const cardCenter = cardRect.top + cardRect.height / 2;
+                const distance = Math.abs(viewportCenter - cardCenter);
                 
                 if (distance < closestDistance) {
                     closestDistance = distance;
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.classList.remove('centered');
             });
             
-            if (closestCard) {
+            if (closestCard && closestDistance < window.innerHeight / 2) {
                 closestCard.classList.add('centered');
             }
         }
@@ -62,11 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial highlight
     highlightCenteredCard();
     
-    // Highlight on scroll
-    const featuresGrid = document.querySelector('.features-grid');
-    if (featuresGrid) {
-        featuresGrid.addEventListener('scroll', highlightCenteredCard);
-    }
+    // Highlight on scroll (page scroll, not container scroll)
+    window.addEventListener('scroll', highlightCenteredCard);
     
     // Re-highlight on window resize
     window.addEventListener('resize', highlightCenteredCard);
