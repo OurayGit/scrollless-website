@@ -450,6 +450,9 @@ body.policy-page .separator {
     .feature-card {
         padding: 2rem 1.5rem;
         transition: all 0.3s ease;
+        pointer-events: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
     
     .feature-card.centered {
