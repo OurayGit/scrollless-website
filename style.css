@@ -58,10 +58,21 @@ body {
 }
 
 /* Hero Section */
-    .hero-section {
-        padding: 6rem 1.5rem 4rem;
-        min-height: 60vh;
-    }
+.hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+    width: 100%;
+    background-image: url("upscaled woman scrolling.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+}
 
 .hero-section::before {
     content: "";
@@ -451,6 +462,7 @@ body.policy-page .separator {
         font-size: 1.5rem;
     }
 }
+
 
 
 
