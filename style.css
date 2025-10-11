@@ -8,7 +8,7 @@
 :root {
     --color-black: #000000;
     --color-white: #ffffff;
-    --color-red: #dc143c;
+    --color-red: #FF0B00;
 }
 
 body {
@@ -527,6 +527,27 @@ body.policy-page .separator {
     
     .screenshots-container {
         gap: 1rem;
+    }
+    
+    /* Disable hover effects on mobile - make elements always appear active */
+    .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.15);
+        transform: none;
+    }
+    
+    .feature-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .screenshot {
+        cursor: default;
+    }
+    
+    .screenshot:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
     }
     
     .policy-container {
