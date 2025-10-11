@@ -26,4 +26,48 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Highlight centered feature card on mobile
+    function highlightCenteredCard() {
+        if (window.innerWidth <= 768) {
+            const featuresGrid = document.querySelector('.features-grid');
+            if (!featuresGrid) return;
+            
+            const cards = featuresGrid.querySelectorAll('.feature-card');
+            const containerRect = featuresGrid.getBoundingClientRect();
+            const containerCenter = containerRect.left + containerRect.width / 2;
+            
+            let closestCard = null;
+            let closestDistance = Infinity;
+            
+            cards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(containerCenter - cardCenter);
+                
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestCard = card;
+                }
+                
+                card.classList.remove('centered');
+            });
+            
+            if (closestCard) {
+                closestCard.classList.add('centered');
+            }
+        }
+    }
+    
+    // Initial highlight
+    highlightCenteredCard();
+    
+    // Highlight on scroll
+    const featuresGrid = document.querySelector('.features-grid');
+    if (featuresGrid) {
+        featuresGrid.addEventListener('scroll', highlightCenteredCard);
+    }
+    
+    // Re-highlight on window resize
+    window.addEventListener('resize', highlightCenteredCard);
 });

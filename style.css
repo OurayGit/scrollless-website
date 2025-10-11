@@ -439,12 +439,34 @@ body.policy-page .separator {
 /* Responsive Design */
 @media (max-width: 768px) {
     .features-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
         gap: 1.5rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1rem 0;
+        margin: 2rem 0;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .features-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
     
     .feature-card {
-        padding: 1.5rem;
+        flex: 0 0 85%;
+        padding: 2rem 1.5rem;
+        scroll-snap-align: center;
+        transition: all 0.3s ease;
+    }
+    
+    .feature-card.centered {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--color-red);
+        box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        transform: scale(1.02);
     }
     
     .feature-icon {
