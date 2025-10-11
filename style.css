@@ -63,57 +63,73 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .logo-icon {
-    width: 150px;
-    height: 150px;
-    filter: brightness(0) invert(1);
+    width: 120px;
+    height: 120px;
 }
 
 .logo-text {
-    width: 400px;
-    max-width: 90vw;
-    filter: brightness(0) invert(1);
+    width: 450px;
+    max-width: 85vw;
 }
 
 /* Tagline */
 .tagline {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+    animation: fadeIn 1.2s ease-in;
 }
 
 .tagline p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 300;
     color: var(--color-white);
-    opacity: 0.8;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
 }
 
 /* CTA */
 .cta {
     margin-bottom: 2rem;
+    animation: fadeIn 1.4s ease-in;
 }
 
 /* Download Button */
 .download-btn {
     display: inline-block;
-    padding: 18px 60px;
+    padding: 20px 70px;
     background: var(--color-red);
     color: var(--color-white);
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 60px;
     transition: all 0.3s ease;
-    border: 2px solid var(--color-red);
+    border: 3px solid var(--color-red);
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
 }
 
 .download-btn:hover {
     background: var(--color-white);
     color: var(--color-red);
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(220, 20, 60, 0.4);
 }
 
 
@@ -209,21 +225,31 @@ footer a:hover {
     }
     
     .logo-icon {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
     
     .logo-text {
-        width: 300px;
+        width: 320px;
+    }
+    
+    .logo-container {
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .tagline {
+        margin-bottom: 2.5rem;
     }
     
     .tagline p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        padding: 0 1rem;
     }
     
     .download-btn {
-        padding: 15px 45px;
-        font-size: 1rem;
+        padding: 16px 50px;
+        font-size: 1.1rem;
     }
     
     .policy-container {
