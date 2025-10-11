@@ -8,47 +8,25 @@
     --color-black: #000000;
     --color-white: #ffffff;
     --color-red: #dc143c;
-    --color-gray-light: #f5f5f5;
-    --color-gray-dark: #333333;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: var(--color-black);
-    background: var(--color-white);
+    color: var(--color-white);
+    background: var(--color-black);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation */
 .navbar {
-    background: var(--color-black);
-    padding: 1rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    padding: 2rem;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.logo:hover {
-    color: var(--color-red);
 }
 
 .nav-links {
@@ -59,199 +37,108 @@ body {
 .nav-links a {
     color: var(--color-white);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--color-red);
+    opacity: 1;
 }
 
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 100px 20px 80px;
-    background: var(--color-black);
-    color: var(--color-white);
-    margin: 0 -2rem;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: -1px;
-}
-
-.tagline {
-    font-size: 1.5rem;
-    color: var(--color-gray-light);
-    margin-bottom: 40px;
-}
-
-.cta-buttons {
+/* Main Container */
+.main-container {
+    flex: 1;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
 }
 
-/* Buttons */
-.btn {
+/* Logo Container */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.logo-icon {
+    width: 150px;
+    height: 150px;
+    filter: brightness(0) invert(1);
+}
+
+.logo-text {
+    width: 400px;
+    max-width: 90vw;
+    filter: brightness(0) invert(1);
+}
+
+/* Tagline */
+.tagline {
+    margin-bottom: 3rem;
+}
+
+.tagline p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-white);
+    opacity: 0.8;
+}
+
+/* CTA */
+.cta {
+    margin-bottom: 2rem;
+}
+
+/* Download Button */
+.download-btn {
     display: inline-block;
-    padding: 15px 40px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.btn-primary {
+    padding: 18px 60px;
     background: var(--color-red);
     color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: all 0.3s ease;
     border: 2px solid var(--color-red);
 }
 
-.btn-primary:hover {
+.download-btn:hover {
     background: var(--color-white);
     color: var(--color-red);
+    transform: scale(1.05);
 }
 
-.btn-secondary {
-    background: transparent;
-    color: var(--color-white);
-    border: 2px solid var(--color-white);
-}
 
-.btn-secondary:hover {
-    background: var(--color-white);
-    color: var(--color-black);
-}
-
-.btn-large {
-    padding: 18px 50px;
-    font-size: 1.2rem;
-}
-
-/* Sections */
-.section {
-    padding: 80px 0;
-}
-
-.section h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--color-black);
-}
-
-.intro-text {
-    text-align: center;
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--color-gray-dark);
-}
-
-/* Features Grid */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    padding: 60px 0;
-}
-
-.feature-card {
-    background: var(--color-white);
-    padding: 40px 30px;
-    border-radius: 10px;
-    text-align: center;
-    border: 2px solid var(--color-black);
-    transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 8px 8px 0 var(--color-red);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.feature-card h3 {
-    color: var(--color-black);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.feature-card p {
-    color: var(--color-gray-dark);
-    line-height: 1.6;
-}
-
-/* Download Section */
-.download-section {
-    text-align: center;
-    background: var(--color-gray-light);
-    margin: 0 -2rem;
-    padding: 80px 2rem;
-}
-
-.download-section h2 {
-    margin-bottom: 15px;
-}
-
-.download-section p {
-    font-size: 1.2rem;
-    color: var(--color-gray-dark);
-    margin-bottom: 30px;
-}
 
 /* Footer */
 footer {
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: 40px 0;
-    margin: 0 -2rem;
-    margin-top: 80px;
-}
-
-.footer-content {
+    padding: 2rem;
     text-align: center;
+    font-size: 0.9rem;
 }
 
-.footer-links {
-    margin-bottom: 20px;
-}
-
-.footer-links a {
+footer a {
     color: var(--color-white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: var(--color-red);
+footer a:hover {
+    opacity: 1;
 }
 
 .separator {
-    margin: 0 15px;
-    color: var(--color-gray-dark);
-}
-
-.copyright {
-    color: var(--color-gray-dark);
-    font-size: 0.9rem;
+    margin: 0 1rem;
+    opacity: 0.5;
 }
 
 /* Policy Pages */
@@ -259,13 +146,12 @@ footer {
     max-width: 900px;
     margin: 40px auto;
     padding: 40px;
-    background: var(--color-white);
 }
 
 .policy-container h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: var(--color-black);
+    color: var(--color-white);
     border-bottom: 3px solid var(--color-red);
     padding-bottom: 15px;
 }
@@ -274,20 +160,22 @@ footer {
     font-size: 1.8rem;
     margin-top: 40px;
     margin-bottom: 15px;
-    color: var(--color-black);
+    color: var(--color-white);
 }
 
 .policy-container h3 {
     font-size: 1.3rem;
     margin-top: 25px;
     margin-bottom: 10px;
-    color: var(--color-gray-dark);
+    color: var(--color-white);
+    opacity: 0.9;
 }
 
 .policy-container p, .policy-container li {
     margin-bottom: 15px;
     line-height: 1.8;
-    color: var(--color-gray-dark);
+    color: var(--color-white);
+    opacity: 0.8;
 }
 
 .policy-container ul {
@@ -296,46 +184,57 @@ footer {
 }
 
 .policy-date {
-    color: var(--color-gray-dark);
+    color: var(--color-white);
+    opacity: 0.7;
     font-style: italic;
     margin-bottom: 30px;
 }
 
+.policy-container a {
+    color: var(--color-red);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .tagline {
-        font-size: 1.2rem;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
+    .navbar {
+        padding: 1.5rem;
     }
     
     .nav-links {
-        gap: 1rem;
+        gap: 1.5rem;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .nav-links a {
+        font-size: 0.85rem;
     }
     
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+    .logo-icon {
+        width: 100px;
+        height: 100px;
     }
     
-    .btn {
-        width: 100%;
-        max-width: 300px;
+    .logo-text {
+        width: 300px;
+    }
+    
+    .tagline p {
+        font-size: 1.2rem;
+    }
+    
+    .download-btn {
+        padding: 15px 45px;
+        font-size: 1rem;
     }
     
     .policy-container {
         padding: 20px;
+    }
+    
+    .policy-container h1 {
+        font-size: 2rem;
+    }
+    
+    .policy-container h2 {
+        font-size: 1.5rem;
     }
 }
