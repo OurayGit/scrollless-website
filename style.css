@@ -101,7 +101,7 @@ body.policy-page .navbar {
     width: 100%;
     background-image: url("upscaled woman scrolling.png");
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     min-height: 70vh;
 }
@@ -132,8 +132,8 @@ body.policy-page .navbar {
 }
 
 .logo-icon {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     display: block;
 }
 
