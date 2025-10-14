@@ -54,7 +54,7 @@ body.policy-page .navbar {
     font-weight: 500;
     letter-spacing: 0.3px;
     opacity: 0.8;
-    transition: all 0.3s ease;
+    transition: all 0.001s ease;
     position: relative;
     padding: 0.3rem 0;
 }
@@ -454,7 +454,7 @@ body.policy-page .separator {
     
     .feature-card {
         padding: 2rem 1.5rem;
-        transition: all 0.05s ease;
+        transition: all 0s ease;
         pointer-events: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
