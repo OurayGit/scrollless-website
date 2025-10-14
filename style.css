@@ -507,21 +507,25 @@ body.policy-page .separator {
         font-size: 1.2rem;
     }
     .hero-section {
-        padding: 6rem 1.5rem 4rem;
-        min-height: 60vh;
+        padding: 8rem 1.5rem 4rem;
+        min-height: 70vh;
+    }
+    
+    .logo-container {
+        margin-bottom: 3rem;
     }
     
     .logo-icon {
-        width: 160px;
-        height: 160px;
+        width: 140px;
+        height: 140px;
     }
     
     .logo-text {
-        width: 300px;
+        width: 240px;
     }
     
     .tagline p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .download-btn {
