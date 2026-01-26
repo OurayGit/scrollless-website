@@ -236,6 +236,28 @@ body.policy-page .navbar {
     }
 }
 
+.secondary-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: transparent;
+    color: var(--color-red);
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 11, 0, 0.3);
+    transition: var(--transition-smooth);
+    margin-top: 0.5rem;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 11, 0, 0.05);
+    border-color: var(--color-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 11, 0, 0.1);
+}
+
 /* Content Sections */
 .content-sections {
     width: 100%;
