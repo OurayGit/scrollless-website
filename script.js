@@ -81,4 +81,22 @@ document.addEventListener('DOMContentLoaded', function () {
         el.classList.add('reveal');
         revealObserver.observe(el);
     });
+
+
+    // Track download button clicks
+    const downloadBtn = document.getElementById('download-app-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function () {
+            // Check if gtag is defined (it should be from index.html)
+            if (typeof gtag === 'function') {
+                gtag('event', 'click', {
+                    'event_category': 'conversion',
+                    'event_label': 'download_app_play_store',
+                    'transport_type': 'beacon'
+                });
+            } else {
+                console.log('Download clicked (Analytics not loaded)');
+            }
+        });
+    }
 });
