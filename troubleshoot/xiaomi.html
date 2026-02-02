@@ -27,31 +27,10 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         .step-number {
-            background-color: #000;
-            color: #fff;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            margin-right: 8px;
             font-weight: bold;
-        }
-
-        .step-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .note-box {
-            background-color: #f5f5f5;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            border-left: 4px solid #000;
         }
     </style>
 </head>
@@ -70,84 +49,102 @@
         </div>
     </nav>
 
-    <div class="policy-container">
+    <div class="policy-container" style="max-width: 800px;">
         <!-- Back link -->
         <a href="/troubleshoot"
-            style="display: inline-block; margin-bottom: 1rem; text-decoration: none; color: inherit; opacity: 0.7;">&larr;
-            Back to Troubleshooting</a>
+            style="display: inline-flex; align-items: center; margin-bottom: 2rem; text-decoration: none; color: rgba(255,255,255,0.6); font-weight: 500; transition: color 0.3s;">
+            <span style="margin-right: 8px;">&larr;</span> Back to Troubleshooting
+        </a>
 
         <h1>📱 Xiaomi & HyperOS Setup Guide</h1>
-        <p>To ensure Scrollless works correctly on your Xiaomi device, you need to grant a few specific "hidden"
-            permissions. Xiaomi’s battery-saving features often stop background apps from working unless these steps are
-            followed.</p>
+        <p style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9;">To ensure Scrollless works correctly on your
+            Xiaomi device, you need to grant a few specific "hidden" permissions. Xiaomi’s battery-saving features often
+            stop background apps from working unless these steps are followed.</p>
 
-        <section class="policy-section">
-            <div class="step-title">
-                <span class="step-number">1</span>
-                <h2>Enable the "Pop-up" Permission</h2>
-            </div>
-            <p>Without this, the blocker cannot show the "Time Limit Reached" screen.</p>
-            <ol>
-                <li>Long-press the <strong>Scrollless</strong> icon on your home screen and tap <strong>App
-                        Info</strong> (the "i" icon).</li>
-                <li>Tap on <strong>Other Permissions</strong>.</li>
-                <li>Find <strong>Display pop-up windows while running in the background</strong> and set it to
-                    <strong>Always allow</strong>.</li>
-            </ol>
-        </section>
+        <div class="steps-container">
+            <section class="policy-section"
+                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <span class="step-number"
+                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">1</span>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Enable the "Pop-up" Permission</h2>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Without this, the blocker cannot show
+                    the "Time Limit Reached" screen.</p>
+                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
+                    <li style="margin-bottom: 0.8rem;">Long-press the <strong>Scrollless icon</strong> on your home
+                        screen and tap <strong>App Info</strong> (the "i" icon).</li>
+                    <li style="margin-bottom: 0.8rem;">Tap on <strong>Other Permissions</strong>.</li>
+                    <li>Find <strong>Display pop-up windows while running in the background</strong> and set it to
+                        <strong style="color: #FF0B00;">Always allow</strong>.</li>
+                </ol>
+            </section>
 
-        <section class="policy-section">
-            <div class="step-title">
-                <span class="step-number">2</span>
-                <h2>Disable Battery Restrictions</h2>
-            </div>
-            <p>This prevents Xiaomi from "killing" the app to save battery.</p>
-            <ol>
-                <li>On the same <strong>App Info</strong> screen, tap on <strong>Battery Saver</strong>.</li>
-                <li>Select <strong>No Restrictions</strong>.</li>
-            </ol>
-        </section>
+            <section class="policy-section"
+                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <span class="step-number"
+                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">2</span>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Disable Battery Restrictions</h2>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This prevents Xiaomi from "killing" the
+                    app to save battery.</p>
+                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
+                    <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, tap on
+                        <strong>Battery Saver</strong>.</li>
+                    <li>Select <strong style="color: #FF0B00;">No Restrictions</strong>.</li>
+                </ol>
+            </section>
 
-        <section class="policy-section">
-            <div class="step-title">
-                <span class="step-number">3</span>
-                <h2>Enable Autostart</h2>
-            </div>
-            <p>This ensures the blocker starts automatically when you turn your phone on.</p>
-            <ol>
-                <li>On the same <strong>App Info</strong> screen, toggle <strong>Autostart</strong> to
-                    <strong>ON</strong>.</li>
-                <li>(Optional) If prompted about battery usage, tap <strong>OK</strong>.</li>
-            </ol>
-        </section>
+            <section class="policy-section"
+                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <span class="step-number"
+                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">3</span>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Enable Autostart</h2>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This ensures the blocker starts
+                    automatically when you turn your phone on.</p>
+                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
+                    <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, toggle
+                        <strong>Autostart</strong> to <strong style="color: #FF0B00;">ON</strong>.</li>
+                    <li>(Optional) If prompted about battery usage, tap <strong>OK</strong>.</li>
+                </ol>
+            </section>
 
-        <section class="policy-section">
-            <div class="step-title">
-                <span class="step-number">4</span>
-                <h2>"Lock" the App (Highly Recommended)</h2>
-            </div>
-            <p>This is the best way to keep the app running in the background.</p>
-            <ol>
-                <li>Open <strong>Scrollless</strong>.</li>
-                <li>Open your <strong>Recent Apps</strong> screen (swipe up and hold, or tap the square button).</li>
-                <li>Long-press on the <strong>Scrollless</strong> window.</li>
-                <li>Tap the <strong>Padlock icon</strong>.</li>
-            </ol>
-            <p>Once locked, a small padlock will appear next to the app name in your recent tasks. The app will now stay
-                active even if you clear all apps.</p>
-        </section>
+            <section class="policy-section"
+                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 3rem;">
+                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <span class="step-number"
+                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">4</span>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">"Lock" the App (Recommended)</h2>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This is the best way to keep the app
+                    running in the background.</p>
+                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
+                    <li style="margin-bottom: 0.8rem;">Open <strong>Scrollless</strong>.</li>
+                    <li style="margin-bottom: 0.8rem;">Open your <strong>Recent Apps</strong> screen (swipe up and hold
+                        square button).</li>
+                    <li style="margin-bottom: 0.8rem;">Long-press on the <strong>Scrollless</strong> window.</li>
+                    <li>Tap the <strong>Padlock icon</strong>.</li>
+                </ol>
+                <p
+                    style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                    Once locked, a small padlock appears next to the app name. The app will stay active even if you
+                    clear all apps.</p>
+            </section>
+        </div>
 
-        <section class="policy-section">
+        <section class="policy-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
             <h2>💡 Why is this necessary?</h2>
-            <p>Unlike Samsung or Google phones, Xiaomi devices use a system called MIUI/HyperOS. This system is designed
-                to save battery by aggressively closing apps. These steps "whitelist" our app so it can stay active and
-                help you manage your screen time effectively.</p>
+            <p style="opacity: 0.8;">Unlike Samsung or Google phones, Xiaomi devices use a system called MIUI/HyperOS.
+                This system is designed to save battery by aggressively closing apps. These steps "whitelist" our app so
+                it can stay active and effectively help you manage your screen time.</p>
         </section>
 
-        <section class="policy-section">
-            <h2>Still having issues?</h2>
-            <p>If these steps didn't solve your problem, please reach out to us at <a
-                    href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a>.</p>
+        <section class="policy-section" style="margin-top: 2rem;">
+            <p style="opacity: 0.6; font-size: 0.9rem;">Still having issues? Reach out to us at <a
+                    href="mailto:scrollless.app@gmail.com" style="color: #FF0B00;">scrollless.app@gmail.com</a>.</p>
         </section>
     </div>
 
