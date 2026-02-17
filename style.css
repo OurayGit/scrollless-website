@@ -776,3 +776,173 @@ body.policy-page .separator {
 .cta {
     animation: fadeIn 1.4s ease-out forwards;
 }
+
+/* How It Works Page Styles */
+.hiw-container {
+    max-width: 1100px;
+    margin: 120px auto 60px;
+    padding: 0 2rem;
+}
+
+.hiw-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.hiw-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-title);
+    background: linear-gradient(to right, #fff, #aaa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hiw-header p {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hiw-step {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    margin-bottom: 8rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiw-step.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternating layout */
+.hiw-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.hiw-content {
+    flex: 1;
+}
+
+.hiw-number {
+    font-family: var(--font-title);
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--color-red);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.hiw-content h2 {
+    font-family: var(--font-title);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+}
+
+.hiw-content p,
+.hiw-content li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.hiw-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hiw-image-Wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hiw-img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.hiw-step:hover .hiw-img {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 11, 0, 0.3);
+}
+
+/* Step 3 (No Image) special styling */
+.hiw-step.text-only {
+    text-align: center;
+    justify-content: center;
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hiw-step.text-only .hiw-content {
+    flex: auto;
+}
+
+/* Break Restart Box */
+.break-restart-box {
+    background: rgba(255, 11, 0, 0.1);
+    border: 1px solid rgba(255, 11, 0, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.restart-icon {
+    font-size: 2rem;
+    color: var(--color-red);
+}
+
+/* Mobile Responsive for HIW */
+@media (max-width: 900px) {
+
+    .hiw-step,
+    .hiw-step:nth-child(even) {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hiw-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hiw-content ul {
+        text-align: left;
+        display: inline-block;
+    }
+
+    .break-restart-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
