@@ -625,7 +625,7 @@ body.policy-page .separator {
     .navbar {
         padding: 1rem 1.5rem;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
     }
 
