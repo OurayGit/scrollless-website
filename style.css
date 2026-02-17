@@ -34,13 +34,16 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding: 1.2rem 2rem;
+    padding: 0.8rem 2rem;
     z-index: 1000;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     background: rgba(5, 5, 5, 0.6);
     border-bottom: 1px solid var(--glass-border);
     transition: var(--transition-smooth);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Same navbar style for policy pages */
@@ -49,26 +52,42 @@ body.policy-page .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.nav-logo:hover {
+    transform: scale(1.1);
+}
+
 .nav-links {
     display: flex;
-    gap: 1.5rem;
-    justify-content: flex-end;
+    gap: 2rem;
     align-items: center;
 }
 
-.nav-links a {
+.nav-links a:not(.nav-btn) {
     color: var(--color-white);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.3px;
     opacity: 0.8;
-    transition: all 0.001s ease;
+    transition: all 0.3s ease;
     position: relative;
     padding: 0.3rem 0;
 }
 
-.nav-links a::after {
+.nav-links a:not(.nav-btn)::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -79,14 +98,35 @@ body.policy-page .navbar {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.nav-btn):hover {
     opacity: 1;
     color: var(--color-white);
     transform: translateY(-2px);
 }
 
-.nav-links a:hover::after {
+.nav-links a:not(.nav-btn):hover::after {
     width: 100%;
+}
+
+.nav-btn {
+    background: var(--color-red);
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 50px;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-red);
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--color-red-glow);
 }
 
 /* Hamburger Menu */
