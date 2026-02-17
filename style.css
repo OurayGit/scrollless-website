@@ -836,7 +836,7 @@ body.policy-page .separator {
     font-size: 5rem;
     font-weight: 800;
     color: var(--color-red);
-    opacity: 0.15;
+    opacity: 0.8;
     line-height: 1;
     margin-bottom: 0.5rem;
     display: block;
@@ -891,7 +891,7 @@ body.policy-page .separator {
 .hiw-step.text-only {
     text-align: center;
     justify-content: center;
-    background: var(--glass-background);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
     border: 1px solid var(--glass-border);
     padding: 3rem;
     border-radius: 24px;
@@ -899,10 +899,36 @@ body.policy-page .separator {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .hiw-step.text-only .hiw-content {
     flex: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hiw-icons-bg {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    opacity: 0.6;
+}
+
+.hiw-icon-faded {
+    width: 48px;
+    height: 48px;
+    stroke: var(--color-white);
+    opacity: 0.5;
+    transition: all 0.5s ease;
+}
+
+.hiw-step.text-only:hover .hiw-icon-faded {
+    stroke: var(--color-red);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Break Restart Box */
