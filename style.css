@@ -404,25 +404,77 @@ body.policy-page .navbar {
 
 /* Footer */
 footer {
-    padding: 2rem;
-    text-align: center;
+    padding: 3rem 2rem;
     font-size: 0.9rem;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.02), transparent);
+    border-top: 1px solid var(--glass-border);
+    margin-top: 4rem;
 }
 
-footer a {
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px;
+    stroke: var(--color-white);
+    transition: var(--transition-smooth);
+    opacity: 0.7;
+}
+
+.social-links a:hover .social-icon {
+    stroke: var(--color-red);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-legal a {
     color: var(--color-white);
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
 }
 
-footer a:hover {
+.footer-legal a:hover {
     opacity: 1;
+    color: var(--color-red);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--color-white);
+    opacity: 0.4;
+    margin-top: 0.5rem;
 }
 
 .separator {
-    margin: 0 1rem;
-    opacity: 0.5;
+    margin: 0 0.5rem;
+    opacity: 0.3;
+    width: 3px;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    display: inline-block;
 }
 
 /* Policy Pages */
@@ -435,12 +487,12 @@ body.policy-page .navbar .nav-links a {
     color: var(--color-white);
 }
 
-body.policy-page footer a {
+body.policy-page .footer-legal a {
     color: var(--color-white);
 }
 
 body.policy-page .separator {
-    color: var(--color-white);
+    background-color: var(--color-white);
 }
 
 .policy-container {
