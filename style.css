@@ -130,6 +130,21 @@ body.policy-page .navbar {
     box-shadow: 0 5px 15px var(--color-red-glow);
 }
 
+@media (min-width: 769px) {
+    .nav-btn.subtle {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--color-white);
+    }
+
+    .nav-btn.subtle:hover {
+        background: var(--color-white);
+        border-color: var(--color-white);
+        color: var(--color-black);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;

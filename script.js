@@ -98,5 +98,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Download clicked (Analytics not loaded)');
             }
         });
+
+        // Toggle nav button style based on hero CTA visibility
+        const navBtn = document.querySelector('.nav-btn');
+        if (navBtn) {
+            const ctaObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navBtn.classList.add('subtle');
+                    } else {
+                        navBtn.classList.remove('subtle');
+                    }
+                });
+            }, {
+                threshold: 0
+            });
+
+            ctaObserver.observe(downloadBtn);
+        }
     }
 });
