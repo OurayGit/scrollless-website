@@ -678,6 +678,10 @@ body.policy-page .separator {
         right: 0;
     }
 
+    .nav-links a.mobile-only-link[href="/"] {
+        order: -1;
+    }
+
     .nav-links a {
         font-size: 1.2rem;
     }
