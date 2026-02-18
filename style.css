@@ -680,6 +680,7 @@ body.policy-page .separator {
 
     .nav-links a.mobile-only-link[href="/"] {
         order: -1;
+        /* Home always at top */
     }
 
     .nav-links a {
