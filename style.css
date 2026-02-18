@@ -76,7 +76,7 @@ body.policy-page .navbar {
     align-items: center;
 }
 
-.mobile-only-link {
+.navbar .nav-links .mobile-only-link {
     display: none;
 }
 
@@ -670,7 +670,7 @@ body.policy-page .separator {
         border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .mobile-only-link {
+    .navbar .nav-links .mobile-only-link {
         display: block;
     }
 
