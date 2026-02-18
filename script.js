@@ -106,8 +106,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         navBtn.classList.add('subtle');
+                        console.log('Hero button visible - Nav button subtle');
                     } else {
                         navBtn.classList.remove('subtle');
+                        console.log('Hero button hidden - Nav button red');
                     }
                 });
             }, {
