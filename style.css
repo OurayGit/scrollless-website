@@ -76,6 +76,10 @@ body.policy-page .navbar {
     align-items: center;
 }
 
+.mobile-only-link {
+    display: none;
+}
+
 .nav-links a:not(.nav-btn) {
     color: var(--color-white);
     text-decoration: none;
@@ -664,6 +668,10 @@ body.policy-page .separator {
         gap: 2rem;
         transition: right 0.3s ease;
         border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-only-link {
+        display: block;
     }
 
     .nav-links.active {
