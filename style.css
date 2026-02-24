@@ -76,6 +76,10 @@ body.policy-page .navbar {
     align-items: center;
 }
 
+.navbar .nav-links .mobile-only-link {
+    display: none;
+}
+
 .nav-links a:not(.nav-btn) {
     color: var(--color-white);
     text-decoration: none;
@@ -128,6 +132,22 @@ body.policy-page .navbar {
     color: var(--color-black);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px var(--color-red-glow);
+}
+
+@media (min-width: 769px) {
+    .navbar .nav-links .nav-btn.subtle {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--color-white);
+        box-shadow: none;
+    }
+
+    .navbar .nav-links .nav-btn.subtle:hover {
+        background: var(--color-white);
+        border: 1px solid var(--color-white);
+        color: var(--color-black);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* Hamburger Menu */
@@ -650,8 +670,17 @@ body.policy-page .separator {
         border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    .navbar .nav-links .mobile-only-link {
+        display: block;
+    }
+
     .nav-links.active {
         right: 0;
+    }
+
+    .nav-links a.mobile-only-link[href="/"] {
+        order: -1;
+        /* Home always at top */
     }
 
     .nav-links a {
