@@ -100,25 +100,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+    }
 
-        // Toggle nav button style based on hero CTA visibility
-        const navBtn = document.querySelector('.nav-btn');
-        if (navBtn) {
-            const ctaObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navBtn.classList.add('subtle');
-                        console.log('Hero button visible - Nav button subtle');
-                    } else {
-                        navBtn.classList.remove('subtle');
-                        console.log('Hero button hidden - Nav button red');
-                    }
-                });
-            }, {
-                threshold: 0
+    // Toggle nav button style based on hero CTA visibility
+    const heroBtn = document.getElementById('download-app-btn');
+    const navBtn = document.querySelector('.nav-btn');
+    if (heroBtn && navBtn) {
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navBtn.classList.add('subtle');
+                    console.log('Hero button visible - Nav button subtle');
+                } else {
+                    navBtn.classList.remove('subtle');
+                    console.log('Hero button hidden - Nav button red');
+                }
             });
+        }, {
+            threshold: 0
+        });
 
-            ctaObserver.observe(downloadBtn);
-        }
+        ctaObserver.observe(heroBtn);
     }
 });
