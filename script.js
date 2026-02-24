@@ -102,24 +102,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Toggle nav button style based on hero CTA visibility
-    const heroBtn = document.getElementById('download-app-btn');
+    // Toggle nav button style based on ANY page download button visibility
     const navBtn = document.querySelector('.nav-btn');
-    if (heroBtn && navBtn) {
+    const pageDownloadBtns = document.querySelectorAll('.download-btn');
+
+    if (navBtn && pageDownloadBtns.length > 0) {
+        const visibleBtns = new Set();
+
         const ctaObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    navBtn.classList.add('subtle');
-                    console.log('Hero button visible - Nav button subtle');
+                    visibleBtns.add(entry.target);
+                    console.log('A page download button is visible - Nav button subtle');
                 } else {
-                    navBtn.classList.remove('subtle');
-                    console.log('Hero button hidden - Nav button red');
+                    visibleBtns.delete(entry.target);
+                    console.log('A page download button is hidden');
                 }
             });
+
+            // If any on-page download button is visible, make the nav button subtle
+            // so we don't have two red buttons on screen at once
+            if (visibleBtns.size > 0) {
+                navBtn.classList.add('subtle');
+            } else {
+                navBtn.classList.remove('subtle');
+            }
         }, {
             threshold: 0
         });
 
-        ctaObserver.observe(heroBtn);
+        pageDownloadBtns.forEach(btn => ctaObserver.observe(btn));
     }
 });
