@@ -84,19 +84,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Track download button clicks
-    const downloadBtn = document.getElementById('download-app-btn');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function () {
-            // Check if gtag is defined (it should be from index.html)
-            if (typeof gtag === 'function') {
-                gtag('event', 'click', {
-                    'event_category': 'conversion',
-                    'event_label': 'download_app_play_store',
-                    'transport_type': 'beacon'
-                });
-            } else {
-                console.log('Download clicked (Analytics not loaded)');
-            }
+    const downloadBtns = document.querySelectorAll('a[href*="play.google.com/store/apps/details?id=ch.scrollless"]');
+    if (downloadBtns.length > 0) {
+        downloadBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Check if gtag is defined (it should be from index.html)
+                if (typeof gtag === 'function') {
+                    gtag('event', 'download_clicked', {
+                        'event_category': 'conversion',
+                        'event_label': 'download_app_play_store',
+                        'transport_type': 'beacon'
+                    });
+                } else {
+                    console.log('Download clicked (Analytics not loaded)');
+                }
+            });
         });
     }
 });
