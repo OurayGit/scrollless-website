@@ -533,9 +533,21 @@ body.policy-page .navbar {
 }
 
 .diff-icon {
-    font-size: 2.5rem;
     margin-bottom: 1.2rem;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diff-icon svg {
+    stroke: var(--color-red);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+
+.diff-card:hover .diff-icon svg {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .diff-card h3 {
@@ -564,67 +576,50 @@ body.policy-page .navbar {
     font-family: var(--font-title);
     font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     color: var(--color-white);
     letter-spacing: -0.03em;
 }
 
-.testimonials-section>p {
-    font-size: 1.15rem;
-    color: var(--color-white);
-    opacity: 0.7;
-    margin-bottom: 3rem;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 900px;
+.reviews-list {
+    max-width: 700px;
     margin: 0 auto 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
-.testimonial-card {
-    background: var(--glass-background);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
+.review {
     text-align: left;
-    position: relative;
-    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 2.5rem;
 }
 
-.testimonial-card:hover {
-    border-color: rgba(255, 11, 0, 0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+.review:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-.testimonial-card .quote-mark {
-    font-size: 3rem;
+.review-stars {
     color: var(--color-red);
-    opacity: 0.6;
-    line-height: 1;
-    font-family: Georgia, serif;
-    margin-bottom: 0.5rem;
-    display: block;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
 }
 
-.testimonial-card blockquote {
-    font-size: 1.05rem;
-    line-height: 1.7;
+.review-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
     color: var(--color-white);
     opacity: 0.85;
+    margin: 0 0 0.8rem 0;
     font-style: italic;
-    margin: 0;
 }
 
-.testimonial-card .testimonial-author {
-    margin-top: 1.2rem;
+.review-author {
     font-size: 0.85rem;
     color: var(--color-white);
-    opacity: 0.5;
-    font-style: normal;
+    opacity: 0.4;
 }
 
 .stat-highlight {
@@ -859,10 +854,6 @@ body.policy-page .navbar {
         box-shadow: none;
     }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
     .differentiator-section h2,
     .testimonials-section h2,
     .faq-section h2,
@@ -884,9 +875,42 @@ body.policy-page .navbar {
         padding: 2rem 1.5rem;
     }
 
-    .founder-badges {
-        justify-content: center;
+    .logo-bar-logos {
+        gap: 1.5rem;
     }
+}
+
+/* Logo Bar */
+.logo-bar {
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.logo-bar-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-white);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+.logo-bar-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.logo-bar-item {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.logo-bar-item:hover {
+    opacity: 1;
 }
 
 /* Footer */
