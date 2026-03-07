@@ -608,6 +608,14 @@ body.policy-page .navbar {
     flex-shrink: 0;
 }
 
+.wreath-left {
+    transform: rotate(20deg);
+}
+
+.wreath-right {
+    transform: rotate(-20deg);
+}
+
 .review-content {
     flex: 1;
     max-width: 500px;
