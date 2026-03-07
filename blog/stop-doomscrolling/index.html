@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Stop Doomscrolling on Android (What Actually Works) | Scrollless</title>
+    <meta name="description"
+        content="Daily limits don't stop doomscrolling because of the app-switching loop. Learn the psychology behind phone addiction and how session-based blocking actually works.">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Stop Doomscrolling on Android (What Actually Works)">
+    <meta property="og:description"
+        content="Why daily screen time limits fail, the psychology of the app-switching loop, and a better way to regain control of your phone.">
+    <meta property="og:url" content="https://scrollless.ch/blog/stop-doomscrolling">
+    <meta property="og:site_name" content="Scrollless">
+
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="../../scrollless-icon-white.svg">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LDFK1F0DB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8LDFK1F0DB');
+    </script>
+
+    <style>
+        .blog-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-header h1 {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .blog-meta {
+            color: var(--color-white);
+            opacity: 0.5;
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .blog-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+        }
+
+        .blog-content h2 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 4rem 0 1.5rem;
+            color: var(--color-white);
+            letter-spacing: -0.02em;
+        }
+
+        .blog-content h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            color: var(--color-white);
+        }
+
+        .blog-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--color-white);
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content ul {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--color-white);
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-callout {
+            background: rgba(255, 11, 0, 0.05);
+            border-left: 4px solid var(--color-red);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2.5rem 0;
+        }
+
+        .blog-callout p {
+            margin: 0;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .author-bio {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-content p,
+            .blog-content ul {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <img src="../../scrollless-icon-white.svg" alt="Scrollless Icon" class="logo-icon">
+            <span class="logo-text">Scrollless</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/how-it-works">How It Works</a>
+            <a href="/blog/stop-doomscrolling" class="active">Blog</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="nav-download-btn"
+                target="_blank" id="nav-download-btn">Download</a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="/">Home</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/blog/stop-doomscrolling" class="active">Blog</a>
+        <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="mobile-download-btn"
+            target="_blank">Download App</a>
+    </div>
+
+    <main>
+        <header class="blog-header">
+            <h1>How to Stop Doomscrolling on Android (And Why Daily Limits Fail)</h1>
+            <div class="blog-meta">
+                <span>By GianM</span>
+                <span>•</span>
+                <span>5 min read</span>
+                <span>•</span>
+                <span>Screen Time Psychology</span>
+            </div>
+        </header>
+
+        <article class="blog-content">
+            <p>We’ve all been there. You open your phone to check one message, and suddenly you’re in a loop. You scroll
+                without thinking. You know you shouldn't be doing it, but there's nothing real to stop you. You feel
+                like you have time, or you're procrastinating, and you just keep swiping.</p>
+
+            <p>Eventually, you snap out of it. You feel drained. You haven't accomplished what you needed to do, and you
+                aren't happy with the results. As you use your phone more, this feeling only gets worse.</p>
+
+            <p>If you're reading this, you've probably already tried to stop doomscrolling. You’ve probably used
+                Android's built-in tools or downloaded third-party blocking apps. And yet, you’re still here. Why?</p>
+
+            <h2>The Anatomy of the "App-Switching Loop"</h2>
+
+            <p>The biggest flaw in how we try to fix phone addiction is misunderstanding how the habit actually works in
+                the moment. When you finally force yourself to close Instagram or TikTok, you don't usually put the
+                phone down.</p>
+
+            <p>Instead, many of us fall into what I call the <strong>App-Switching Loop</strong>. You flee from one app,
+                only to get sucked into another entirely. You close Instagram, and milliseconds later, your thumb
+                muscle-memory opens YouTube or Reddit. You escape one feed just to enter another.</p>
+
+            <div class="blog-callout">
+                <p>"Even if you manage to exit an app you've used before, you will likely have a fall-back. You get out,
+                    but you get sucked right back into the next one."</p>
+            </div>
+
+            <p>Most screen time blockers fail here. They only lock the single app you just spent three hours on. They
+                don't block the loop.</p>
+
+            <h2>Why Daily Screen Time Limits Feed the Problem</h2>
+
+            <p>The standard solution offered by Google (Digital Wellbeing) and most major third-party apps is the
+                <strong>Daily Limit</strong>. You set 1 hour for TikTok per day.</p>
+
+            <p>Here’s why daily limits are fundamentally flawed:</p>
+
+            <ul>
+                <li><strong>The "Sunk Cost" Binge:</strong> When you know you only have 1 hour for the whole day, and
+                    you open the app, you feel pressured to use it.</li>
+                <li><strong>The rigid lockout:</strong> When you actually *do* have 15 free minutes on the bus and want
+                    to relax, you can't—because you spent your daily limit in bed this morning. The app is too strict
+                    when you have a little time, but not strict enough when you have a lot of time.</li>
+                <li><strong>The easy override:</strong> Because daily limits are so frustratingly rigid, developers make
+                    them easy to bypass. On Android, it takes exactly one tap to ignore your Digital Wellbeing limit for
+                    the day. Once you do it once, the dam breaks.</li>
+            </ul>
+
+            <h2>The Solution: Session-Based Intention (The Bus Ride Rule)</h2>
+
+            <p>I struggled with exactly this problem over two years ago. I needed something that was flexible enough for
+                my actual life—like a 15-minute bus ride—but strict enough to stop me at night when no one else was
+                there to stop me.</p>
+
+            <p>That's why I built Scrollless. Instead of trying to regulate your whole day, it asks a simple question at
+                the exact moment your thumb taps the app icon:</p>
+
+            <p><strong>"How long do you want to use this right now?"</strong></p>
+
+            <p>This does three crucial things to your psychology:</p>
+
+            <h3>1. It creates a micro-contract with yourself</h3>
+            <p>You aren't fighting a past version of yourself who arbitrarily set a 1-hour limit last Tuesday. You are
+                making a conscious decision *right now*. "I am getting on the bus, the ride is 15 minutes, I will scroll
+                for 15 minutes."</p>
+
+            <h3>2. It enforces the break across ALL apps</h3>
+            <p>When the 15-minute timer hits zero, Scrollless does what native tools don't: it triggers a mandatory
+                5-minute break. But crucially, <strong>it blocks all of your restricted apps simultaneously.</strong>
+            </p>
+            <p>The App-Switching Loop is broken. You can't close TikTok and open Instagram, because Instagram is also on
+                a 5-minute break. You are forced to put the phone down, breaking the hypnotic state.</p>
+
+            <h3>3. Smart Incentives prevent long sessions</h3>
+            <p>If you want to scroll for 5 minutes, you can get in instantly. If you tell the app you want to scroll for
+                45 minutes straight, Scrollless makes you wait a brief moment before the app opens. This gentle friction
+                forces you to ask: "Do I *really* want to do this?"</p>
+
+            <h2>Regaining Control</h2>
+
+            <p>Doomscrolling isn't a lack of willpower; it's a design feature of modern apps. To beat it, you don't need
+                to lock your phone in a safe or restrict yourself to 10 minutes a day. You just need a tool that forces
+                you to be intentional about every session.</p>
+
+            <p>If you're on Android and ready to break the loop without punishing yourself, <a
+                    href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en"
+                    style="color: var(--color-red); font-weight: 600;">try Scrollless on the Play Store</a>. It's built
+                entirely on these psychology principles, and it's free.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/scrollless_app" target="_blank" aria-label="Instagram">
+                    <svg class="social-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@scrollless.ch" target="_blank" aria-label="TikTok">
+                    <svg class="social-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-legal">
+                <a href="/terms">Terms</a>
+                <span class="separator"></span>
+                <a href="/privacy">Privacy</a>
+                <span class="separator"></span>
+                <a href="mailto:scrollless.app@gmail.com">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Scrollless. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js?v=1"></script>
+</body>
+
+</html>
