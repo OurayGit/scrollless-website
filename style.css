@@ -602,7 +602,9 @@ body.policy-page .navbar {
 
 .wreath-left,
 .wreath-right {
-    color: var(--color-white);
+    height: 80px;
+    width: auto;
+    opacity: 0.15;
     flex-shrink: 0;
 }
 
