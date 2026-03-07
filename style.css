@@ -582,52 +582,48 @@ body.policy-page .navbar {
 }
 
 .reviews-list {
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto 3rem;
     display: flex;
     flex-direction: column;
+    gap: 3rem;
+}
+
+.review-quote {
+    text-align: center;
+}
+
+.review-wreath {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1.5rem;
 }
 
-.review-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
-    padding: 1.8rem 2rem;
-    text-align: left;
+.wreath-left,
+.wreath-right {
+    color: var(--color-white);
+    flex-shrink: 0;
 }
 
-.review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+.review-content {
+    flex: 1;
+    max-width: 500px;
 }
 
 .review-stars {
     color: #f59e0b;
-    font-size: 0.95rem;
-    letter-spacing: 2px;
-}
-
-.review-time {
-    font-size: 0.8rem;
-    color: var(--color-white);
-    opacity: 0.3;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
 }
 
 .review-text {
     font-size: 1.05rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: var(--color-white);
-    opacity: 0.8;
-    margin: 0 0 1rem 0;
-}
-
-.review-author {
-    font-size: 0.85rem;
-    color: var(--color-white);
-    opacity: 0.35;
+    opacity: 0.85;
+    margin: 0;
 }
 
 .stat-highlight {
@@ -914,24 +910,24 @@ body.policy-page .navbar {
 
 .logo-bar-item {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.hsg-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.7;
 }
 
 .award-name {
     display: block;
-    font-family: var(--font-title);
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--color-white);
-    opacity: 0.85;
-    letter-spacing: -0.01em;
-}
-
-.award-sub {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--color-white);
-    opacity: 0.4;
-    margin-top: 0.3rem;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
 }
 
 /* Footer */
