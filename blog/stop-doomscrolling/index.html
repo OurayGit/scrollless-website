@@ -150,35 +150,29 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <a href="/" class="logo">
-            <img src="../../scrollless-icon-white.svg" alt="Scrollless Icon" class="logo-icon">
-            <span class="logo-text">Scrollless</span>
+        <a href="/" class="nav-logo-link" aria-label="Home">
+            <img src="/scrollless-icon-white.svg" alt="Scrollless" class="nav-logo" width="32" height="32">
         </a>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/how-it-works">How It Works</a>
-            <a href="/blog/stop-doomscrolling" class="active">Articles</a>
             <a href="/troubleshoot">Troubleshoot</a>
-        </div>
-        <div class="nav-right">
-            <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="nav-download-btn"
-                target="_blank" id="nav-download-btn">Download</a>
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+            <!-- Mobile Only Links -->
+            <a href="/" class="mobile-only-link">Home</a>
+            <a href="/how-it-works" class="mobile-only-link">How It Works</a>
+            <a href="/troubleshoot" class="mobile-only-link">Troubleshoot</a>
+            <a href="/troubleshoot/xiaomi.html" class="mobile-only-link">Xiaomi Guide</a>
+
+            <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank"
+                class="nav-btn">Download</a>
         </div>
     </nav>
-
-    <div class="mobile-menu">
-        <a href="/">Home</a>
-        <a href="/how-it-works">How It Works</a>
-        <a href="/blog/stop-doomscrolling" class="active">Articles</a>
-        <a href="/troubleshoot">Troubleshoot</a>
-        <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="mobile-download-btn"
-            target="_blank">Download App</a>
-    </div>
 
     <main>
         <header class="blog-header">
