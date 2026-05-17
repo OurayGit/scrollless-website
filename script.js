@@ -1,3 +1,10 @@
+// Auto-update copyright year in footers
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.current-year').forEach(function (el) {
+        el.textContent = new Date().getFullYear();
+    });
+});
+
 // Hamburger menu toggle
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
