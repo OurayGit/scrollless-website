@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Scrollless Privacy Policy - Learn how we protect your data. We don't collect personal information. Transparent data practices for our screen time management app.">
+        content="Scrollless Privacy Policy - Learn how we protect your data on iOS and Android. Transparent data practices for our screen time management app.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://scrollless.ch/privacy">
     <title>Privacy Policy - Scrollless | Your Data is Private</title>
@@ -59,60 +59,115 @@
 
     <div class="policy-container">
         <h1>Privacy Policy</h1>
-        <p class="policy-date">Effective Date: December 25, 2025</p>
+        <p class="policy-date">Effective Date: May 17, 2026</p>
 
-        <p>Scrollless ("we", "our", or "us") provides a mobile application (the "App") that helps users set timers for
-            phone sessions to reduce distraction and promote mindful usage. Your privacy is central to the App's design.
-            This Policy explains what information we do and do not collect, how it is used, and how it is protected.</p>
+        <p>Scrollless ("we", "our", or "us") provides a mobile application (the "App") available on iOS and Android that
+            helps users set timers for phone sessions to reduce distraction and promote mindful usage. Your privacy is
+            central to the App's design. This Policy explains what information is and is not collected, how it is used,
+            and how it is protected.</p>
 
-        <h2>What Data We Collect</h2>
-        <p>Scrollless collects anonymous usage and technical data through Google Firebase to improve performance,
-            reliability, and functionality. This
-            includes: session metrics, feature interaction patterns (e.g., how the app is used to restrict access),
-            device type, OS
-            version, and general crash or performance event information. This data is processed anonymously to
-            understand overall usage trends and
-            enhance the application—it is not linked to your personal identity.</p>
+        <h2>Summary</h2>
+        <p>Scrollless does not require an account or sign-in. Scrollless itself does not collect names, email addresses,
+            phone numbers, precise location, browsing history, contacts, messages, photos, or any other personal files.
+            All app state (selected apps, timers, session history) is stored on your device. The App relies on a small
+            number of third-party services — described below — that may collect technical and advertising identifiers
+            governed by their own privacy policies.</p>
 
-        <h2>What Data We Don't Collect</h2>
-        <p>We do not collect any personally identifiable information (PII). We do not collect, transmit, or have access
-            to: your name, email, phone
-            number, exact physical location, browsing history, or any personal files, messages, contacts, or private
-            media stored on your device.
-            The content of your personal communications is strictly private.</p>
+        <h2>Information We Collect Directly</h2>
+        <p>Scrollless itself does not collect, store, or transmit any personally identifiable information to our
+            servers. We do not operate user accounts and we do not maintain a database of users. All settings, blocked
+            app selections, session timers, and usage history remain on your device. On iOS, app selections are stored
+            as opaque <em>FamilyActivitySelection</em> tokens managed by Apple's Screen Time framework; these tokens
+            never reveal the actual app identities to us.</p>
 
-        <h2>Advertising</h2>
-        <p>Scrollless uses Google AdMob to display ads. AdMob may use device identifiers or similar technologies to
-            deliver and measure advertisements according to Google's policies and your ad personalization settings. In
-            the EEA, UK, and Switzerland, advertising is shown in accordance with your device and Google consent
-            settings (for example, prompts presented by Google's User Messaging Platform). Scrollless itself does not
-            access or store any data used by AdMob.</p>
+        <h2>Information Collected by Third-Party Services</h2>
+        <p>The App integrates the following services. Each operates under its own privacy policy.</p>
 
-        <h2>Cookies and Tracking</h2>
-        <p>Scrollless does not use cookies. Third-party tools such as Google AdMob and Firebase use standard tracking
-            technologies to measure performance and improve reliability. You can adjust ad personalization and related
-            settings in your Android device or Google Account at any time.</p>
+        <h3>Google Firebase (Analytics &amp; Crashlytics)</h3>
+        <p>We use Firebase Analytics and Firebase Crashlytics to understand aggregate usage patterns (e.g., which
+            features are used, how often sessions are started) and to receive crash reports that help us fix bugs.
+            Firebase may collect: a Firebase installation identifier, device model and operating system version,
+            language, country derived from IP, app version, in-app event names (e.g., "session_started"), and
+            crash-diagnostic data (stack traces, device state at the time of crash). These signals are processed by
+            Google in accordance with Google's privacy practices. See:
+            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and
+                Security</a>.</p>
+
+        <h3>Google AdMob (Advertising)</h3>
+        <p>Free-tier users see ads served by Google AdMob. AdMob may collect device identifiers (such as Apple's IDFA
+            on iOS or Google's Advertising ID on Android), IP address, coarse location, ad-interaction data, and
+            similar information used to serve and measure advertisements. In the European Economic Area, the United
+            Kingdom, and Switzerland, ad serving is governed by your consent collected through Google's User
+            Messaging Platform (UMP). On iOS, you control whether AdMob can use your device identifier through
+            Apple's App Tracking Transparency (ATT) prompt; declining the prompt does not affect any app functionality
+            — ads will still display, but will be non-personalized. See:
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+            and
+            <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob &amp; AdSense
+                policy</a>.</p>
+
+        <h3>Apple App Store / StoreKit (iOS subscriptions)</h3>
+        <p>On iOS, the optional Premium subscription is processed by Apple through StoreKit. Apple handles all payment
+            information; we never see your credit card, billing address, or full Apple ID. We receive only a transaction
+            receipt that confirms whether your subscription is active, used solely to enable the ad-free experience on
+            your device. Apple's handling of purchase data is governed by Apple's privacy policy.</p>
+
+        <h3>Google Play Billing (Android subscriptions)</h3>
+        <p>On Android, subscription payments are processed by Google Play. We never see your payment information; we
+            receive only an entitlement confirmation used to enable the ad-free experience on your device.</p>
+
+        <h2>Apple Screen Time / Family Controls (iOS only)</h2>
+        <p>On iOS, Scrollless uses Apple's Screen Time API — specifically the FamilyControls, DeviceActivity, and
+            ManagedSettings frameworks — to block selected apps at the operating-system level. Apple designs these
+            frameworks so that user-selected apps and websites are referenced through opaque tokens that are not
+            readable by Scrollless or transmitted off-device. Scrollless does not see, store, or transmit which apps
+            you choose to block. All Screen Time enforcement happens locally on your device, coordinated by iOS.</p>
+
+        <h2>App Tracking Transparency (iOS only)</h2>
+        <p>On first launch, the App may show Apple's App Tracking Transparency prompt before AdMob loads. If you choose
+            "Ask App Not to Track," AdMob will serve non-personalized ads and will not use your device's IDFA for
+            cross-app or cross-site tracking. All core functionality remains fully available regardless of your
+            choice.</p>
+
+        <h2>Cookies</h2>
+        <p>Scrollless is a native mobile application and does not use cookies. Third-party SDKs use mobile equivalents
+            (advertising identifiers, installation IDs) as described above.</p>
 
         <h2>International Transfers</h2>
-        <p>Google AdMob and any future Firebase analytics may process information on servers outside your country. Such
-            transfers rely on standard contractual clauses or equivalent safeguards made available by Google.</p>
-
-        <h2>Data Security</h2>
-        <p>Because Scrollless does not collect personal data, there are no accounts or databases storing identifiable
-            information. All Firebase analytics transmissions use encrypted connections (HTTPS) and data is processed in
-            line with Swiss and EU standards. While platform sandboxing and encryption are used, no method is 100%
-            secure.</p>
+        <p>Firebase and AdMob process information on servers operated by Google, which may be located outside your
+            country, including in the United States. Such transfers rely on Google's standard contractual clauses or
+            equivalent safeguards.</p>
 
         <h2>Data Retention</h2>
-        <p>User activity information is stored only on your device. Anonymous Firebase analytics are retained only as
-            long as necessary to maintain and improve performance. We do not retain or back up any personal data.</p>
+        <p>App settings, selected apps, and session history are stored on your device only and are removed when you
+            uninstall the App. Aggregated Firebase analytics and Crashlytics data are retained by Google for the
+            periods described in their documentation (typically up to 14 months for analytics events). We do not back up
+            or export any user data to our own infrastructure.</p>
+
+        <h2>Data Security</h2>
+        <p>All transmissions between the App and Google's services use encrypted connections (HTTPS / TLS). On iOS,
+            Screen Time data is protected by Apple's system-level sandboxing. While we and our service providers apply
+            reasonable safeguards, no method of electronic storage or transmission is 100% secure.</p>
+
+        <h2>Your Rights</h2>
+        <p>Depending on where you live, you may have rights to access, correct, delete, or restrict processing of
+            personal data relating to you (for example, under the EU/UK GDPR, the Swiss FADP, or the California
+            Consumer Privacy Act). Because Scrollless itself does not maintain user accounts or personally identifiable
+            records, most such requests should be directed to the relevant third party (Google, Apple) whose privacy
+            policy governs their processing. For any request you would like us to handle, contact
+            <a href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a> and we will respond within a
+            reasonable timeframe.</p>
+
+        <h2>Children</h2>
+        <p>Scrollless is intended for a general audience and is not directed at children under the age of 13 (or the
+            equivalent minimum age in your jurisdiction). We do not knowingly collect personal information from
+            children. If you believe a child has provided personal information through the App, please contact us and
+            we will take appropriate steps to remove it.</p>
 
         <h2>Legal Disclosures</h2>
-        <p>We do not sell or share data. We may disclose limited technical information (such as crash diagnostics) if
-            required by applicable law, regulation, or court order, or to protect our rights and users' safety.</p>
-
-        <h2>Scope</h2>
-        <p>The App is not directed to children under 13.</p>
+        <p>We do not sell or rent personal data. We may disclose limited technical information (such as crash
+            diagnostics) if required by applicable law, regulation, or court order, or to protect our rights and
+            users' safety.</p>
 
         <h2>Changes to This Privacy Policy</h2>
         <p>We may update this Policy periodically to reflect product changes or legal requirements. Significant updates
