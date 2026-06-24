@@ -14,10 +14,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Scrollless Xiaomi & HyperOS setup guide. Fix background app issues, enable pop-up permissions, and prevent app killing on Xiaomi devices.">
-    <meta name="robots" content="noindex, follow">
+        content="Scrollless not working on Xiaomi, Redmi or POCO? MIUI and HyperOS kill background apps. Enable pop-ups, turn off battery restrictions, switch on Autostart and lock the app. Step by step.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://scrollless.ch/troubleshoot/xiaomi">
-    <title>Xiaomi & HyperOS Setup Guide - Scrollless</title>
+    <title>Scrollless Not Working on Xiaomi? MIUI / HyperOS Fix</title>
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Scrollless Not Working on Xiaomi? MIUI / HyperOS Fix">
+    <meta property="og:description"
+        content="Xiaomi, Redmi and POCO phones close background apps hard. Here is how to keep Scrollless running: pop-ups, battery, Autostart and lock the app.">
+    <meta property="og:url" content="https://scrollless.ch/troubleshoot/xiaomi">
+    <meta property="og:site_name" content="Scrollless">
+    <meta property="og:image" content="https://scrollless.ch/Scrollless%20icon%20black.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Scrollless Not Working on Xiaomi? MIUI / HyperOS Fix">
+    <meta name="twitter:description"
+        content="Xiaomi, Redmi and POCO phones close background apps hard. Here is how to keep Scrollless running: pop-ups, battery, Autostart and lock the app.">
+    <meta name="twitter:image" content="https://scrollless.ch/Scrollless%20icon%20black.svg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -64,10 +78,11 @@
             <span style="margin-right: 8px;">&larr;</span> Back to Troubleshooting
         </a>
 
-        <h1>📱 Xiaomi & HyperOS Setup Guide</h1>
-        <p style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9;">To ensure Scrollless works correctly on your
-            Xiaomi device, you need to grant a few specific "hidden" permissions. Xiaomi’s battery-saving features often
-            stop background apps from working unless these steps are followed.</p>
+        <h1>📱 Xiaomi and HyperOS setup guide</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9;">Xiaomi, Redmi and POCO phones close background
+            apps hard to save battery. That stops Scrollless from doing its job unless you turn on a few settings they
+            keep tucked away. Do these four steps once and the app stays running. This page is for Android phones
+            running MIUI or HyperOS.</p>
 
         <div class="steps-container">
             <section class="policy-section"
@@ -75,10 +90,10 @@
                 <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
                     <span class="step-number"
                         style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">1</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Enable the "Pop-up" Permission</h2>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn on the pop-up permission</h2>
                 </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Without this, the blocker cannot show
-                    the "Time Limit Reached" screen.</p>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Without this, Scrollless cannot show
+                    the timer or the break screen.</p>
                 <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
                     <li style="margin-bottom: 0.8rem;">Long-press the <strong>Scrollless icon</strong> on your home
                         screen and tap <strong>App Info</strong> (the "i" icon).</li>
@@ -94,10 +109,10 @@
                 <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
                     <span class="step-number"
                         style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">2</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Disable Battery Restrictions</h2>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn off battery restrictions</h2>
                 </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This prevents Xiaomi from "killing" the
-                    app to save battery.</p>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This stops Xiaomi from closing the app
+                    to save battery.</p>
                 <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
                     <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, tap on
                         <strong>Battery Saver</strong>.
@@ -111,10 +126,10 @@
                 <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
                     <span class="step-number"
                         style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">3</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Enable Autostart</h2>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn on Autostart</h2>
                 </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This ensures the blocker starts
-                    automatically when you turn your phone on.</p>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This lets Scrollless start on its own
+                    when you turn the phone on.</p>
                 <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
                     <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, toggle
                         <strong>Autostart</strong> to <strong style="color: #FF0B00;">ON</strong>.
@@ -128,10 +143,10 @@
                 <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
                     <span class="step-number"
                         style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">4</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">"Lock" the App (Recommended)</h2>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Lock the app (recommended)</h2>
                 </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This is the best way to keep the app
-                    running in the background.</p>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This is the surest way to keep
+                    Scrollless running in the background.</p>
                 <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
                     <li style="margin-bottom: 0.8rem;">Open <strong>Scrollless</strong>.</li>
                     <li style="margin-bottom: 0.8rem;">Open your <strong>Recent Apps</strong> screen (swipe up and hold
@@ -141,16 +156,16 @@
                 </ol>
                 <p
                     style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
-                    Once locked, a small padlock appears next to the app name. The app will stay active even if you
-                    clear all apps.</p>
+                    Once locked, a small padlock shows next to the app name. The app stays active even when you clear
+                    all apps from recents.</p>
             </section>
         </div>
 
         <section class="policy-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
-            <h2>💡 Why is this necessary?</h2>
-            <p style="opacity: 0.8;">Unlike Samsung or Google phones, Xiaomi devices use a system called MIUI/HyperOS.
-                This system is designed to save battery by aggressively closing apps. These steps "whitelist" our app so
-                it can stay active and effectively help you manage your screen time.</p>
+            <h2>💡 Why is this needed?</h2>
+            <p style="opacity: 0.8;">Xiaomi, Redmi and POCO phones run MIUI or HyperOS, which closes background apps far
+                more aggressively than Samsung or Google phones do. These steps tell the system to leave Scrollless
+                alone, so it can stay active and keep your apps locked when the timer ends.</p>
         </section>
 
         <section class="policy-section" style="margin-top: 2rem;">
@@ -185,7 +200,7 @@
                 <a href="mailto:scrollless.app@gmail.com">Contact</a>
             </div>
             <div class="copyright">
-                &copy; 2024&ndash;<span class="current-year">2026</span> Scrollless. All rights reserved.
+                &copy; <span class="current-year">2026</span> Scrollless. All rights reserved.
             </div>
         </div>
     </footer>

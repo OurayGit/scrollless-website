@@ -14,10 +14,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Scrollless app troubleshooting guide. Fix common issues: multiple timers, break screen problems. Get help restarting your phone and resolving app glitches.">
-    <meta name="robots" content="noindex, follow">
+        content="Scrollless not working? Fix it on iPhone and Android. Android: usage access, accessibility, overlay and battery settings. iPhone: Screen Time permission. Plus a stuck break screen fix.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://scrollless.ch/troubleshoot">
-    <title>Troubleshooting Guide - Scrollless App Support</title>
+    <title>Scrollless Not Working? Fixes for iPhone and Android</title>
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Scrollless Not Working? Fixes for iPhone and Android">
+    <meta property="og:description"
+        content="Common Scrollless fixes for iPhone and Android: check permissions, restart your phone, and clear a stuck break screen.">
+    <meta property="og:url" content="https://scrollless.ch/troubleshoot">
+    <meta property="og:site_name" content="Scrollless">
+    <meta property="og:image" content="https://scrollless.ch/Scrollless%20icon%20black.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Scrollless Not Working? Fixes for iPhone and Android">
+    <meta name="twitter:description"
+        content="Common Scrollless fixes for iPhone and Android: check permissions, restart your phone, and clear a stuck break screen.">
+    <meta name="twitter:image" content="https://scrollless.ch/Scrollless%20icon%20black.svg">
+
+    <!-- FAQ structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Scrollless stopped blocking my apps. What is the first thing to try?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Restart your phone. It clears most temporary conflicts and gives Scrollless a clean start. This works on both iPhone and Android."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Scrollless is not working on my Android phone. What should I check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On Android, Scrollless needs four things to be on: Usage Access, the Scrollless Accessibility Service, Display over other apps, and battery optimisation set to unrestricted. If any of these get switched off, the app cannot watch or lock your apps. Open the app and follow the setup prompts to turn them back on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Scrollless is not working on my iPhone. What should I check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On iPhone, Scrollless uses Apple Screen Time. Make sure you granted the Screen Time permission when the app asked. You can check it in the iPhone Settings under Screen Time. If it is off or you tapped Don't Allow, reopen Scrollless and accept the request, or reinstall the app and accept it on first launch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "The break screen will not go away even though my break is over. How do I fix it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This can happen when your phone goes to sleep mid break, so the app does not notice the break has finished. Wake the phone and open Scrollless, or restart the phone, and the break screen will clear."
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Favicon for Google and browsers (optimized for search results) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -51,54 +107,75 @@
 
     <div class="policy-container">
         <h1>Troubleshooting</h1>
-        <p class="policy-date">App Support Page</p>
+        <p class="policy-date">Scrollless support for iPhone and Android</p>
 
         <section class="policy-section">
+            <h2>⚡ First, restart your phone</h2>
+            <p><strong>Try this before anything else.</strong> Restart your device.</p>
+            <p>Most Scrollless issues clear up after a restart. It resolves temporary conflicts and gives the app a
+                clean start. This works the same on iPhone and Android. If the problem comes back, use the section
+                for your phone below.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2>🤖 On Android</h2>
+            <p>On Android, Scrollless needs a few permissions to watch your apps and lock them on time. If it stops
+                working, one of these usually got switched off. Open Scrollless and check each one:</p>
+            <ul>
+                <li><strong>Usage Access:</strong> lets the app see which app you just opened.</li>
+                <li><strong>Accessibility Service:</strong> the Scrollless service must be on so it can step in when
+                    you open a restricted app.</li>
+                <li><strong>Display over other apps:</strong> needed to show the timer and the break screen on top of
+                    the app you opened.</li>
+                <li><strong>Battery optimisation set to unrestricted:</strong> if Android is allowed to save battery
+                    on Scrollless, it can kill the app in the background and the blocking stops.</li>
+            </ul>
+            <p>If any of these are off, turn them back on and the app will work again.</p>
+
             <div
-                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 11, 0, 0.3); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; text-align: center; backdrop-filter: blur(10px);">
-                <h3 style="margin-top: 0; color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">Using a Xiaomi, Redmi,
+                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 11, 0, 0.3); border-radius: 16px; padding: 2rem; margin-top: 2rem; text-align: center; backdrop-filter: blur(10px);">
+                <h3 style="margin-top: 0; color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">On a Xiaomi, Redmi,
                     or POCO phone?</h3>
-                <p style="opacity: 0.8; margin-bottom: 1.5rem; color: #fff;">Xiaomi devices need special settings to
-                    work correctly.</p>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem; color: #fff;">These phones close background apps hard,
+                    so they need a few extra settings.</p>
                 <a href="xiaomi.html"
                     style="display: inline-block; background-color: #FF0B00; color: #fff; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-family: 'Outfit', sans-serif; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 11, 0, 0.3);">Xiaomi
-                    / HyperOS Setup Guide &rarr;</a>
+                    and HyperOS setup guide &rarr;</a>
             </div>
         </section>
 
         <section class="policy-section">
-            <h2>⚡ First Step: Restart Your Phone</h2>
-            <p><strong>The best and most effective solution:</strong> Simply restart your device.</p>
-            <p>Most issues with Scrollless are resolved by a quick phone restart. This clears any temporary conflicts
-                and gives the app a fresh start.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2>📝 Send Us Feedback</h2>
-            <p>Please let us know what's happening:</p>
-            <p><strong>Email:</strong> <a href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a></p>
-            <p>Please include:</p>
+            <h2>🍎 On iPhone</h2>
+            <p>On iPhone, Scrollless works through Apple Screen Time. It asks for one permission when you first set it
+                up. If the app is not blocking anything, that permission is almost always the cause.</p>
             <ul>
-                <li>A detailed description of the problem</li>
-                <li>When the issue started</li>
-                <li>Your device model and Android version</li>
+                <li><strong>Check the Screen Time permission:</strong> make sure you allowed Scrollless to use Screen
+                    Time when it asked. You can review this in the iPhone Settings app under Screen Time. If you
+                    tapped to decline it, the app cannot block anything.</li>
+                <li><strong>Grant it again:</strong> open Scrollless and accept the Screen Time request if it appears.</li>
+                <li><strong>Still stuck? Reinstall:</strong> delete Scrollless, install it again from the App Store,
+                    and accept the Screen Time permission on the first launch. This is the cleanest way to reset the
+                    permission.</li>
             </ul>
         </section>
 
         <section class="policy-section">
-            <h2>🐛 Known Issues</h2>
-
-            <h3>1. Break Screen Won't Dismiss After Extended Break</h3>
-            <p>The break screen sometimes stays active even after taking a longer break than required. This happens
-                because when your phone goes into <strong>sleep mode</strong>, the app pauses and may not realize that
-                the full break duration has passed.</p>
+            <h2>🐛 The break screen won't go away</h2>
+            <p>Sometimes the break screen stays up even after the break is over. This happens when your phone goes to
+                sleep partway through, so the app does not notice the break has finished.</p>
+            <p>Wake the phone and open Scrollless, or restart it, and the break screen will clear.</p>
         </section>
 
         <section class="policy-section">
-            <h2>💬 We're Here to Help</h2>
-            <p>Your feedback helps us improve Scrollless. Don't hesitate to reach out at <a
-                    href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a> with any issues or suggestions!
-            </p>
+            <h2>📝 Still need help?</h2>
+            <p>Email me and I will sort it out: <a
+                    href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a>.</p>
+            <p>To make it quick, include:</p>
+            <ul>
+                <li>What is going wrong, in a sentence or two</li>
+                <li>When it started</li>
+                <li>Your phone model, and whether it is iPhone or Android</li>
+            </ul>
         </section>
     </div>
 
@@ -128,7 +205,7 @@
                 <a href="mailto:scrollless.app@gmail.com">Contact</a>
             </div>
             <div class="copyright">
-                &copy; 2024&ndash;<span class="current-year">2026</span> Scrollless. All rights reserved.
+                &copy; <span class="current-year">2026</span> Scrollless. All rights reserved.
             </div>
         </div>
     </footer>

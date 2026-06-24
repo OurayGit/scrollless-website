@@ -90,22 +90,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // Track download button clicks
-    const downloadBtns = document.querySelectorAll('a[href*="play.google.com/store/apps/details?id=ch.scrollless"]');
-    if (downloadBtns.length > 0) {
-        downloadBtns.forEach(btn => {
-            btn.addEventListener('click', function () {
-                // Check if gtag is defined (it should be from index.html)
-                if (typeof gtag === 'function') {
-                    gtag('event', 'download_clicked', {
-                        'event_category': 'conversion',
-                        'event_label': 'download_app_play_store',
-                        'transport_type': 'beacon'
-                    });
-                } else {
-                    console.log('Download clicked (Analytics not loaded)');
-                }
+    // Auto-route download buttons to the right app store, then track clicks.
+    // The static HTML points at the Play Store, so Android, desktop, and crawlers
+    // get a valid link with no JS. On iPhone/iPad we rewrite to the App Store; on
+    // desktop (no single mobile OS to assume) we show BOTH stores side by side.
+    const APP_STORE_URL = 'https://apps.apple.com/app/id6761528098';
+    const ua = navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(ua) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS reports as Mac
+    const isAndroid = /Android/.test(ua);
+
+    function trackDownload(store) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'download_clicked', {
+                'event_category': 'conversion',
+                'event_label': 'download_app_' + store,
+                'transport_type': 'beacon'
             });
+        } else {
+            console.log('Download clicked (Analytics not loaded)');
+        }
+    }
+
+    const storeLinks = document.querySelectorAll(
+        'a[href*="play.google.com/store/apps/details?id=ch.scrollless"], a.nav-btn'
+    );
+    storeLinks.forEach(link => {
+        if (isIOS) {
+            link.href = APP_STORE_URL;
+            if (/Play Store/i.test(link.textContent)) {
+                link.textContent = link.textContent.replace(/Play Store/i, 'App Store');
+            }
+        }
+        link.addEventListener('click', () => trackDownload(isIOS ? 'app_store' : 'play_store'));
+    });
+
+    // Desktop only: add an App Store button beside each primary Play Store button
+    // so visitors can choose their platform.
+    if (!isIOS && !isAndroid) {
+        document.querySelectorAll('a.download-btn').forEach(playBtn => {
+            const appBtn = playBtn.cloneNode(true);
+            appBtn.href = APP_STORE_URL;
+            appBtn.id = '';
+            appBtn.textContent = 'Download on the App Store';
+            appBtn.addEventListener('click', () => trackDownload('app_store'));
+            playBtn.parentNode.insertBefore(appBtn, playBtn.nextSibling);
         });
     }
 
