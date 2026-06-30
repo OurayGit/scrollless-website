@@ -9,6 +9,7 @@
     --color-black: #050505;
     --color-white: #ffffff;
     --color-red: #FF0B00;
+    --color-red-text: #CC0A00; /* darker red that meets WCAG AA on white for small text/links */
     --color-red-glow: rgba(255, 11, 0, 0.4);
     --glass-background: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -313,7 +314,7 @@ body.policy-page .navbar {
     display: inline-block;
     padding: 10px 28px;
     background: transparent;
-    color: var(--color-red) !important;
+    color: var(--color-red-text) !important;
     text-decoration: none;
     font-family: var(--font-title);
     font-size: 0.9rem;
@@ -836,7 +837,7 @@ body.policy-page .navbar {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px;
+    max-height: 600px;
 }
 
 /* CTA Bottom Section */
@@ -910,15 +911,14 @@ body.policy-page .navbar {
 .logo-bar {
     text-align: center;
     padding: 3rem 2rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .logo-bar-label {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--color-white);
-    opacity: 0.3;
+    opacity: 0.45;
     margin-bottom: 1.5rem;
 }
 
@@ -939,16 +939,17 @@ body.policy-page .navbar {
 }
 
 .hsg-logo {
-    height: 32px;
+    height: 38px;
     width: auto;
     opacity: 0.7;
 }
 
 .award-name {
     display: block;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: var(--color-white);
-    opacity: 0.5;
+    opacity: 0.75;
     letter-spacing: 0.5px;
 }
 
@@ -1489,4 +1490,490 @@ body.policy-page .separator {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* ============================================================
+   Swiss light theme, HOMEPAGE ONLY (body.home)
+   White background, black type, single red accent, flat grid.
+   Scoped on purpose so the dark pages stay untouched until they
+   are redone. body.single-cta also disables the desktop twin
+   download button (see script.js).
+   ============================================================ */
+body.home {
+    background: #ffffff;
+    color: var(--color-black);
+}
+
+/* Navbar: light, hairline divider, black logo/links */
+body.home .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid #ececec;
+    backdrop-filter: saturate(120%) blur(8px);
+    -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+
+body.home .nav-links a:not(.nav-btn) {
+    color: var(--color-black);
+}
+
+body.home .hamburger span {
+    background: var(--color-black);
+}
+
+body.home .nav-btn {
+    background: var(--color-black);
+    border-color: var(--color-black);
+    border-radius: 50px;
+    color: #ffffff;
+}
+
+body.home .nav-btn:hover {
+    background: var(--color-red);
+    border-color: var(--color-red);
+    color: #ffffff;
+    box-shadow: none;
+    transform: none;
+}
+
+@media (min-width: 769px) {
+    body.home .navbar .nav-links .nav-btn.subtle {
+        background: transparent;
+        border: 1px solid #d0d0d0;
+        color: var(--color-black);
+    }
+
+    body.home .navbar .nav-links .nav-btn.subtle:hover {
+        background: var(--color-black);
+        border-color: var(--color-black);
+        color: #ffffff;
+    }
+}
+
+/* Hero: type-led, no photo, lots of white */
+body.home .hero-section {
+    background-image: none;
+    background: #ffffff;
+    min-height: auto;
+    padding: 10rem 2rem 5rem;
+    border-bottom: 1px solid #ececec;
+}
+
+body.home .hero-section::before {
+    display: none;
+}
+
+body.home .logo-icon {
+    width: 150px;
+    height: 150px;
+}
+
+/* The app's timer dial (CircularSeekBar): black track, red progress arc, and a
+   red thumb knob at the arc's leading edge. On load the arc fills clockwise from
+   the top while the thumb rides its edge, then rests, acting out "set a timer". */
+body.home .hero-ring {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.home .hero-ring-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Clock dial markings: the app's 12 radial hour ticks (from black_dial.xml).
+   Light grey and thin so the dial reads delicate, not heavy. */
+body.home .ring-ticks path {
+    fill: none;
+    stroke: #c0c0c0;
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+/* Red seek arc rings a few px outside the ticks (r=314, circumference ~1973).
+   Starts at top (rotated -90), draws on via dashoffset, resting at ~72%. */
+body.home .ring-arc {
+    fill: none;
+    stroke: var(--color-red);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 1972.9;
+    stroke-dashoffset: 1972.9;
+    transform: rotate(-90deg);
+    transform-box: view-box;
+    transform-origin: 325px 325px;
+    animation: ringDraw 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+/* Thumb rides the arc edge: rotate the group ~259deg (72% of 360) in sync. */
+body.home .ring-thumb-rot {
+    transform-box: view-box;
+    transform-origin: 325px 325px;
+    animation: thumbTurn 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+body.home .ring-thumb {
+    fill: var(--color-red);
+    stroke: #ffffff;
+    stroke-width: 3;
+}
+
+@keyframes ringDraw {
+    to {
+        stroke-dashoffset: 552;
+    }
+}
+
+@keyframes thumbTurn {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(259deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home .ring-arc {
+        animation: none;
+        stroke-dashoffset: 552;
+    }
+
+    body.home .ring-thumb-rot {
+        animation: none;
+        transform: rotate(259deg);
+    }
+}
+
+/* white wordmark SVG flipped to black, no new asset needed */
+body.home .logo-text {
+    filter: invert(1);
+    width: 380px;
+    max-width: 82vw;
+}
+
+body.home .tagline p {
+    color: var(--color-black);
+    opacity: 1;
+    font-size: 2rem;
+    font-weight: 600;
+    max-width: 640px;
+}
+
+/* Single flat CTA + small platform links */
+body.home .download-btn {
+    background: var(--color-red);
+    border: 2px solid var(--color-red);
+    border-radius: 50px;
+    box-shadow: none;
+    animation: none;
+    color: #ffffff;
+}
+
+body.home .download-btn:hover {
+    background: var(--color-black);
+    border-color: var(--color-black);
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
+}
+
+body.home .store-choice {
+    margin-top: 1.1rem;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+body.home .store-choice a {
+    color: var(--color-black);
+    text-decoration: none;
+    border-bottom: 1px solid #cdcdcd;
+    padding-bottom: 1px;
+    margin: 0 0.4rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+body.home .store-choice a:hover {
+    color: var(--color-red);
+    border-color: var(--color-red);
+}
+
+/* Body text to black/grey, drop the dim opacity */
+body.home h2,
+body.home h3,
+body.home .review-text,
+body.home .founder-card h3,
+body.home .faq-question,
+body.home .cta-bottom h2,
+body.home .stat-label {
+    color: var(--color-black);
+    opacity: 1;
+}
+
+body.home .content-block p,
+body.home .differentiator-section > p,
+body.home .diff-card p,
+body.home .founder-card p,
+body.home .faq-answer p,
+body.home .cta-bottom p {
+    color: #4a4a4a;
+    opacity: 1;
+}
+
+/* Flat grid cards: hairlines, no glass / glow / lift */
+body.home .diff-card {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.home .diff-card:hover {
+    background: #ffffff;
+    border-color: var(--color-black);
+    transform: none;
+    box-shadow: none;
+}
+
+body.home .diff-card::before {
+    display: none;
+}
+
+body.home .diff-icon svg {
+    stroke: var(--color-red);
+    opacity: 1;
+}
+
+body.home .diff-card h3 {
+    color: var(--color-black);
+}
+
+/* Screenshots (light) */
+body.home .screenshots-section h2 {
+    color: var(--color-black);
+}
+
+body.home .screenshot {
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.home .screenshot:hover {
+    border-color: var(--color-black);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+}
+
+body.home .screenshots-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+/* Testimonials + stat */
+body.home .review-stars {
+    color: var(--color-red);
+}
+
+body.home .wreath-left,
+body.home .wreath-right {
+    filter: invert(1);
+    opacity: 0.12;
+}
+
+body.home .stat-highlight {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+}
+
+/* Founder */
+body.home .founder-card {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+}
+
+body.home .founder-card::after {
+    display: none;
+}
+
+/* FAQ */
+body.home .faq-item,
+body.home .faq-item:first-child {
+    border-color: #e6e6e6;
+}
+
+body.home .faq-question .faq-toggle {
+    color: var(--color-red);
+}
+
+/* CTA bottom */
+body.home .cta-bottom {
+    background: #fafafa;
+    border-radius: 0;
+}
+
+/* Award bar + footer */
+body.home .logo-bar-label,
+body.home .award-name {
+    color: var(--color-black);
+}
+
+body.home .hsg-logo {
+    filter: invert(1);
+    opacity: 0.85;
+}
+
+body.home footer {
+    background: #fafafa;
+    border-top: 1px solid #ececec;
+}
+
+body.home .social-icon {
+    stroke: var(--color-black);
+}
+
+body.home .footer-legal a {
+    color: var(--color-black);
+}
+
+body.home .copyright {
+    color: #888888;
+}
+
+body.home .separator {
+    background-color: #888888;
+}
+
+/* Mobile: keep the slide-in menu light too (it is dark by default) */
+@media (max-width: 768px) {
+    body.home .nav-links {
+        background: #ffffff;
+        border-left: 1px solid #e6e6e6;
+    }
+}
+
+/* ============================================================
+   Swiss light theme, SUB PAGES (body.lite)
+   One shared light skin for how-it-works, troubleshoot, xiaomi,
+   blog, terms and privacy so the whole site matches the home page.
+   Scoped to body.lite, appended last so it wins over the dark base
+   and the policy-page rules without touching any page content.
+   ============================================================ */
+body.lite {
+    background: #ffffff;
+    color: var(--color-black);
+}
+
+/* Navbar */
+body.lite .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid #ececec;
+    backdrop-filter: saturate(120%) blur(8px);
+    -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+body.lite .nav-logo { filter: invert(1); }            /* white logo svg flips to black */
+body.lite .nav-links a:not(.nav-btn),
+body.lite .navbar .nav-links a { color: var(--color-black); }
+body.lite .hamburger span { background: var(--color-black); }
+body.lite .nav-btn {
+    background: var(--color-black);
+    border-color: var(--color-black);
+    color: #ffffff;
+}
+body.lite .nav-btn:hover {
+    background: var(--color-red);
+    border-color: var(--color-red);
+    color: #ffffff;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Policy / troubleshoot / xiaomi prose */
+body.lite .policy-container h1,
+body.lite .policy-container h2,
+body.lite .policy-container h3,
+body.lite .step-title { color: var(--color-black); }
+body.lite .policy-container p,
+body.lite .policy-container li { color: #4a4a4a; }
+body.lite .policy-date { color: #6a6a6a; }
+body.lite .policy-container a { color: var(--color-red-text); }
+body.lite .step-number {
+    color: var(--color-red);
+}
+
+/* How it works */
+body.lite .hiw-header h1 {
+    background: none;
+    -webkit-text-fill-color: var(--color-black);
+    color: var(--color-black);
+}
+body.lite .hiw-header p { color: #4a4a4a; opacity: 1; }
+body.lite .hiw-number { color: var(--color-red); opacity: 1; }
+body.lite .hiw-content h2 { color: var(--color-black); }
+body.lite .hiw-content p,
+body.lite .hiw-content li { color: #4a4a4a; }
+body.lite .hiw-img {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 0 0 1px #e6e6e6;
+}
+body.lite .hiw-step:hover .hiw-img {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(255, 11, 0, 0.3);
+}
+body.lite .hiw-step.text-only {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    backdrop-filter: none;
+}
+body.lite .hiw-icon-faded { stroke: #888888; }
+body.lite .hiw-step.text-only:hover .hiw-icon-faded { stroke: var(--color-red); }
+body.lite .break-restart-box {
+    background: rgba(255, 11, 0, 0.06);
+    border: 1px solid rgba(255, 11, 0, 0.25);
+}
+body.lite .restart-icon { color: var(--color-red-text); }
+body.lite .content-block h2 { color: var(--color-black); }
+body.lite .content-block p { color: #4a4a4a; }
+
+/* Blog (its colours are inline; these win on specificity) */
+body.lite .blog-header h1 {
+    background: none;
+    -webkit-text-fill-color: var(--color-black);
+    color: var(--color-black);
+}
+body.lite .blog-meta { color: #6a6a6a; opacity: 1; }
+body.lite .blog-content h2,
+body.lite .blog-content h3 { color: var(--color-black); }
+body.lite .blog-content p,
+body.lite .blog-content ul,
+body.lite .blog-content li { color: #4a4a4a; opacity: 1; }
+body.lite .blog-callout {
+    background: rgba(255, 11, 0, 0.05);
+    border-left: 4px solid var(--color-red);
+}
+body.lite .author-bio { border-top: 1px solid #e6e6e6; }
+
+/* Footer + award bar */
+body.lite .logo-bar-label,
+body.lite .award-name { color: var(--color-black); }
+body.lite .hsg-logo { filter: invert(1); opacity: 0.85; }
+body.lite footer {
+    background: #fafafa;
+    border-top: 1px solid #ececec;
+}
+body.lite .social-icon { stroke: var(--color-black); }
+body.lite .footer-legal a { color: var(--color-black); }
+body.lite .copyright { color: #888888; }
+body.lite .separator { background-color: #888888; }
+
+@media (max-width: 768px) {
+    body.lite .nav-links {
+        background: #ffffff;
+        border-left: 1px solid #e6e6e6;
+    }
+    body.lite .nav-links a { color: var(--color-black); }
 }

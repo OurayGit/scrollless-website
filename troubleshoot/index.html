@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Scrollless not working? Fix it on iPhone and Android. Android: usage access, accessibility, overlay and battery settings. iPhone: Screen Time permission. Plus a stuck break screen fix.">
+        content="Scrollless not working? Fix it on iPhone and Android. Android: usage access, overlay and battery settings. iPhone: Screen Time permission. Plus a stuck break screen fix.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://scrollless.ch/troubleshoot">
     <title>Scrollless Not Working? Fixes for iPhone and Android</title>
@@ -52,7 +52,7 @@
           "name": "Scrollless is not working on my Android phone. What should I check?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On Android, Scrollless needs four things to be on: Usage Access, the Scrollless Accessibility Service, Display over other apps, and battery optimisation set to unrestricted. If any of these get switched off, the app cannot watch or lock your apps. Open the app and follow the setup prompts to turn them back on."
+            "text": "On Android, Scrollless needs three things to be on: Usage Access, Display over other apps, and battery optimisation set to unrestricted. If any of these get switched off, the app cannot watch or lock your apps. Open the app and follow the setup prompts to turn them back on."
           }
         },
         {
@@ -80,10 +80,10 @@
     <link rel="icon" type="image/svg+xml" href="/Scrollless%20icon%20black.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=3">
 </head>
 
-<body>
+<body class="lite">
     <nav class="navbar">
         <a href="/" class="nav-logo-link" aria-label="Home">
             <img src="/scrollless-icon-white.svg" alt="Scrollless" class="nav-logo" width="32" height="32">
@@ -123,8 +123,6 @@
                 working, one of these usually got switched off. Open Scrollless and check each one:</p>
             <ul>
                 <li><strong>Usage Access:</strong> lets the app see which app you just opened.</li>
-                <li><strong>Accessibility Service:</strong> the Scrollless service must be on so it can step in when
-                    you open a restricted app.</li>
                 <li><strong>Display over other apps:</strong> needed to show the timer and the break screen on top of
                     the app you opened.</li>
                 <li><strong>Battery optimisation set to unrestricted:</strong> if Android is allowed to save battery
@@ -209,7 +207,7 @@
             </div>
         </div>
     </footer>
-    <script src="../script.js"></script>
+    <script src="../script.js?v=3"></script>
 </body>
 
 </html>

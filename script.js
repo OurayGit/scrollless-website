@@ -34,42 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Highlight centered feature card on mobile (vertical scroll)
-    function highlightCenteredCard() {
-        if (window.innerWidth <= 768) {
-            const cards = document.querySelectorAll('.feature-card');
-            if (!cards.length) return;
-
-            const viewportCenter = window.innerHeight / 2;
-
-            let closestCard = null;
-            let closestDistance = Infinity;
-
-            cards.forEach(card => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.top + cardRect.height / 2;
-                const distance = Math.abs(viewportCenter - cardCenter);
-
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestCard = card;
-                }
-
-                card.classList.remove('centered');
-            });
-
-            if (closestCard && closestDistance < window.innerHeight / 2) {
-                closestCard.classList.add('centered');
-            }
-        }
-    }
-
-    // Initial highlight
-    highlightCenteredCard();
-
-    // Highlight on scroll (page scroll, not container scroll)
-    window.addEventListener('scroll', highlightCenteredCard);
-
     // Intersection Observer for reveal animations
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
@@ -126,8 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Desktop only: add an App Store button beside each primary Play Store button
-    // so visitors can choose their platform.
-    if (!isIOS && !isAndroid) {
+    // so visitors can choose their platform. Pages that opt into a single CTA
+    // (body.single-cta) skip this and offer the platform choice as small links.
+    if (!isIOS && !isAndroid && !document.body.classList.contains('single-cta')) {
         document.querySelectorAll('a.download-btn').forEach(playBtn => {
             const appBtn = playBtn.cloneNode(true);
             appBtn.href = APP_STORE_URL;

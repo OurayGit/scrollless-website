@@ -2,7 +2,7 @@
 
 > A free screen time app for iPhone and Android that locks your chosen apps after a set timer and makes you take a short break before you can reopen them.
 
-Scrollless helps people scroll less by putting a deliberate pause between them and addictive apps. Before you open an app like Instagram, TikTok or YouTube, it asks how long you want this session to be. You set a timer. When the time runs out, all your chosen apps lock together at once, then you wait through a short mandatory break before any of them reopen. Setting a time first turns phone use into a decision instead of a habit. The app is free and supported by light ads. A one-time in-app purchase removes the ads for good. Scrollless is available on both iPhone (Apple App Store) and Android (Google Play Store).
+Scrollless helps people scroll less by putting a deliberate pause between them and addictive apps. Before you open an app like Instagram, TikTok or YouTube, it asks how long you want this session to be. You set a timer. When the time runs out, all your chosen apps lock together at once, then you wait through a short mandatory break before any of them reopen. Setting a time first turns phone use into a decision instead of a habit. The app is free and supported by light ads. An optional subscription at 19.99 a year removes the ads. Scrollless is available on both iPhone (Apple App Store) and Android (Google Play Store).
 
 ## Get the app
 

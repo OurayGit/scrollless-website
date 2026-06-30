@@ -1,459 +1,843 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR5C7P2TRH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-VR5C7P2TRH');
-    </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VR5C7P2TRH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-VR5C7P2TRH');
+</script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Set a timer, take a break, scroll less. Free on iPhone and Android.">
-    <meta name="keywords"
-        content="scrollless, scroll less, screen time app, stop doomscrolling, social media addiction, app blocker, break timer, phone addiction, reduce phone usage, iphone screen time, android app blocker, instagram timer, tiktok timer, youtube limit, focus app">
-    <meta name="author" content="Scrollless">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://scrollless.ch/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Set a timer, take a break, scroll less. Free on iPhone and Android.">
+<meta name="keywords" content="scrollless, scroll less, screen time app, stop doomscrolling, social media addiction, app blocker, break timer, phone addiction, reduce phone usage, iphone screen time, android app blocker, instagram timer, tiktok timer, youtube limit, focus app">
+<meta name="author" content="Scrollless">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://scrollless.ch/">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scrollless.ch/">
-    <meta property="og:title" content="Scrollless: set a timer before you scroll, then take a break">
-    <meta property="og:description"
-        content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Free on iPhone and Android.">
-    <meta property="og:image" content="https://scrollless.ch/scrollless-icon-white.svg">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scrollless.ch/">
+<meta property="og:title" content="Scrollless: set a timer before you scroll, then take a break">
+<meta property="og:description" content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Free on iPhone and Android.">
+<meta property="og:image" content="https://scrollless.ch/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://scrollless.ch/">
-    <meta property="twitter:title" content="Scrollless: set a timer before you scroll, then take a break">
-    <meta property="twitter:description"
-        content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Free on iPhone and Android.">
-    <meta property="twitter:image" content="https://scrollless.ch/scrollless-icon-white.svg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://scrollless.ch/">
+<meta property="twitter:title" content="Scrollless: set a timer before you scroll, then take a break">
+<meta property="twitter:description" content="Scrollless asks how long you want to scroll, then locks Instagram, TikTok and YouTube together when time is up. Free on iPhone and Android.">
+<meta property="twitter:image" content="https://scrollless.ch/og-image.png">
 
-    <title>Scrollless: Screen Time App for iPhone and Android | Scroll Less</title>
+<title>Scrollless: Screen Time App for iPhone and Android | Scroll Less</title>
 
-    <!-- Favicon for Google and browsers (optimized for search results) -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/Scrollless%20icon%20black.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/Scrollless%20icon%20black.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
 
-    <!-- Modern Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --ink:#0A0A0A; --body:#454545; --muted:#8A8A8A; --hair:#E9E9E9;
+    --paper:#fff; --panel:#FAFAFA; --red:#FF0B00; --red-text:#CC0A00;
+    --head:'Outfit',-apple-system,sans-serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    --maxw:1120px; --gut:24px; --ease:cubic-bezier(0.16,1,0.3,1);
+  }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:var(--sans); color:var(--body); background:var(--paper); line-height:1.65;
+    -webkit-font-smoothing:antialiased; font-variant-numeric:tabular-nums; }
+  h1,h2,h3{ font-family:var(--head); color:var(--ink); letter-spacing:-0.02em; line-height:1.05; }
+  a{ color:var(--red-text); }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--gut); }
 
-    <link rel="stylesheet" href="style.css?v=1">
+  /* Nav */
+  .nav{ position:sticky; top:0; z-index:100; background:rgba(255,255,255,.85);
+    backdrop-filter:saturate(120%) blur(8px); -webkit-backdrop-filter:saturate(120%) blur(8px);
+    border-bottom:1px solid var(--hair); }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .nav-left{ display:flex; align-items:center; gap:2.2rem; }
+  .brand{ display:flex; align-items:center; gap:.55rem; text-decoration:none; }
+  .brand img{ width:26px; height:26px; }
+  .brand span{ font-family:var(--head); font-weight:700; color:var(--ink); font-size:1.12rem; letter-spacing:-0.03em; }
+  .nav-links{ display:flex; gap:1.8rem; }
+  .nav-links a{ color:var(--body); text-decoration:none; font-size:.92rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--ink); }
+  .btn{ display:inline-block; font-family:var(--head); font-weight:600; font-size:.95rem; text-decoration:none;
+    padding:11px 26px; border-radius:50px; background:var(--red); color:#fff; border:2px solid var(--red);
+    transition:background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease); white-space:nowrap; cursor:pointer; }
+  .btn:hover{ background:var(--ink); border-color:var(--ink); color:#fff; }
+  .btn.big{ font-size:1.08rem; padding:16px 38px; }
+  .nav-btn.subtle{ background:transparent; color:var(--ink); border-color:var(--hair); }
+  .nav-btn.subtle:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  .hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+  .hamburger span{ width:24px; height:2px; background:var(--ink); transition:.25s; }
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Scrollless",
-      "alternateName": ["Scroll Less", "Scrol Less", "Scrolless"],
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Android, iOS",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-            "description": "Scrollless asks how long you want to scroll before you open an app like Instagram, TikTok or YouTube. You set a timer. When time is up, all your chosen apps lock together, then you take a short break before deciding again. Free on iPhone and Android.",
-      "author": {
-        "@type": "Organization",
-        "name": "Scrollless",
-        "url": "https://scrollless.ch"
-      }
+  /* Hero: asymmetric split */
+  .hero{ border-bottom:1px solid var(--hair); }
+  .hero .wrap{ display:grid; grid-template-columns:1.1fr .9fr; gap:4rem; align-items:center;
+    min-height:calc(100svh - 65px); padding:clamp(1.5rem,5vh,4.5rem) 24px; }
+  .eyebrow{ font-family:var(--head); font-weight:500; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1.3rem; }
+  h1.display{ font-size:clamp(2.7rem,6.2vw,5rem); letter-spacing:-0.04em; line-height:.98; }
+  .hero p.sub{ font-size:1.22rem; color:var(--body); max-width:32ch; margin:1.5rem 0 2rem; line-height:1.5; }
+  .cta-row{ display:flex; align-items:center; gap:1.3rem; flex-wrap:wrap; }
+  .platforms{ font-size:.92rem; color:var(--muted); }
+  .platforms a{ color:var(--body); text-decoration:none; border-bottom:1px solid #d6d6d6; padding-bottom:1px; }
+  .platforms a:hover{ color:var(--red-text); border-color:var(--red-text); }
+
+  /* Hero dial: the real app dial (black_dial ticks + red seek arc), interactive 1 to 60 */
+  .dial-stage{ display:flex; flex-direction:column; align-items:center; }
+  .dial{ width:340px; max-width:82vw; aspect-ratio:1; position:relative; touch-action:none; user-select:none; }
+  .dial svg{ width:100%; height:100%; display:block; overflow:visible; }
+  .dial .ticks path{ fill:none; stroke:#c4c4c4; stroke-width:5; stroke-linecap:round; }
+  /* Pull the tick face inward so it doesn't crowd the seek ring. Lower = smaller face. */
+  .dial .ticks{ transform:scale(.88); transform-origin:center; transform-box:fill-box; }
+  .dial .track{ fill:none; stroke:#ECECEC; stroke-width:14; }
+  .dial .arc{ fill:none; stroke:var(--red); stroke-width:14; stroke-linecap:round; }
+  .dial .thumb{ fill:#fff; stroke:#000; stroke-width:7.5; cursor:grab; }
+  .dial.dragging .thumb{ cursor:grabbing; }
+  .dial-readout{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; }
+  .dial-readout .num{ font-family:var(--head); font-weight:700; font-size:4rem; color:var(--ink); line-height:.9; }
+  .dial-readout .unit{ font-family:var(--head); font-weight:700; font-size:1.1rem; color:var(--ink); margin-top:.1rem; }
+  .dial-hint{ font-size:.82rem; color:var(--muted); margin-top:1.1rem; }
+
+  /* Sections */
+  section{ padding:6rem 0; border-bottom:1px solid var(--hair); }
+  .sec-label{ font-family:var(--head); font-weight:500; font-size:.76rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:2rem; }
+  h2.section-title{ font-size:clamp(2rem,4vw,3rem); max-width:18ch; margin-bottom:1rem; }
+  .lead{ font-size:1.18rem; color:var(--body); max-width:60ch; }
+
+  /* ===== Section: auto-playing session demo (frameless, real app elements) ===== */
+  .demo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; margin-top:1rem; }
+  .demo-cap h3{ font-size:1.5rem; margin-bottom:.6rem; }
+  .demo-cap p{ max-width:46ch; }
+  .demo-track{ list-style:none; margin-top:1.6rem; }
+  .demo-track li{ display:flex; gap:.7rem; align-items:center; padding:.45rem 0; color:var(--muted); font-size:.98rem; transition:color .3s; }
+  .demo-track li .dot{ width:9px; height:9px; border-radius:50%; background:#d6d6d6; flex:0 0 auto; transition:background .3s, transform .3s; }
+  .demo-track li.on{ color:var(--ink); font-weight:500; }
+  .demo-track li.on .dot{ background:var(--red); transform:scale(1.35); }
+
+  /* Frameless stage: scenes cross-fade in place, no phone box */
+  .stage{ position:relative; width:330px; max-width:86vw; min-height:430px; margin:0 auto; }
+  .scene{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    opacity:0; visibility:hidden; transition:opacity .6s ease-in-out, visibility 0s linear .6s; }
+  .scene.on{ opacity:1; visibility:visible; transition:opacity .6s ease-in-out .4s, visibility 0s; }
+
+  /* one small caption above each scene visual; same height so the ring never shifts */
+  .pbar-label{ font-family:var(--head); font-weight:600; font-size:.92rem; color:var(--muted); margin-bottom:1.2rem; min-height:1.2em; }
+
+  /* session + break share ONE fixed-size visual block, so the bar below them
+     lands in the exact same spot both times and never jumps. */
+  .demo-visual{ position:relative; width:210px; max-width:80%; height:248px; margin-bottom:1.3rem;
+    display:flex; align-items:center; justify-content:center; }
+  .demo-visual.calm{ flex-direction:column; gap:1.1rem; }
+  /* timer bar: thin (same thickness as the dial ring), rounded ends, red fill.
+     It fades in a beat AFTER the scene settles, so you never catch it already part-full. */
+  .tbar{ width:210px; max-width:80%; height:5px; border-radius:50px; background:var(--hair); overflow:hidden;
+    opacity:0; transition:opacity .6s var(--ease); }
+  .tbar.show{ opacity:1; }
+  .tbar .fill{ height:100%; width:0; background:var(--red); border-radius:50px; }
+
+  /* set scene: the real dial (same ticks + arc as the hero), reading 20 min */
+  .mini-dial{ width:200px; height:200px; position:relative; margin:4px 0 22px; }
+  .mini-dial svg{ width:100%; height:100%; display:block; overflow:visible; }
+  .mini-dial .ticks path{ fill:none; stroke:#c4c4c4; stroke-width:5; stroke-linecap:round; }
+  .mini-dial .mt{ fill:none; stroke:#ECECEC; stroke-width:14; }
+  .mini-dial .ma{ fill:none; stroke:var(--red); stroke-width:14; stroke-linecap:round; }
+  .mini-dial .mthumb{ fill:var(--red); stroke:#fff; stroke-width:6; }
+  .mini-dial .mnum{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--head); font-weight:700; }
+  .mini-dial .mnum b{ font-size:2.9rem; color:var(--ink); line-height:.9; }
+  .mini-dial .mnum span{ font-size:.9rem; color:var(--ink); }
+  .pill-btn{ font-family:var(--head); font-weight:600; font-size:.88rem; padding:6px 22px; border-radius:50px; background:#fff; color:var(--ink); border:1.5px solid var(--ink); transition:transform .22s var(--ease); }
+  .pill-btn.press{ transform:scale(.96); }
+
+  /* scroll scene: an Instagram-style feed (real posts), fills the shared visual block */
+  .feed{ width:100%; height:100%; overflow:hidden; position:relative; border-radius:18px;
+    mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent); }
+  /* posts are duplicated in markup; uniform margin (no flex gap) makes -50% loop seamless.
+     height must stay AUTO (real content height) so translateY(-50%) equals exactly one post set;
+     pinning it with inset:0/bottom:0 locks height to the 330px container and breaks the loop. */
+  .feed-rows{ position:absolute; top:0; left:0; right:0; display:flex; flex-direction:column; will-change:transform; animation:feedscroll 5s linear infinite; }
+  .post{ flex:0 0 auto; background:#fff; border:1px solid var(--hair); border-radius:16px; overflow:hidden; text-align:left; margin-bottom:18px; }
+  .post-top{ display:flex; align-items:center; gap:9px; padding:11px 13px; }
+  .post-top .av{ width:30px; height:30px; border-radius:50%; flex:0 0 auto; background:#e6e6e6; }
+  .post-top .nm{ height:9px; width:96px; border-radius:5px; background:#e6e6e6; }
+  .post-img{ height:130px; width:100%; background:#efefef; }
+  .post-acts{ display:flex; gap:12px; padding:11px 13px 7px; }
+  .post-acts span{ width:20px; height:20px; border-radius:6px; background:#ededed; }
+  .post-cap{ height:9px; width:62%; border-radius:5px; background:#ededed; margin:0 13px 14px; }
+  @keyframes feedscroll{ from{ transform:translateY(0); } to{ transform:translateY(-50%); } }
+  .feed-rows{ transition:filter .7s var(--ease); }
+
+  /* blocking moment: the feed FREEZES and dims into the background while a clean
+     lock settles on top. No hard cut, no "everything gone" stress. */
+  .feed{ transition:opacity .7s var(--ease), filter .7s var(--ease); }
+  .demo-visual.locked .feed{ opacity:.16; filter:saturate(.3); }
+  .demo-visual.locked .feed-rows{ animation-play-state:paused; }
+  .lock-overlay{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    opacity:0; transform:scale(.9); transition:opacity 1s ease-in-out, transform 1s ease-in-out; pointer-events:none; }
+  .demo-visual.locked .lock-overlay{ opacity:1; transform:scale(1); }
+
+  /* break scene: a close-up of slipping the phone deep into a diagonal jeans
+     front pocket, then waiting. Same flat outline-on-white language as above. */
+  .pocket-scene{ overflow:hidden; }
+  /* the phone: tall rounded body + speaker slit + screen so it reads instantly */
+  .phone-drop{ position:absolute; left:62px; top:-4px; width:86px; height:172px; z-index:2;
+    background:#fff; border:2.5px solid var(--ink); border-radius:19px; transform-origin:50% 50%;
+    animation:phonetuck 2s ease-in-out .5s both; }
+  .phone-drop .spk{ position:absolute; top:10px; left:50%; width:26px; height:4px; margin-left:-13px; border-radius:4px; background:var(--ink); }
+  .phone-drop .screen{ position:absolute; left:9px; right:9px; top:22px; bottom:10px; border-radius:11px; background:var(--paper); }
+  /* pocket as line art: waistband + left seam sit BEHIND the phone, the two arcs
+     sit IN FRONT, so the phone tucks behind the upper arc. pk-bag = white occluder. */
+  .pocket-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .pocket-back{ z-index:1; }
+  .pocket-front{ z-index:3; }
+  .pocket-svg .pk-line{ fill:none; stroke:var(--ink); stroke-width:40; stroke-linecap:round; }
+  .pocket-svg .pk-bag{ fill:var(--paper); }
+  @keyframes phonetuck{
+    0%{ transform:translate(7px,33px) rotate(-19deg) scale(1.1); }
+    100%{ transform:translate(30px,117px) rotate(-19deg) scale(1.1); }
+  }
+
+  /* padlock shown during the break (apps are closed). Keyhole is punched out of the body. */
+  .lock{ width:78px; height:82px; position:relative; }
+  .lock .shackle{ position:absolute; top:0; left:50%; width:42px; height:34px; border:7px solid var(--ink); border-bottom:none; border-radius:21px 21px 0 0;
+    transform:translateX(-50%); transform-origin:right bottom; transition:transform .45s var(--ease); }
+  .lock.open .shackle{ transform:translateX(-50%) rotate(26deg); }
+  .lock .body{ position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:66px; height:52px; border-radius:14px; background:var(--ink); }
+  .lock .keyhole{ position:absolute; bottom:15px; left:50%; transform:translateX(-50%); width:12px; height:23px; z-index:1; }
+  .lock .keyhole::before{ content:""; position:absolute; top:0; left:50%; transform:translateX(-50%); width:12px; height:12px; border-radius:50%; background:var(--paper); }
+  .lock .keyhole::after{ content:""; position:absolute; top:8px; left:50%; transform:translateX(-50%); width:5px; height:14px; border-radius:0 0 2px 2px; background:var(--paper); }
+
+  /* ===== 3-column comparison ===== */
+  .ctable{ margin-top:2.4rem; border:1px solid var(--hair); border-radius:16px; overflow:hidden; }
+  .crow{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; align-items:stretch; }
+  .crow + .crow{ border-top:1px solid var(--hair); }
+  .crow.head{ background:var(--panel); }
+  .crow.head .cc{ font-family:var(--head); font-weight:600; font-size:.9rem; color:var(--ink);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:1.1rem .7rem; line-height:1.25; }
+  .crow.head .cc.us{ color:var(--red-text); }
+  .crow .feat{ display:flex; align-items:center; padding:1rem 1.3rem; min-height:72px; font-size:1rem; color:var(--ink); line-height:1.3; }
+  .crow .cc{ display:flex; align-items:center; justify-content:center; padding:1rem .6rem; font-size:1.1rem; }
+  .crow .cc.col-us{ box-shadow:inset 1px 0 0 var(--hair); }
+  .mk-y{ color:var(--red-text); font-weight:700; }
+  .mk-n{ color:#cfcfcf; font-weight:700; }
+  .mk-p{ color:#bdbdbd; font-weight:700; }
+  .compare-foot{ font-size:.95rem; color:var(--body); margin-top:1.3rem; }
+
+  /* Quotes (wreath) */
+  .reviews{ display:flex; flex-direction:column; gap:2.4rem; max-width:760px; margin:0 auto; }
+  .review-wreath{ display:flex; align-items:center; justify-content:center; gap:.4rem; }
+  .review-wreath img{ height:150px; width:auto; opacity:.9; flex:0 0 auto; }
+  .review-content{ text-align:center; padding:0 .4rem; }
+  .review-stars{ color:var(--red); letter-spacing:2px; margin-bottom:.6rem; }
+  .review-text{ font-family:var(--head); font-weight:500; font-size:1.25rem; line-height:1.4; color:var(--ink); max-width:38ch; }
+
+  /* Award bar */
+  .awards{ text-align:center; padding:3.5rem 0; }
+  .awards .label{ font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-bottom:1.1rem; }
+  .awards img{ height:42px; width:auto; filter:invert(1); opacity:.8; }
+  .awards .award-name{ display:block; margin-top:.6rem; font-size:.86rem; color:var(--body); }
+
+  /* Founder (no price line) */
+  .founder p{ font-size:1.22rem; color:var(--body); max-width:62ch; }
+  .founder .sig{ font-family:var(--head); font-weight:700; color:var(--ink); margin-top:1.3rem; }
+
+  /* FAQ */
+  .faq-item{ border-top:1px solid var(--hair); }
+  .faq-item:last-child{ border-bottom:1px solid var(--hair); }
+  .faq-question{ width:100%; background:none; border:none; text-align:left; cursor:pointer; padding:1.5rem 0; display:flex; justify-content:space-between; align-items:center; gap:2rem; font-family:var(--head); font-weight:500; font-size:1.13rem; color:var(--ink); }
+  .faq-toggle{ color:var(--red-text); font-size:1.5rem; transition:transform .3s var(--ease); }
+  .faq-item.active .faq-toggle{ transform:rotate(45deg); }
+  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .35s var(--ease); }
+  .faq-item.active .faq-answer{ max-height:400px; }
+  .faq-answer p{ padding-bottom:1.5rem; max-width:66ch; }
+
+  /* Final CTA */
+  .final{ text-align:center; border-bottom:none; }
+  .final h2{ font-size:clamp(2.2rem,5vw,3.2rem); margin-bottom:.8rem; }
+  .final p{ font-size:1.13rem; margin-bottom:1.8rem; color:var(--body); }
+
+  /* ===== Black arc band: reuses the app curved shape (topwhitelong) ===== */
+  .arcband{ position:relative; background:#0A0A0A; color:#fff; padding:8.5rem 0 4rem; border:none; margin-top:-1px; }
+  .band-curve{ position:absolute; top:0; left:0; width:100%; height:130px; display:block; }
+  .arcband .wrap{ position:relative; z-index:2; text-align:center; }
+  .arcband .mark{ display:inline-flex; align-items:center; gap:.55rem; }
+  .arcband .mark img{ width:30px; height:30px; }
+  .arcband .mark span{ font-family:var(--head); font-weight:700; font-size:1.3rem; letter-spacing:-0.03em; }
+
+  footer{ background:#0A0A0A; color:#9a9a9a; padding:2rem 0 2.8rem; }
+  footer .wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:.65rem; }
+  footer .social{ display:flex; gap:1.5rem; }
+  footer .social a{ color:#9a9a9a; display:inline-flex; }
+  footer .social a:hover{ color:#fff; }
+  footer .footer-legal{ display:flex; gap:1.4rem; }
+  footer .footer-legal a{ color:#9a9a9a; text-decoration:none; font-size:.85rem; }
+  footer .footer-legal a:hover{ color:#fff; }
+  .foot-copy{ font-size:.82rem; color:#6a6a6a; }
+
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.active{ opacity:1; transform:none; }
+
+  @media(max-width:860px){
+    .hero .wrap{ grid-template-columns:1fr; gap:2.5rem; min-height:auto; padding:2rem 24px 3rem; }
+    .dial-stage{ order:-1; }
+    .demo-grid{ grid-template-columns:1fr; gap:2.4rem; }
+    .stage{ order:-1; }
+    .crow{ grid-template-columns:1.4fr .8fr .8fr .9fr; }
+    .crow .feat{ padding:.9rem; font-size:.9rem; }
+    .nav-links{ display:none; }
+    .hamburger{ display:flex; }
+    section{ padding:4rem 0; }
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .feed-rows{ animation:none; }
+    .phone-drop{ animation:none; transform:translate(30px,117px) rotate(-19deg) scale(1.1); }
+    .tbar{ opacity:1; }
+    .scene{ transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Scrollless",
+  "alternateName": ["Scroll Less", "Scrol Less", "Scrolless"],
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Android, iOS",
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free with light ads" },
+    { "@type": "Offer", "price": "19.99", "priceCurrency": "USD", "description": "Optional yearly subscription that removes ads", "category": "Subscription" }
+  ],
+  "description": "Scrollless asks how long you want to scroll before you open an app like Instagram, TikTok or YouTube. You set a timer. When time is up, all your chosen apps lock together, then you take a short break before deciding again. Free on iPhone and Android.",
+  "author": { "@type": "Organization", "name": "Scrollless", "url": "https://scrollless.ch" }
+}
+</script>
+
+<!-- Organization Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scrollless",
+  "url": "https://scrollless.ch",
+  "logo": "https://scrollless.ch/scrollless-icon-white.svg",
+  "email": "scrollless.app@gmail.com",
+  "award": "Entrepreneurial Talents Programme, University of St. Gallen (HSG)",
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Entrepreneurial Talents Programme",
+    "credentialCategory": "Award",
+    "description": "Competitive entrepreneurship programme of the University of St. Gallen (HSG): each semester HSG Entrepreneurship selects a small cohort of startups founded by HSG members for intensive coaching, mentoring and investor networking.",
+    "url": "https://www.unisg.ch/en/university/engagement/hsg-entrepreneurship/incubation/entrepreneurial-talents-programme/",
+    "recognizedBy": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of St. Gallen (HSG)",
+      "url": "https://www.unisg.ch",
+      "sameAs": "https://en.wikipedia.org/wiki/University_of_St._Gallen"
     }
-    </script>
+  },
+  "sameAs": [
+    "https://www.instagram.com/scrollless_app",
+    "https://www.tiktok.com/@scrollless.ch"
+  ]
+}
+</script>
 
-    <!-- Organization Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Scrollless",
-      "url": "https://scrollless.ch",
-      "logo": "https://scrollless.ch/scrollless-icon-white.svg",
-      "email": "scrollless.app@gmail.com",
-      "sameAs": [
-        "https://www.instagram.com/scrollless_app",
-        "https://www.tiktok.com/@scrollless.ch"
-      ]
-    }
-    </script>
+<!-- WebSite Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Scrollless",
+  "url": "https://scrollless.ch"
+}
+</script>
 
-    <!-- WebSite Structured Data -->
-    <script type="application/ld+json">
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Scrollless",
-      "url": "https://scrollless.ch"
-    }
-    </script>
-
-    <!-- FAQ Structured Data -->
-    <script type="application/ld+json">
+      "@type": "Question",
+      "name": "How does Scrollless stop doomscrolling?",
+      "acceptedAnswer": { "@type": "Answer", "text": "When you open an app like Instagram, TikTok or YouTube, Scrollless asks how long you want this session to be. You set a timer. When time is up, a cooldown of 5 minutes starts where all selected apps are locked. Setting a time first makes you decide on a limit instead of falling into hours of doomscrolling." }
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How does Scrollless stop doomscrolling?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "When you open an app like Instagram, TikTok or YouTube, Scrollless asks how long you want this session to be. You set a timer. When time is up, all your chosen apps lock together and you take a short break. Setting a time first makes you decide on purpose instead of opening the app out of habit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Scrollless free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Scrollless is free to download and use. It runs on a few light ads. If you would rather have none, you can remove them with a one-time in-app purchase."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is Scrollless different from Digital Wellbeing or Screen Time?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Built-in tools like Digital Wellbeing and iPhone Screen Time set a daily limit that you can tap past in a second. Scrollless works per session, not per day. It locks all your chosen apps at the same time and asks you to set a length before each session, so you stop and decide rather than reaching for the same app again."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Scrollless work with Instagram, TikTok, and YouTube?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Scrollless drain battery?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Scrollless sits quietly in the background and only does anything when you open one of your chosen apps. The effect on battery is tiny."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Scrollless available on iPhone?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Scrollless is on both iPhone (Apple App Store) and Android (Google Play Store). The download button on this site sends you to the right store for your phone."
-          }
-        }
-      ]
+      "@type": "Question",
+      "name": "Is Scrollless free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scrollless is free to download and use, with a few light ads. No feature is locked away. If you would rather have none, you can remove the ads with an optional subscription at 19.99 a year." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is it different from Digital Wellbeing or Screen Time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Built-in tools set a daily limit that you can tap away in a second. Scrollless works per session, not per day. It asks you to set a length before each session and then locks all your chosen apps at the same time. You can not tap it away quickly nor can you switch to another app." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with Instagram, TikTok and YouTube?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it on iPhone and Android?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scrollless is on both iPhone (Apple App Store) and Android (Google Play Store). The download button on this site sends you to the right store for your phone." }
     }
-    </script>
+  ]
+}
+</script>
 </head>
+<body class="home single-cta">
 
-<body>
-    <nav class="navbar">
-        <a href="/" class="nav-logo-link" aria-label="Home">
-            <img src="scrollless-icon-white.svg" alt="Scrollless" class="nav-logo" width="32" height="32">
-        </a>
-        <button class="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-links">
-            <a href="/how-it-works">How It Works</a>
-            <a href="/blog/stop-doomscrolling">Why Scrollless</a>
-            <a href="/troubleshoot">Troubleshoot</a>
-
-            <!-- Mobile Only Links -->
-            <a href="/blog/stop-doomscrolling" class="mobile-only-link">Why Scrollless</a>
-            <a href="/troubleshoot/xiaomi.html" class="mobile-only-link">Xiaomi Guide</a>
-
-            <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank"
-                class="nav-btn">Download</a>
-        </div>
-    </nav>
-
-    <div class="main-container">
-        <header class="hero-section">
-            <h1 style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
-                Scrollless is a free screen time app for iPhone and Android that puts a timer on Instagram, TikTok and YouTube.</h1>
-            <div class="logo-container reveal">
-                <img src="scrollless-icon-white.svg"
-                    alt="Scrollless app icon" class="logo-icon">
-                <img src="scrollless-text-white.svg" alt="Scrollless screen time app"
-                    class="logo-text">
-            </div>
-            <div class="tagline">
-                <p>Set a timer before you open the app. When it runs out, the scrolling stops.</p>
-            </div>
-            <div class="cta">
-                <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="download-btn"
-                    id="download-app-btn" target="_blank">Download on the Play Store</a>
-
-            </div>
-        </header>
-
-        <main class="content-sections">
-            <!-- Section 1: Problem-Solution -->
-            <section class="content-block">
-                <h2>Break the scrolling loop</h2>
-                <p>You open Instagram for "just a minute." A while later you switch to YouTube, then TikTok.
-                    Daily limits are already spent by lunch, and most are too easy to tap past in the moment.</p>
-                <p>Scrollless works differently. Before you open any app you have picked, it asks:
-                    <strong>"How long do you want this session to be?"</strong>
-                    When the time is up, all of those apps lock at once. No switching to another one. No tapping past it.
-                    You take a short break, then you decide again.
-                </p>
-                <p><a href="/how-it-works" class="secondary-btn">How It Works</a></p>
-            </section>
-
-            <!-- Section 2: Why Scrollless (merged with features) -->
-            <section class="differentiator-section">
-                <h2>Why Scrollless?</h2>
-                <p>Most screen time apps fight you. Scrollless puts you in charge.</p>
-                <div class="diff-grid">
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                        </div>
-                        <h3>You set the time</h3>
-                        <p>You choose how long each session lasts, like making a small promise to yourself.
-                            No surprise lockouts and no daily cap you forgot you set.</p>
-                    </div>
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </div>
-                        <h3>All apps lock together</h3>
-                        <p>Close Instagram, open YouTube, switch to TikTok. Sound familiar? Scrollless locks all
-                            the apps you picked at the same time, so there is nowhere to bounce to.</p>
-                    </div>
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                            </svg>
-                        </div>
-                        <h3>Short sessions are easier</h3>
-                        <p>Pick a short timer and you are in right away. Pick a long one and there is a brief wait first.
-                            A small nudge toward the shorter choice.</p>
-                    </div>
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                            </svg>
-                        </div>
-                        <h3>A short break in between</h3>
-                        <p>After each session there is a short break before you can go again. Long enough
-                            to interrupt the habit, short enough that it does not annoy you.</p>
-                    </div>
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                            </svg>
-                        </div>
-                        <h3>Based on how habits work</h3>
-                        <p>The design borrows from research on habits and on commitment devices, the trick of
-                            deciding now so the future you sticks to it. It works with your psychology, not against it.</p>
-                    </div>
-                    <div class="diff-card">
-                        <div class="diff-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="1" x2="12" y2="23"></line>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                        <h3>Free to use</h3>
-                        <p>Scrollless is free, with a few light ads to keep it running.
-                            Prefer none? Remove them with a one-time purchase.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 3: Testimonials -->
-            <section class="testimonials-section">
-                <h2>What people tell us</h2>
-                <div class="reviews-list">
-                    <div class="review-quote">
-                        <div class="review-wreath">
-                            <img src="wreath-left.png" alt="" class="wreath-left" aria-hidden="true">
-                            <div class="review-content">
-                                <div class="review-stars">★★★★★</div>
-                                <p class="review-text">Your app is genius. The idea is so good.
-                                    You don't forbid yourself from using your phone,
-                                    you just use it on purpose. Exactly what I needed.</p>
-                            </div>
-                            <img src="wreath-right.png" alt="" class="wreath-right" aria-hidden="true">
-                        </div>
-                    </div>
-                    <div class="review-quote">
-                        <div class="review-wreath">
-                            <img src="wreath-left.png" alt="" class="wreath-left" aria-hidden="true">
-                            <div class="review-content">
-                                <div class="review-stars">★★★★★</div>
-                                <p class="review-text">Scrollless really works for me. It solves the problem
-                                    far better than the other apps I have been switching between
-                                    for over five years. Keep going.</p>
-                            </div>
-                            <img src="wreath-right.png" alt="" class="wreath-right" aria-hidden="true">
-                        </div>
-                    </div>
-                </div>
-                <div class="stat-highlight">
-                    <span class="stat-number">~70%</span>
-                    <span class="stat-label">average screen time<br>reduction reported</span>
-                </div>
-            </section>
-
-            <!-- Section 4: Founder Story -->
-            <section class="founder-section">
-                <div class="founder-card">
-                    <h3>The story behind Scrollless</h3>
-                    <p>I built Scrollless because nothing else worked for me. The built-in tools were too easy
-                        to ignore, other apps were too rigid with daily limits, and the good ones put the useful
-                        parts behind a paywall. So I made my own while studying at HSG, and kept it free for everyone.</p>
-                </div>
-            </section>
-
-
-
-            <!-- FAQ -->
-            <section class="faq-section">
-                <h2>Common questions</h2>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">How does Scrollless stop doomscrolling?<span
-                            class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>When you open an app like Instagram, TikTok or YouTube, Scrollless asks how long you want this
-                            session to be. You set a timer. When time is up, all your chosen apps lock together and you
-                            take a short break. Setting a time first makes you decide on purpose instead of opening the
-                            app out of habit.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Is Scrollless free?<span
-                            class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>Yes. Scrollless is free to download and use. It runs on a few light ads. If you would rather
-                            have none, you can remove them with a one-time in-app purchase.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">How is it different from Digital Wellbeing or
-                        Screen Time?<span class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>Built-in tools like Digital Wellbeing and iPhone Screen Time set a daily limit that you can
-                            tap past in a second. Scrollless works per session, not per day. It locks all your chosen
-                            apps at the same time and asks you to set a length before each session, so you stop and
-                            decide rather than reaching for the same app again.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Does it work with Instagram, TikTok and
-                        YouTube?<span class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer,
-                            whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Does Scrollless drain battery?<span
-                            class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>No. Scrollless sits quietly in the background and only does anything when you open one of your
-                            chosen apps. The effect on battery is tiny.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Is it available on iPhone and Android?<span
-                            class="faq-toggle">+</span></button>
-                    <div class="faq-answer">
-                        <p>Yes. Scrollless is on both iPhone (Apple App Store) and Android (Google Play Store). The
-                            download button on this site sends you to the right store for your phone.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Final CTA -->
-            <section class="cta-bottom">
-                <h2>Ready to scroll on your terms?</h2>
-                <p>Set your first timer today. Scrollless is free on iPhone and Android.</p>
-                <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" class="download-btn"
-                    target="_blank">Download on the Play Store</a>
-            </section>
-        </main>
+<!-- Nav -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-left">
+      <a href="/" class="brand"><img src="/Scrollless%20icon%20black.svg" alt="Scrollless"><span>Scrollless</span></a>
+      <div class="nav-links">
+        <a href="/how-it-works">How it works</a>
+        <a href="/blog/stop-doomscrolling">Why Scrollless</a>
+        <a href="/troubleshoot">Help</a>
+      </div>
     </div>
+    <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank" class="btn nav-btn">Download</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-    <!-- Award Bar -->
-    <section class="logo-bar">
-        <p class="logo-bar-label">Awarded by</p>
-        <div class="logo-bar-logos">
-            <div class="logo-bar-item">
-                <img src="HSG_Logo_EN_RGB_Weiss-1024x213.avif" alt="University of St. Gallen (HSG)" class="hsg-logo">
-                <span class="award-name">Entrepreneurial Talents Programme</span>
-            </div>
-        </div>
-    </section>
+<!-- Hero: split + real interactive dial -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Screen time, on your terms</p>
+      <h1 class="display">Set a timer<br>before you<br>scroll.</h1>
+      <p class="sub">When the time runs out, the apps you picked all lock at once. The next time you come back the cycle repeats.</p>
+      <div class="cta-row">
+        <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank" class="btn big download-btn">Get Scrollless free</a>
+        <span class="platforms">On <a href="https://apps.apple.com/app/id6761528098" target="_blank">iPhone</a> and <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank">Android</a></span>
+      </div>
+    </div>
+    <div class="dial-stage">
+      <div class="dial" id="dial" role="slider" aria-label="Session length in minutes" aria-valuemin="1" aria-valuemax="60" aria-valuenow="1" tabindex="0">
+        <svg viewBox="0 0 650 650">
+          <g class="ticks">
+            <path d="M325.5,536L325.5,621"/><path d="M115,325.5L30,325.5"/><path d="M620,325.5L535,325.5"/>
+            <path d="M579.45,175.14L532.29,203.44"/><path d="M120.45,451.14L73.29,479.44"/><path d="M581.83,469.88L534.18,442.41"/>
+            <path d="M113.4,211.63L65.75,184.17"/><path d="M477.87,577.31L448.99,530.51"/><path d="M201.75,119.12L172.87,72.31"/>
+            <path d="M468.73,67.21L442.19,115.38"/><path d="M210.73,536.21L184.19,584.38"/><path d="M325.5,31L325.5,116"/>
+          </g>
+          <circle class="track" cx="325" cy="325" r="314"></circle>
+          <circle class="arc" id="arc" cx="325" cy="325" r="314" transform="rotate(-90 325 325)"></circle>
+          <circle class="thumb" id="thumb" cx="325" cy="11" r="15"></circle>
+        </svg>
+        <div class="dial-readout"><span class="num" id="readout">1</span><span class="unit">min</span></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <footer>
-        <div class="footer-container">
-            <div class="social-links">
-                <a href="https://www.instagram.com/scrollless_app" target="_blank" aria-label="Instagram">
-                    <svg class="social-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="https://www.tiktok.com/@scrollless.ch" target="_blank" aria-label="TikTok">
-                    <svg class="social-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                        stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="footer-legal">
-                <a href="/terms">Terms</a>
-                <span class="separator"></span>
-                <a href="/privacy">Privacy</a>
-                <span class="separator"></span>
-                <a href="mailto:scrollless.app@gmail.com">Contact</a>
-            </div>
-            <div class="copyright">
-                &copy; <span class="current-year">2026</span> Scrollless. All rights reserved.
-            </div>
+<main>
+  <!-- Every session: auto-playing frameless demo -->
+  <section class="reveal">
+    <div class="wrap">
+      <p class="sec-label">01 / Every session</p>
+      <h2 class="section-title">How it works</h2>
+      <div class="demo-grid">
+        <div class="demo-cap">
+          <h3>It starts automatically when you open an app</h3>
+          <p>The same loop every time: set a timer, scroll while it runs, and when time is up the apps you picked all lock at once. You take a short break, then choose again on purpose.</p>
+          <ul class="demo-track" id="track">
+            <li data-i="0"><span class="dot"></span>You open the apps and get asked to set a time</li>
+            <li data-i="1"><span class="dot"></span>You are free to use the apps while the session runs</li>
+            <li data-i="2"><span class="dot"></span>Time is up, you take at least a 5 minute break</li>
+          </ul>
         </div>
-    </footer>
-    <script src="script.js?v=1"></script>
+
+        <div class="stage" id="stage">
+          <!-- Scene 0: set the timer (same dial as the hero) -->
+          <div class="scene on">
+            <div class="pbar-label">Set your session</div>
+            <div class="mini-dial">
+              <svg viewBox="0 0 650 650">
+                <g class="ticks">
+                  <path d="M325.5,536L325.5,621"/><path d="M115,325.5L30,325.5"/><path d="M620,325.5L535,325.5"/>
+                  <path d="M579.45,175.14L532.29,203.44"/><path d="M120.45,451.14L73.29,479.44"/><path d="M581.83,469.88L534.18,442.41"/>
+                  <path d="M113.4,211.63L65.75,184.17"/><path d="M477.87,577.31L448.99,530.51"/><path d="M201.75,119.12L172.87,72.31"/>
+                  <path d="M468.73,67.21L442.19,115.38"/><path d="M210.73,536.21L184.19,584.38"/><path d="M325.5,31L325.5,116"/>
+                </g>
+                <circle class="mt" cx="325" cy="325" r="314"></circle>
+                <circle class="ma" id="marc" cx="325" cy="325" r="314" transform="rotate(-90 325 325)"></circle>
+                <circle class="mthumb" id="mthumb" cx="325" cy="11" r="15"></circle>
+              </svg>
+              <div class="mnum"><b id="mnum">20</b><span>min</span></div>
+            </div>
+            <div class="pill-btn" id="setbtn">Set Timer</div>
+          </div>
+
+          <!-- Scene 1: scroll while the session bar fills (same bar + spot as the break) -->
+          <div class="scene">
+            <div class="pbar-label">use the apps freely</div>
+            <div class="demo-visual" id="scrollvisual">
+              <div class="feed">
+                <div class="feed-rows">
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <!-- duplicate set for the seamless -50% loop -->
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                </div>
+              </div>
+              <!-- the clean lock that settles on top once time is up -->
+              <div class="lock-overlay"><div class="lock" id="lock"><span class="shackle"></span><span class="body"></span><span class="keyhole"></span></div></div>
+            </div>
+            <div class="tbar" id="sesstbar"><div class="fill" id="sessfill"></div></div>
+          </div>
+
+          <!-- Scene 2: close-up, slip the phone deep into a diagonal front pocket -->
+          <div class="scene">
+            <div class="pbar-label">Put your phone away and the next time you return the process repeats</div>
+            <div class="demo-visual pocket-scene">
+              <!-- BACK: waistband + left seam, the phone sits in front of these -->
+              <svg class="pocket-svg pocket-back" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
+                <path class="pk-line" d="M163.809 615.845C575.809 834.674 1130.31 919.516 1667.31 907.674C2288.71 893.971 2875.31 820.174 3273.3 615.845"/>
+                <path class="pk-line" d="M819.359 3079.67C819.359 3079.67 770.306 2310.17 770.305 1803.16C770.305 1301.7 770.308 833.173 770.308 833.173"/>
+              </svg>
+              <div class="phone-drop" id="phonedrop"><span class="spk"></span><span class="screen"></span></div>
+              <!-- FRONT: the two arcs + a white occluder so the phone tucks behind the upper arc -->
+              <svg class="pocket-svg pocket-front" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
+                <path class="pk-bag" d="M794.742 2629.67 C794.742 2629.67 1894.27 2557.18 2443.04 1803.16 C2819.6 1285.76 2783.31 787.673 2783.31 787.673 L3294 787.673 L3294 3545 L900 3545 L900 2629.67 Z"/>
+                <path class="pk-line" d="M794.742 2629.67C794.742 2629.67 1894.27 2557.18 2443.04 1803.16C2819.6 1285.76 2783.31 787.673 2783.31 787.673"/>
+                <path class="pk-line" d="M803.876 2810.17C803.876 2810.17 2022.54 2670.19 2571.31 1916.17C2947.87 1398.77 2957.31 744.173 2957.31 744.173"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison: 3 columns -->
+  <section class="reveal">
+    <div class="wrap">
+      <p class="sec-label">02 / Why it works</p>
+      <h2 class="section-title">Daily limits fail. Sessions hold.</h2>
+      <p class="lead">Android's Digital Wellbeing and iPhone's Screen Time are free, but they only act once you pass a daily cap, and one tap clears it: Ignore Limit, or the One More Minute that iOS 26 grants once a day no matter the settings. The paid blockers enforce harder, but the part that helps sits behind a subscription. Scrollless stops you the moment you open the app and keeps the blocking free.</p>
+      <div class="ctable">
+        <div class="crow head">
+          <div class="cc feat">&nbsp;</div>
+          <div class="cc">System limits</div>
+          <div class="cc">Other blockers</div>
+          <div class="cc us col-us">Scrollless</div>
+        </div>
+        <div class="crow"><div class="feat">Works per session, every time you open the app</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">Flexibly set the length for each session</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-n">✕</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">A break between sessions</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-p">~</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">Locks every app you chose at the same time</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">Full blocking, free</div><div class="cc"><span class="mk-y">✓</span></div><div class="cc"><span class="mk-n">✕</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+      </div>
+      <p class="compare-foot">The paid blockers can match the enforcement, but they charge for it. Scrollless keeps the blocking free, and the optional yearly plan only removes the ads.</p>
+    </div>
+  </section>
+
+  <!-- Quotes -->
+  <section class="reveal">
+    <div class="wrap">
+      <p class="sec-label">03 / Proof</p>
+      <div class="reviews">
+        <div class="review-wreath">
+          <img src="/wreath-left.png" alt="" aria-hidden="true">
+          <div class="review-content">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">Your app is genius. You don't forbid yourself from using your phone, you just use it on purpose. Exactly what I needed.</p>
+          </div>
+          <img src="/wreath-right.png" alt="" aria-hidden="true">
+        </div>
+        <div class="review-wreath">
+          <img src="/wreath-left.png" alt="" aria-hidden="true">
+          <div class="review-content">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">It solves the problem better than the apps I switched between for over five years. Keep going.</p>
+          </div>
+          <img src="/wreath-right.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Award bar -->
+  <section class="awards reveal">
+    <div class="wrap">
+      <p class="label">Awarded by</p>
+      <img src="/HSG_Logo_EN_RGB_Weiss-1024x213.avif" alt="University of St. Gallen (HSG)">
+      <span class="award-name">Entrepreneurial Talents Programme</span>
+    </div>
+  </section>
+
+  <!-- Founder (price/ads line removed) -->
+  <section class="reveal founder">
+    <div class="wrap">
+      <p class="sec-label">04 / Why I made it</p>
+      <p>I built Scrollless because nothing else worked for me. The built-in tools were too easy to ignore, other apps were too rigid, and the good ones hid the useful parts behind a paywall. But most importantly I was not able to decide flexibly on the situation how long I should have access. So I made my own while studying at HSG to overcome my own difficulties managing healthy phone use and helping others with the same problem.</p>
+      <p class="sig">Gian, founder of Scrollless</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="reveal">
+    <div class="wrap">
+      <p class="sec-label">05 / Questions</p>
+      <h2 class="section-title">Common questions.</h2>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">How does Scrollless stop doomscrolling?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>When you open an app like Instagram, TikTok or YouTube, Scrollless asks how long you want this session to be. You set a timer. When time is up, a cooldown of 5 minutes starts where all selected apps are locked. Setting a time first makes you decide on a limit instead of falling into hours of doomscrolling.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Is Scrollless free?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless is free to download and use, with a few light ads. No feature is locked away. If you would rather have none, you can remove the ads with an optional subscription at 19.99 a year.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">How is it different from Digital Wellbeing or Screen Time?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Built-in tools set a <b>daily limit</b> that you can <b>tap away</b> in a second. Scrollless works per session, not per day. It asks you to set a length before each session and then&nbsp;locks all your chosen apps at the same time. You can not tap it away quickly nor can you switch to another app.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Does it work with Instagram, TikTok and YouTube?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Is it on iPhone and Android?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless is on both iPhone (Apple App Store) and Android (Google Play Store). The download button on this site sends you to the right store for your phone.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final reveal">
+    <div class="wrap">
+      <h2>Ready to scroll on your terms?</h2>
+      <p>Set your first timer today. Free on iPhone and Android.</p>
+      <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank" class="btn big download-btn">Get Scrollless free</a>
+    </div>
+  </section>
+</main>
+
+<!-- Black arc band: the app curved shape carved into the top -->
+<section class="arcband">
+  <svg class="band-curve" viewBox="0 0 1087 130" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#ffffff" d="M0,0 H1087 V70 Q543.5,128 0,70 Z"></path>
+  </svg>
+  <div class="wrap">
+    <div class="mark"><img src="/scrollless-icon-white.svg" alt=""><span>Scrollless</span></div>
+  </div>
+</section>
+
+<!-- Footer: original content (social, legal, copyright) in the new black design -->
+<footer>
+  <div class="wrap">
+    <div class="social">
+      <a href="https://www.instagram.com/scrollless_app" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+      <a href="https://www.tiktok.com/@scrollless.ch" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+    </div>
+    <nav class="footer-legal">
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="mailto:scrollless.app@gmail.com">Contact</a>
+    </nav>
+    <div class="foot-copy">&copy; <span class="current-year">2026</span> Scrollless. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ===== Hero dial: real black_dial geometry, interactive 1 to 60 =====
+(function(){
+  var dial=document.getElementById('dial'), arc=document.getElementById('arc'),
+      thumb=document.getElementById('thumb'), readout=document.getElementById('readout');
+  var R=314, CX=325, CY=325, CIRC=2*Math.PI*R;
+  arc.style.strokeDasharray=CIRC;
+  var MIN=1, MAX=60, value=1;
+  function render(){
+    var sweep=value/MAX;                 // full circle at 60, like the app
+    arc.style.strokeDashoffset=CIRC*(1-sweep);
+    var ang=sweep*2*Math.PI-Math.PI/2;
+    thumb.setAttribute('cx',CX+R*Math.cos(ang)); thumb.setAttribute('cy',CY+R*Math.sin(ang));
+    var shown=Math.max(MIN,Math.min(MAX,Math.round(value)));
+    readout.textContent=shown; dial.setAttribute('aria-valuenow',shown);
+  }
+  function setFromPoint(x,y){
+    var rect=dial.getBoundingClientRect();
+    var dx=x-(rect.left+rect.width/2), dy=y-(rect.top+rect.height/2);
+    var ang=Math.atan2(dy,dx)+Math.PI/2; if(ang<0)ang+=2*Math.PI;
+    var raw=MAX*ang/(2*Math.PI);          // 0..60 from the top, clockwise
+    value=Math.min(MAX,Math.max(MIN,Math.floor(raw)+1)); // always round UP (app behavior)
+    render();
+  }
+  // Idle self-animation: the dial cycles through preset session lengths,
+  // easing to each and pausing. It pauses while the user interacts and
+  // resumes on its own a couple seconds after they let go.
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seq=[15,10,30,45,20,5], idx=0;       // targets, in order
+  var MOVE=900, HOLD=1100, RESUME=2500;     // ms: ease, dwell, idle-before-resume
+  var auto=true, dragging=false, fromVal=value, segStart=null, lastTouch=0;
+  function ease(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+  function startSeg(now){ fromVal=value; segStart=now; }
+  function pauseAuto(){ auto=false; lastTouch=performance.now(); }
+  function autoFrame(now){
+    if(reduce) return;
+    if(!auto){
+      if(!dragging && now-lastTouch>RESUME){ auto=true; startSeg(now); }
+      requestAnimationFrame(autoFrame); return;
+    }
+    if(segStart===null) startSeg(now);
+    var el=now-segStart;
+    if(el<MOVE){ value=fromVal+(seq[idx]-fromVal)*ease(el/MOVE); }
+    else if(el<MOVE+HOLD){ value=seq[idx]; }
+    else { idx=(idx+1)%seq.length; startSeg(now); }
+    render();
+    requestAnimationFrame(autoFrame);
+  }
+  function down(e){ pauseAuto(); dragging=true; dial.classList.add('dragging'); move(e); e.preventDefault(); }
+  function move(e){ if(!dragging)return; var t=e.touches?e.touches[0]:e; setFromPoint(t.clientX,t.clientY); }
+  function up(){ dragging=false; dial.classList.remove('dragging'); lastTouch=performance.now(); }
+  dial.addEventListener('mousedown',down); window.addEventListener('mousemove',move); window.addEventListener('mouseup',up);
+  dial.addEventListener('touchstart',down,{passive:false}); window.addEventListener('touchmove',move,{passive:false}); window.addEventListener('touchend',up);
+  dial.addEventListener('keydown',function(e){
+    if(e.key==='ArrowUp'||e.key==='ArrowRight'){ pauseAuto(); value=Math.min(MAX,Math.round(value)+1); render(); e.preventDefault(); }
+    if(e.key==='ArrowDown'||e.key==='ArrowLeft'){ pauseAuto(); value=Math.max(MIN,Math.round(value)-1); render(); e.preventDefault(); }
+  });
+  render();
+  if(!reduce) requestAnimationFrame(autoFrame);
+})();
+
+// ===== Auto-playing session demo =====
+(function(){
+  var stage=document.getElementById('stage'); if(!stage) return;
+  var track=document.querySelectorAll('#track li');
+  var scenes=stage.querySelectorAll('.scene');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var marc=document.getElementById('marc'), mthumb=document.getElementById('mthumb'),
+      mnum=document.getElementById('mnum'), setbtn=document.getElementById('setbtn');
+  var sessFill=document.getElementById('sessfill');
+  var sessTbar=document.getElementById('sesstbar');
+  var phone=document.getElementById('phonedrop');
+  var scrollVisual=document.getElementById('scrollvisual');
+  var feed=stage.querySelector('.feed-rows');
+
+  // mini dial uses the SAME geometry as the hero so it looks identical
+  var MR=314, MCX=325, MCIRC=2*Math.PI*MR;
+  marc.style.strokeDasharray=MCIRC; marc.style.strokeDashoffset=MCIRC;
+
+  // scene durations (ms). Longer steps + slower cross-fades so nothing feels rushed.
+  // BAR_DELAY holds the red bar back so it fades in calmly instead of being caught mid-fill.
+  // D_LOCK is the quiet beat where the lock settles on the frozen feed before the break.
+  var D_SET=4400, D_SCROLL=6000, D_BREAK=4200, D_RESTART=2200, BAR_DELAY=1100, D_LOCK=1500;
+  var timers=[];
+  function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
+  function later(fn,ms){ var t=setTimeout(fn,ms); timers.push(t); return t; }
+
+  function show(i){
+    scenes.forEach(function(s,k){ s.classList.toggle('on', k===i); });
+    track.forEach(function(li){ li.classList.toggle('on', +li.dataset.i===i); });
+  }
+
+  // thin progress bar: 0 -> 100% over ms
+  function runBar(fill, ms){
+    fill.style.transition='none'; fill.style.width='0%';
+    void fill.offsetWidth;                                  // commit the reset before filling
+    fill.style.transition='width '+ms+'ms linear'; fill.style.width='100%';
+  }
+  // reset a bar back to empty + hidden, ready for its scene
+  function armBar(fill, tbar){ fill.style.transition='none'; fill.style.width='0%'; tbar.classList.remove('show'); }
+
+  // dial sweeps to 20/60; cb fires once it lands on 20
+  function fillDial(cb){
+    var MIN=1, MAX=60, val=20, target=0.04+(val-MIN)/(MAX-MIN)*0.92, t0=performance.now(), d=1700;
+    (function anim(){
+      var p=Math.min(1,(performance.now()-t0)/d), sweep=target*p;
+      marc.style.strokeDashoffset=MCIRC*(1-sweep);
+      var ang=sweep*2*Math.PI-Math.PI/2;
+      mthumb.setAttribute('cx',MCX+MR*Math.cos(ang)); mthumb.setAttribute('cy',MCX+MR*Math.sin(ang));
+      mnum.textContent=Math.max(1,Math.round(val*p));
+      if(p<1) requestAnimationFrame(anim);
+      else if(cb) cb();
+    })();
+  }
+
+  function sceneSet(){
+    show(0);
+    fillDial(function(){
+      // tap Set Timer: a subtle, clean press that eases back, then hold a beat
+      setbtn.classList.add('press');
+      later(function(){ setbtn.classList.remove('press'); }, 240);
+      later(sceneScroll, 1400);
+    });
+  }
+  function sceneScroll(){
+    show(1);
+    scrollVisual.classList.remove('locked');     // feed live again after a previous loop
+    armBar(sessFill, sessTbar);
+    // hold the feed still at the top for a beat so it reads as a feed, then let it scroll
+    if(feed){ feed.style.animation='none'; void feed.offsetWidth; later(function(){ feed.style.animation=''; }, 1000); }
+    // let the bar fade in a beat late, then run it down over the rest of the session
+    later(function(){ sessTbar.classList.add('show'); runBar(sessFill, D_SCROLL-BAR_DELAY); }, BAR_DELAY);
+    // time is up: the feed freezes and dims, the lock settles cleanly on top
+    later(function(){ scrollVisual.classList.add('locked'); }, D_SCROLL);
+    // hold that locked beat, then ease into the calm break
+    later(sceneBreak, D_SCROLL+D_LOCK);
+  }
+  function sceneBreak(){
+    show(2);
+    // restart the phone-into-pocket drop from the top each time the break opens
+    if(phone){ phone.style.animation='none'; void phone.offsetWidth; phone.style.animation=''; }
+    // no bar on this scene; just hold the break, then restart at the dial
+    later(function(){ later(sceneSet, D_RESTART); }, D_BREAK);
+  }
+
+  var running=false;
+  function start(){ if(running)return; running=true; clearTimers(); sceneSet(); }
+  function reset(){ running=false; clearTimers(); }
+
+  if(reduce){ show(0); fillDial(); return; }
+  var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting) start(); else reset(); }); }, {threshold:0.25});
+  io.observe(stage);
+})();
+
+// ===== FAQ accordion (mirrors live script.js) =====
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var q=item.querySelector('.faq-question');
+  q.addEventListener('click',function(){
+    var open=item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function(o){ o.classList.remove('active'); o.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+    if(!open){ item.classList.add('active'); q.setAttribute('aria-expanded','true'); }
+  });
+});
+
+// ===== Reveal on scroll =====
+var io2=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('active'); io2.unobserve(e.target); } }); },{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){ io2.observe(el); });
+
+// ===== Nav button goes subtle while a page Download is visible (mirrors live script.js) =====
+(function(){
+  var navBtn=document.querySelector('.nav-btn'), btns=document.querySelectorAll('.download-btn');
+  if(!navBtn||!btns.length)return; var vis=new Set();
+  var ob=new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting)vis.add(e.target); else vis.delete(e.target); });
+    navBtn.classList.toggle('subtle', vis.size>0);
+  },{threshold:0});
+  btns.forEach(function(b){ ob.observe(b); });
+})();
+
+// ===== Year + iOS store routing (mirrors live script.js) =====
+document.querySelectorAll('.current-year').forEach(function(el){ el.textContent=new Date().getFullYear(); });
+(function(){
+  var APP='https://apps.apple.com/app/id6761528098', ua=navigator.userAgent;
+  var isIOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(isIOS) document.querySelectorAll('a[href*="play.google.com/store/apps/details?id=ch.scrollless"]').forEach(function(a){ a.href=APP; });
+})();
+</script>
 </body>
-
 </html>
