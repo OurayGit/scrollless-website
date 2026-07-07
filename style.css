@@ -1977,3 +1977,57 @@ body.lite .separator { background-color: #888888; }
     }
     body.lite .nav-links a { color: var(--color-black); }
 }
+
+/* =========================================================
+   Unified site header: sub-pages (body.lite) use the SAME
+   nav as the home page. Appended last and scoped to
+   `body.lite .nav` so it wins over the older .navbar rules.
+   Markup mirrors the home hero nav; the mobile drawer reuses
+   the .nav-links.active toggle already in script.js.
+   ========================================================= */
+body.lite .nav{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(120%) blur(8px); -webkit-backdrop-filter:saturate(120%) blur(8px);
+  border-bottom:1px solid #E9E9E9;
+}
+body.lite .nav .wrap{
+  max-width:1120px; margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between; height:64px;
+}
+body.lite .nav .nav-left{ display:flex; align-items:center; gap:2.2rem; }
+body.lite .nav .brand{ display:flex; align-items:center; gap:.55rem; text-decoration:none; }
+body.lite .nav .brand img{ width:26px; height:26px; }
+body.lite .nav .brand span{ font-family:var(--font-title); font-weight:700; color:#0A0A0A; font-size:1.12rem; letter-spacing:-0.03em; }
+body.lite .nav .nav-links{ display:flex; gap:1.8rem; align-items:center; }
+body.lite .nav .nav-links a{ color:#454545; text-decoration:none; font-size:.92rem; font-weight:500; font-family:var(--font-main); opacity:1; padding:0; transition:color .2s ease; }
+body.lite .nav .nav-links a::after{ display:none; }
+body.lite .nav .nav-links a:hover{ color:#0A0A0A; transform:none; }
+body.lite .nav .btn.nav-btn{
+  display:inline-block; font-family:var(--font-title); font-weight:600; font-size:.95rem;
+  text-decoration:none; padding:11px 26px; border-radius:50px;
+  background:#FF0B00; color:#fff; border:2px solid #FF0B00; white-space:nowrap; cursor:pointer;
+  transition:background .25s ease, border-color .25s ease, color .25s ease; box-shadow:none; transform:none;
+}
+body.lite .nav .btn.nav-btn:hover{ background:#0A0A0A; border-color:#0A0A0A; color:#fff; box-shadow:none; transform:none; }
+body.lite .nav .btn.nav-btn.subtle{ background:transparent; color:#0A0A0A; border-color:#E9E9E9; }
+body.lite .nav .btn.nav-btn.subtle:hover{ background:#0A0A0A; border-color:#0A0A0A; color:#fff; }
+body.lite .nav .hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; z-index:1001; }
+body.lite .nav .hamburger span{ display:block; width:24px; height:2px; background:#0A0A0A; transition:.25s; }
+
+@media (max-width:860px){
+  body.lite .nav .hamburger{ display:flex; }
+  body.lite .nav .nav-left{ gap:0; }
+  body.lite .nav .wrap{ padding:0 18px; }
+  body.lite .nav .btn.nav-btn{ padding:9px 18px; font-size:.9rem; }
+  body.lite .nav .nav-links{
+    position:fixed; top:64px; right:-100%; width:74%; max-width:320px;
+    height:auto; max-height:calc(100vh - 64px);
+    flex-direction:column; align-items:flex-start; gap:1.4rem;
+    background:rgba(255,255,255,.97); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-left:1px solid #E9E9E9; border-bottom:1px solid #E9E9E9;
+    padding:1.6rem 1.5rem; transition:right .3s ease;
+  }
+  body.lite .nav .nav-links.active{ right:0; }
+  body.lite .nav .nav-links a{ font-size:1.05rem; }
+}

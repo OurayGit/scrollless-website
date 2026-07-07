@@ -115,49 +115,74 @@
   h2.section-title{ font-size:clamp(2rem,4vw,3rem); max-width:18ch; margin-bottom:1rem; }
   .lead{ font-size:1.18rem; color:var(--body); max-width:60ch; }
 
-  /* ===== Section: auto-playing session demo (frameless, real app elements) ===== */
-  .demo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; margin-top:1rem; }
-  .demo-cap h3{ font-size:1.5rem; margin-bottom:.6rem; }
-  .demo-cap p{ max-width:46ch; }
-  .demo-track{ list-style:none; margin-top:1.6rem; }
-  .demo-track li{ display:flex; gap:.7rem; align-items:center; padding:.45rem 0; color:var(--muted); font-size:.98rem; transition:color .3s; }
-  .demo-track li .dot{ width:9px; height:9px; border-radius:50%; background:#d6d6d6; flex:0 0 auto; transition:background .3s, transform .3s; }
-  .demo-track li.on{ color:var(--ink); font-weight:500; }
-  .demo-track li.on .dot{ background:var(--red); transform:scale(1.35); }
+  /* ===== Section 01: pinned "every session" scrollytelling =====
+     One step fills the panel at a time. On scroll the panel PINS while the art
+     and caption crossfade and a vertical 01-02-03 spine fills. JS adds .on to
+     switch this on; without JS or with reduced motion it stays a plain stacked
+     timeline (all three visible). Inner animation styles (dial/feed/lock/pocket)
+     are shared by both modes and live below. */
 
-  /* Frameless stage: scenes cross-fade in place, no phone box */
-  .stage{ position:relative; width:330px; max-width:86vw; min-height:430px; margin:0 auto; }
-  .scene{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
-    opacity:0; visibility:hidden; transition:opacity .6s ease-in-out, visibility 0s linear .6s; }
-  .scene.on{ opacity:1; visibility:visible; transition:opacity .6s ease-in-out .4s, visibility 0s; }
+  /* --- shared caption + stage + number chip --- */
+  .cap-col h3{ font-size:clamp(1.5rem,2.4vw,2rem); line-height:1.15; margin-bottom:.7rem; }
+  .cap-col p{ max-width:34ch; color:var(--body); font-size:1.08rem; line-height:1.6; }
+  .stage-col{ width:260px; height:290px; display:flex; align-items:center; justify-content:center; }
+  .lnum{ width:44px; height:44px; border-radius:50%; border:1.5px solid var(--hair); background:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--head); font-weight:600;
+    font-size:.95rem; color:var(--ink); flex:0 0 auto; }
 
-  /* one small caption above each scene visual; same height so the ring never shifts */
-  .pbar-label{ font-family:var(--head); font-weight:600; font-size:.92rem; color:var(--muted); margin-bottom:1.2rem; min-height:1.2em; }
+  /* --- fallback (no JS / reduced motion): a plain stacked timeline --- */
+  .scrolly-inner{ margin-top:2.4rem; }
+  .spine{ display:none; }
+  .layers{ display:flex; flex-direction:column; gap:3rem; }
+  .step-layer{ display:grid; grid-template-columns:44px 260px minmax(0,1fr);
+    align-items:center; column-gap:2.4rem; }
+
+  /* --- pinned mode (JS on, motion allowed, wide screens) --- */
+  .scrolly.on{ height:280vh; }
+  .scrolly.on .scrolly-pin{ position:sticky; top:64px; height:calc(100svh - 64px);
+    display:flex; align-items:center; overflow:hidden; }
+  .scrolly.on .sec-label{ position:absolute; top:2.6rem; left:50%; transform:translateX(-50%);
+    width:100%; max-width:var(--maxw); padding:0 var(--gut); text-align:left; margin:0; }
+  .scrolly.on .scrolly-inner{ display:flex; flex-direction:row; align-items:center; justify-content:flex-start;
+    gap:3.2rem; width:100%; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut); }
+  .scrolly.on .spine{ display:flex; flex-direction:column; justify-content:space-between; align-items:center;
+    position:relative; height:236px; flex:0 0 auto; }
+  .scrolly.on .spine::before{ content:""; position:absolute; top:22px; bottom:22px; left:50%;
+    transform:translateX(-50%); width:2px; background:var(--hair); }
+  .spine-fill{ position:absolute; top:22px; left:50%; transform:translateX(-50%); width:2px; height:0;
+    background:var(--red); transition:height .25s linear; }
+  .spine-node{ position:relative; z-index:1; width:44px; height:44px; border-radius:50%;
+    border:1.5px solid var(--hair); background:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:var(--head); font-weight:600; font-size:.95rem; color:var(--muted);
+    transition:color .35s var(--ease), border-color .35s var(--ease), background .35s var(--ease); }
+  .spine-node.done{ border-color:var(--red); color:var(--red-text); }
+  .spine-node.active{ border-color:var(--red); background:var(--red); color:#fff; }
+  .scrolly.on .layers{ display:block; position:relative; flex:1 1 auto; max-width:820px; height:400px; }
+  .scrolly.on .step-layer{ position:absolute; inset:0; grid-template-columns:340px minmax(0,1fr);
+    column-gap:3rem; opacity:0; transform:translateY(18px) scale(.985);
+    transition:opacity .55s var(--ease), transform .55s var(--ease); pointer-events:none; }
+  .scrolly.on .step-layer.active{ opacity:1; transform:none; pointer-events:auto; }
+  .scrolly.on .stage-col{ width:340px; height:380px; }
+  .scrolly.on .mini-dial, .scrolly.on .demo-visual{ transform:scale(1.28); }
+  .scrolly.on .cap-col p{ max-width:38ch; }
+  .scrolly.on .lnum{ display:none; }
 
   /* session + break share ONE fixed-size visual block, so the bar below them
      lands in the exact same spot both times and never jumps. */
-  .demo-visual{ position:relative; width:210px; max-width:80%; height:248px; margin-bottom:1.3rem;
+  .demo-visual{ position:relative; width:236px; max-width:80%; height:278px;
     display:flex; align-items:center; justify-content:center; }
   .demo-visual.calm{ flex-direction:column; gap:1.1rem; }
-  /* timer bar: thin (same thickness as the dial ring), rounded ends, red fill.
-     It fades in a beat AFTER the scene settles, so you never catch it already part-full. */
-  .tbar{ width:210px; max-width:80%; height:5px; border-radius:50px; background:var(--hair); overflow:hidden;
-    opacity:0; transition:opacity .6s var(--ease); }
-  .tbar.show{ opacity:1; }
-  .tbar .fill{ height:100%; width:0; background:var(--red); border-radius:50px; }
 
-  /* set scene: the real dial (same ticks + arc as the hero), reading 20 min */
-  .mini-dial{ width:200px; height:200px; position:relative; margin:4px 0 22px; }
+  /* set step: the real dial (same ticks + arc as the hero), reading 20 min */
+  .mini-dial{ width:248px; height:248px; position:relative; margin:0; }
   .mini-dial svg{ width:100%; height:100%; display:block; overflow:visible; }
   .mini-dial .ticks path{ fill:none; stroke:#c4c4c4; stroke-width:5; stroke-linecap:round; }
   .mini-dial .mt{ fill:none; stroke:#ECECEC; stroke-width:14; }
   .mini-dial .ma{ fill:none; stroke:var(--red); stroke-width:14; stroke-linecap:round; }
-  .mini-dial .mthumb{ fill:var(--red); stroke:#fff; stroke-width:6; }
+  .mini-dial .mthumb{ fill:#fff; stroke:#000; stroke-width:7.5; }
   .mini-dial .mnum{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:var(--head); font-weight:700; }
-  .mini-dial .mnum b{ font-size:2.9rem; color:var(--ink); line-height:.9; }
+  .mini-dial .mnum b{ font-size:3.2rem; color:var(--ink); line-height:.9; }
   .mini-dial .mnum span{ font-size:.9rem; color:var(--ink); }
-  .pill-btn{ font-family:var(--head); font-weight:600; font-size:.88rem; padding:6px 22px; border-radius:50px; background:#fff; color:var(--ink); border:1.5px solid var(--ink); transition:transform .22s var(--ease); }
-  .pill-btn.press{ transform:scale(.96); }
 
   /* scroll scene: an Instagram-style feed (real posts), fills the shared visual block */
   .feed{ width:100%; height:100%; overflow:hidden; position:relative; border-radius:18px;
@@ -191,11 +216,11 @@
      front pocket, then waiting. Same flat outline-on-white language as above. */
   .pocket-scene{ overflow:hidden; }
   /* the phone: tall rounded body + speaker slit + screen so it reads instantly */
-  .phone-drop{ position:absolute; left:62px; top:-4px; width:86px; height:172px; z-index:2;
-    background:#fff; border:2.5px solid var(--ink); border-radius:19px; transform-origin:50% 50%;
+  .phone-drop{ position:absolute; left:69px; top:-4px; width:96px; height:193px; z-index:2;
+    background:#fff; border:2.5px solid var(--ink); border-radius:21px; transform-origin:50% 50%;
     animation:phonetuck 2s ease-in-out .5s both; }
-  .phone-drop .spk{ position:absolute; top:10px; left:50%; width:26px; height:4px; margin-left:-13px; border-radius:4px; background:var(--ink); }
-  .phone-drop .screen{ position:absolute; left:9px; right:9px; top:22px; bottom:10px; border-radius:11px; background:var(--paper); }
+  .phone-drop .spk{ position:absolute; top:11px; left:50%; width:29px; height:4px; margin-left:-14.5px; border-radius:4px; background:var(--ink); }
+  .phone-drop .screen{ position:absolute; left:10px; right:10px; top:25px; bottom:11px; border-radius:12px; background:var(--paper); }
   /* pocket as line art: waistband + left seam sit BEHIND the phone, the two arcs
      sit IN FRONT, so the phone tucks behind the upper arc. pk-bag = white occluder. */
   .pocket-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
@@ -204,8 +229,8 @@
   .pocket-svg .pk-line{ fill:none; stroke:var(--ink); stroke-width:40; stroke-linecap:round; }
   .pocket-svg .pk-bag{ fill:var(--paper); }
   @keyframes phonetuck{
-    0%{ transform:translate(7px,33px) rotate(-19deg) scale(1.1); }
-    100%{ transform:translate(30px,117px) rotate(-19deg) scale(1.1); }
+    0%{ transform:translate(8px,37px) rotate(-19deg) scale(1.1); }
+    100%{ transform:translate(34px,131px) rotate(-19deg) scale(1.1); }
   }
 
   /* padlock shown during the break (apps are closed). Keyhole is punched out of the body. */
@@ -235,10 +260,10 @@
   .compare-foot{ font-size:.95rem; color:var(--body); margin-top:1.3rem; }
 
   /* Quotes (wreath) */
-  .reviews{ display:flex; flex-direction:column; gap:2.4rem; max-width:760px; margin:0 auto; }
-  .review-wreath{ display:flex; align-items:center; justify-content:center; gap:.4rem; }
+  .reviews{ display:flex; flex-direction:column; gap:3.4rem; max-width:760px; margin:0 auto; }
+  .review-wreath{ display:flex; align-items:center; justify-content:center; gap:1.2rem; }
   .review-wreath img{ height:150px; width:auto; opacity:.9; flex:0 0 auto; }
-  .review-content{ text-align:center; padding:0 .4rem; }
+  .review-content{ text-align:center; padding:0 .8rem; }
   .review-stars{ color:var(--red); letter-spacing:2px; margin-bottom:.6rem; }
   .review-text{ font-family:var(--head); font-weight:500; font-size:1.25rem; line-height:1.4; color:var(--ink); max-width:38ch; }
 
@@ -291,20 +316,26 @@
   @media(max-width:860px){
     .hero .wrap{ grid-template-columns:1fr; gap:2.5rem; min-height:auto; padding:2rem 24px 3rem; }
     .dial-stage{ order:-1; }
-    .demo-grid{ grid-template-columns:1fr; gap:2.4rem; }
-    .stage{ order:-1; }
     .crow{ grid-template-columns:1.4fr .8fr .8fr .9fr; }
     .crow .feat{ padding:.9rem; font-size:.9rem; }
     .nav-links{ display:none; }
     .hamburger{ display:flex; }
+    .nav .wrap{ padding:0 18px; }
+    .nav-left{ gap:0; }
+    .btn.nav-btn{ padding:9px 18px; font-size:.9rem; }
     section{ padding:4rem 0; }
+    .review-wreath{ gap:.6rem; }
+    .review-wreath img{ height:104px; }
+    .review-text{ font-size:1.12rem; }
+    .step-layer{ grid-template-columns:36px minmax(0,1fr); grid-template-areas:"num cap" "num stage"; column-gap:1.1rem; align-items:start; }
+    .lnum{ grid-area:num; width:36px; height:36px; font-size:.85rem; }
+    .cap-col{ grid-area:cap; }
+    .stage-col{ grid-area:stage; width:100%; max-width:260px; height:280px; margin-top:1.1rem; }
   }
   @media(prefers-reduced-motion:reduce){
     .reveal{ opacity:1; transform:none; transition:none; }
     .feed-rows{ animation:none; }
-    .phone-drop{ animation:none; transform:translate(30px,117px) rotate(-19deg) scale(1.1); }
-    .tbar{ opacity:1; }
-    .scene{ transition:none; }
+    .phone-drop{ animation:none; transform:translate(34px,131px) rotate(-19deg) scale(1.1); }
     html{ scroll-behavior:auto; }
   }
 </style>
@@ -385,13 +416,18 @@
     },
     {
       "@type": "Question",
+      "name": "How long before I can set a new timer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "At least 5 minutes. After a session ends there is a 5 minute break before the app lets you start another one. That gap is there on purpose, so you are not just waiting out the clock to dive back in. If you catch yourself hopping to another app to bridge those 5 minutes, add that app to Scrollless too. There are things worth getting back to." }
+    },
+    {
+      "@type": "Question",
       "name": "How is it different from Digital Wellbeing or Screen Time?",
       "acceptedAnswer": { "@type": "Answer", "text": "Built-in tools set a daily limit that you can tap away in a second. Scrollless works per session, not per day. It asks you to set a length before each session and then locks all your chosen apps at the same time. You can not tap it away quickly nor can you switch to another app." }
     },
     {
       "@type": "Question",
       "name": "Does it work with Instagram, TikTok and YouTube?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Snapchat or even games." }
     },
     {
       "@type": "Question",
@@ -452,83 +488,101 @@
 </header>
 
 <main>
-  <!-- Every session: auto-playing frameless demo -->
-  <section class="reveal">
-    <div class="wrap">
-      <p class="sec-label">01 / Every session</p>
-      <h2 class="section-title">How it works</h2>
-      <div class="demo-grid">
-        <div class="demo-cap">
-          <h3>It starts automatically when you open an app</h3>
-          <p>The same loop every time: set a timer, scroll while it runs, and when time is up the apps you picked all lock at once. You take a short break, then choose again on purpose.</p>
-          <ul class="demo-track" id="track">
-            <li data-i="0"><span class="dot"></span>You open the apps and get asked to set a time</li>
-            <li data-i="1"><span class="dot"></span>You are free to use the apps while the session runs</li>
-            <li data-i="2"><span class="dot"></span>Time is up, you take at least a 5 minute break</li>
-          </ul>
-        </div>
+  <!-- Section 01: pinned every-session scrollytelling (one step fills the panel at a time) -->
+  <section>
+    <div class="scrolly" id="scrolly">
+      <div class="scrolly-pin">
+        <p class="sec-label">01 / Every session</p>
+        <div class="scrolly-inner">
 
-        <div class="stage" id="stage">
-          <!-- Scene 0: set the timer (same dial as the hero) -->
-          <div class="scene on">
-            <div class="pbar-label">Set your session</div>
-            <div class="mini-dial">
-              <svg viewBox="0 0 650 650">
-                <g class="ticks">
-                  <path d="M325.5,536L325.5,621"/><path d="M115,325.5L30,325.5"/><path d="M620,325.5L535,325.5"/>
-                  <path d="M579.45,175.14L532.29,203.44"/><path d="M120.45,451.14L73.29,479.44"/><path d="M581.83,469.88L534.18,442.41"/>
-                  <path d="M113.4,211.63L65.75,184.17"/><path d="M477.87,577.31L448.99,530.51"/><path d="M201.75,119.12L172.87,72.31"/>
-                  <path d="M468.73,67.21L442.19,115.38"/><path d="M210.73,536.21L184.19,584.38"/><path d="M325.5,31L325.5,116"/>
-                </g>
-                <circle class="mt" cx="325" cy="325" r="314"></circle>
-                <circle class="ma" id="marc" cx="325" cy="325" r="314" transform="rotate(-90 325 325)"></circle>
-                <circle class="mthumb" id="mthumb" cx="325" cy="11" r="15"></circle>
-              </svg>
-              <div class="mnum"><b id="mnum">20</b><span>min</span></div>
-            </div>
-            <div class="pill-btn" id="setbtn">Set Timer</div>
+          <!-- vertical 01-02-03 progress spine (pinned mode only) -->
+          <div class="spine" aria-hidden="true">
+            <span class="spine-fill"></span>
+            <span class="spine-node">01</span>
+            <span class="spine-node">02</span>
+            <span class="spine-node">03</span>
           </div>
 
-          <!-- Scene 1: scroll while the session bar fills (same bar + spot as the break) -->
-          <div class="scene">
-            <div class="pbar-label">use the apps freely</div>
-            <div class="demo-visual" id="scrollvisual">
-              <div class="feed">
-                <div class="feed-rows">
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <!-- duplicate set for the seamless -50% loop -->
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
-                  <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+          <div class="layers">
+
+            <!-- Step 1: set the timer (same dial as the hero) -->
+            <div class="step-layer">
+              <span class="lnum">01</span>
+              <div class="stage-col">
+                <div class="mini-dial">
+                  <svg viewBox="0 0 650 650">
+                    <g class="ticks">
+                      <path d="M325.5,536L325.5,621"/><path d="M115,325.5L30,325.5"/><path d="M620,325.5L535,325.5"/>
+                      <path d="M579.45,175.14L532.29,203.44"/><path d="M120.45,451.14L73.29,479.44"/><path d="M581.83,469.88L534.18,442.41"/>
+                      <path d="M113.4,211.63L65.75,184.17"/><path d="M477.87,577.31L448.99,530.51"/><path d="M201.75,119.12L172.87,72.31"/>
+                      <path d="M468.73,67.21L442.19,115.38"/><path d="M210.73,536.21L184.19,584.38"/><path d="M325.5,31L325.5,116"/>
+                    </g>
+                    <circle class="mt" cx="325" cy="325" r="314"></circle>
+                    <circle class="ma" id="marc" cx="325" cy="325" r="314" transform="rotate(-90 325 325)"></circle>
+                    <circle class="mthumb" id="mthumb" cx="325" cy="11" r="15"></circle>
+                  </svg>
+                  <div class="mnum"><b id="mnum">20</b><span>min</span></div>
                 </div>
               </div>
-              <!-- the clean lock that settles on top once time is up -->
-              <div class="lock-overlay"><div class="lock" id="lock"><span class="shackle"></span><span class="body"></span><span class="keyhole"></span></div></div>
+              <div class="cap-col">
+                <h3>You set a timer</h3>
+                <p>When you open a limited app, Scrollless asks you to set a timer. Based on how much time you have to waste, you choose the minimum amount. The more time you select, the longer you wait before you can start using the apps.</p>
+              </div>
             </div>
-            <div class="tbar" id="sesstbar"><div class="fill" id="sessfill"></div></div>
-          </div>
 
-          <!-- Scene 2: close-up, slip the phone deep into a diagonal front pocket -->
-          <div class="scene">
-            <div class="pbar-label">Put your phone away and the next time you return the process repeats</div>
-            <div class="demo-visual pocket-scene">
-              <!-- BACK: waistband + left seam, the phone sits in front of these -->
-              <svg class="pocket-svg pocket-back" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
-                <path class="pk-line" d="M163.809 615.845C575.809 834.674 1130.31 919.516 1667.31 907.674C2288.71 893.971 2875.31 820.174 3273.3 615.845"/>
-                <path class="pk-line" d="M819.359 3079.67C819.359 3079.67 770.306 2310.17 770.305 1803.16C770.305 1301.7 770.308 833.173 770.308 833.173"/>
-              </svg>
-              <div class="phone-drop" id="phonedrop"><span class="spk"></span><span class="screen"></span></div>
-              <!-- FRONT: the two arcs + a white occluder so the phone tucks behind the upper arc -->
-              <svg class="pocket-svg pocket-front" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
-                <path class="pk-bag" d="M794.742 2629.67 C794.742 2629.67 1894.27 2557.18 2443.04 1803.16 C2819.6 1285.76 2783.31 787.673 2783.31 787.673 L3294 787.673 L3294 3545 L900 3545 L900 2629.67 Z"/>
-                <path class="pk-line" d="M794.742 2629.67C794.742 2629.67 1894.27 2557.18 2443.04 1803.16C2819.6 1285.76 2783.31 787.673 2783.31 787.673"/>
-                <path class="pk-line" d="M803.876 2810.17C803.876 2810.17 2022.54 2670.19 2571.31 1916.17C2947.87 1398.77 2957.31 744.173 2957.31 744.173"/>
-              </svg>
+            <!-- Step 2: use every app freely, then all lock at once -->
+            <div class="step-layer">
+              <span class="lnum">02</span>
+              <div class="stage-col">
+                <div class="demo-visual" id="scrollvisual">
+                  <div class="feed">
+                    <div class="feed-rows">
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <!-- duplicate set for the seamless -50% loop -->
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                      <div class="post"><div class="post-top"><div class="av"></div><div class="nm"></div></div><div class="post-img"></div><div class="post-acts"><span></span><span></span><span></span></div><div class="post-cap"></div></div>
+                    </div>
+                  </div>
+                  <!-- the clean lock that settles on top once time is up -->
+                  <div class="lock-overlay"><div class="lock" id="lock"><span class="shackle"></span><span class="body"></span><span class="keyhole"></span></div></div>
+                </div>
+              </div>
+              <div class="cap-col">
+                <h3>You are free to use all apps</h3>
+                <p>Once a timer is set, you can use all your apps freely and uninterrupted. When it ends, you get locked out of every app at the same time.</p>
+              </div>
             </div>
+
+            <!-- Step 3: slip the phone into a pocket and get on with life -->
+            <div class="step-layer">
+              <span class="lnum">03</span>
+              <div class="stage-col">
+                <div class="demo-visual pocket-scene">
+                  <!-- BACK: waistband + left seam, the phone sits in front of these -->
+                  <svg class="pocket-svg pocket-back" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="pk-line" d="M163.809 615.845C575.809 834.674 1130.31 919.516 1667.31 907.674C2288.71 893.971 2875.31 820.174 3273.3 615.845"/>
+                    <path class="pk-line" d="M819.359 3079.67C819.359 3079.67 770.306 2310.17 770.305 1803.16C770.305 1301.7 770.308 833.173 770.308 833.173"/>
+                  </svg>
+                  <div class="phone-drop" id="phonedrop"><span class="spk"></span><span class="screen"></span></div>
+                  <!-- FRONT: the two arcs + a white occluder so the phone tucks behind the upper arc -->
+                  <svg class="pocket-svg pocket-front" viewBox="0 0 3294 3545" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="pk-bag" d="M794.742 2629.67 C794.742 2629.67 1894.27 2557.18 2443.04 1803.16 C2819.6 1285.76 2783.31 787.673 2783.31 787.673 L3294 787.673 L3294 3545 L900 3545 L900 2629.67 Z"/>
+                    <path class="pk-line" d="M794.742 2629.67C794.742 2629.67 1894.27 2557.18 2443.04 1803.16C2819.6 1285.76 2783.31 787.673 2783.31 787.673"/>
+                    <path class="pk-line" d="M803.876 2810.17C803.876 2810.17 2022.54 2670.19 2571.31 1916.17C2947.87 1398.77 2957.31 744.173 2957.31 744.173"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="cap-col">
+                <h3>You get on with your day</h3>
+                <p>The lock is your cue to get back on with life and put your phone away. The next time you reopen a limited app, the process naturally starts over.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -540,21 +594,20 @@
     <div class="wrap">
       <p class="sec-label">02 / Why it works</p>
       <h2 class="section-title">Daily limits fail. Sessions hold.</h2>
-      <p class="lead">Android's Digital Wellbeing and iPhone's Screen Time are free, but they only act once you pass a daily cap, and one tap clears it: Ignore Limit, or the One More Minute that iOS 26 grants once a day no matter the settings. The paid blockers enforce harder, but the part that helps sits behind a subscription. Scrollless stops you the moment you open the app and keeps the blocking free.</p>
+      <p class="lead">The free native tools on iPhone and Android only stop you after a whole day of use, and one tap turns them off. Paid apps block better, but they charge you for the part that helps. Scrollless makes you decide how long the moment you open the app, and stops you when that time is up, not after a whole day. Blocking is free.</p>
       <div class="ctable">
         <div class="crow head">
           <div class="cc feat">&nbsp;</div>
-          <div class="cc">System limits</div>
+          <div class="cc">iPhone &amp; Android limits</div>
           <div class="cc">Other blockers</div>
           <div class="cc us col-us">Scrollless</div>
         </div>
-        <div class="crow"><div class="feat">Works per session, every time you open the app</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
-        <div class="crow"><div class="feat">Flexibly set the length for each session</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-n">✕</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
-        <div class="crow"><div class="feat">A break between sessions</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-p">~</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
-        <div class="crow"><div class="feat">Locks every app you chose at the same time</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">Stops you each time you open the app</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">You pick how long each time</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-n">✕</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">A break before you can start again</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-p">~</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
+        <div class="crow"><div class="feat">Locks all your apps at the same time</div><div class="cc"><span class="mk-n">✕</span></div><div class="cc"><span class="mk-y">✓</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
         <div class="crow"><div class="feat">Full blocking, free</div><div class="cc"><span class="mk-y">✓</span></div><div class="cc"><span class="mk-n">✕</span></div><div class="cc col-us"><span class="mk-y">✓</span></div></div>
       </div>
-      <p class="compare-foot">The paid blockers can match the enforcement, but they charge for it. Scrollless keeps the blocking free, and the optional yearly plan only removes the ads.</p>
     </div>
   </section>
 
@@ -609,8 +662,9 @@
       <div class="faq">
         <div class="faq-item"><button class="faq-question" aria-expanded="false">How does Scrollless stop doomscrolling?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>When you open an app like Instagram, TikTok or YouTube, Scrollless asks how long you want this session to be. You set a timer. When time is up, a cooldown of 5 minutes starts where all selected apps are locked. Setting a time first makes you decide on a limit instead of falling into hours of doomscrolling.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false">Is Scrollless free?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless is free to download and use, with a few light ads. No feature is locked away. If you would rather have none, you can remove the ads with an optional subscription at 19.99 a year.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">How long before I can set a new timer?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>At least 5 minutes. After a session ends there is a 5 minute break before the app lets you start another one. That gap is there on purpose, so you are not just waiting out the clock to dive back in. If you catch yourself hopping to another app to bridge those 5 minutes, add that app to Scrollless too. There are things worth getting back to.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false">How is it different from Digital Wellbeing or Screen Time?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Built-in tools set a <b>daily limit</b> that you can <b>tap away</b> in a second. Scrollless works per session, not per day. It asks you to set a length before each session and then&nbsp;locks all your chosen apps at the same time. You can not tap it away quickly nor can you switch to another app.</p></div></div>
-        <div class="faq-item"><button class="faq-question" aria-expanded="false">Does it work with Instagram, TikTok and YouTube?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Reels, Shorts, Snapchat or even games.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false">Does it work with Instagram, TikTok and YouTube?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless works with any app on your phone. You pick which ones to put on a timer, whether that is Instagram, TikTok, YouTube, Snapchat or even games.</p></div></div>
         <div class="faq-item"><button class="faq-question" aria-expanded="false">Is it on iPhone and Android?<span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes. Scrollless is on both iPhone (Apple App Store) and Android (Google Play Store). The download button on this site sends you to the right store for your phone.</p></div></div>
       </div>
     </div>
@@ -713,97 +767,100 @@
   if(!reduce) requestAnimationFrame(autoFrame);
 })();
 
-// ===== Auto-playing session demo =====
+// ===== Section 01: pinned every-session scrollytelling =====
+// The panel pins while you scroll; scroll progress picks the active step, fills
+// the spine, and crossfades the art + caption. The three animations loop on
+// their own. Reduced motion or narrow screens fall back to a stacked timeline.
 (function(){
-  var stage=document.getElementById('stage'); if(!stage) return;
-  var track=document.querySelectorAll('#track li');
-  var scenes=stage.querySelectorAll('.scene');
+  var scrolly=document.getElementById('scrolly'); if(!scrolly) return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var marc=document.getElementById('marc'), mthumb=document.getElementById('mthumb'),
-      mnum=document.getElementById('mnum'), setbtn=document.getElementById('setbtn');
-  var sessFill=document.getElementById('sessfill');
-  var sessTbar=document.getElementById('sesstbar');
-  var phone=document.getElementById('phonedrop');
+  var marc=document.getElementById('marc'), mthumb=document.getElementById('mthumb'), mnum=document.getElementById('mnum');
   var scrollVisual=document.getElementById('scrollvisual');
-  var feed=stage.querySelector('.feed-rows');
+  var phone=document.getElementById('phonedrop');
 
-  // mini dial uses the SAME geometry as the hero so it looks identical
+  // the mini dial shares the hero geometry so it looks identical
   var MR=314, MCX=325, MCIRC=2*Math.PI*MR;
-  marc.style.strokeDasharray=MCIRC; marc.style.strokeDashoffset=MCIRC;
+  var DIAL_TARGET=0.04+(20-1)/(60-1)*0.92;   // where 20 of 60 lands on the ring
+  marc.style.strokeDasharray=MCIRC; marc.style.strokeDashoffset=MCIRC;   // start empty
 
-  // scene durations (ms). Longer steps + slower cross-fades so nothing feels rushed.
-  // BAR_DELAY holds the red bar back so it fades in calmly instead of being caught mid-fill.
-  // D_LOCK is the quiet beat where the lock settles on the frozen feed before the break.
-  var D_SET=4400, D_SCROLL=6000, D_BREAK=4200, D_RESTART=2200, BAR_DELAY=1100, D_LOCK=1500;
-  var timers=[];
-  function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
-  function later(fn,ms){ var t=setTimeout(fn,ms); timers.push(t); return t; }
-
-  function show(i){
-    scenes.forEach(function(s,k){ s.classList.toggle('on', k===i); });
-    track.forEach(function(li){ li.classList.toggle('on', +li.dataset.i===i); });
+  function drawDial(sweep, num){
+    marc.style.strokeDashoffset=MCIRC*(1-sweep);
+    var ang=sweep*2*Math.PI-Math.PI/2;
+    mthumb.setAttribute('cx',MCX+MR*Math.cos(ang)); mthumb.setAttribute('cy',MCX+MR*Math.sin(ang));
+    mnum.textContent=num;
   }
+  function resetDial(){ drawDial(0,0); }
 
-  // thin progress bar: 0 -> 100% over ms
-  function runBar(fill, ms){
-    fill.style.transition='none'; fill.style.width='0%';
-    void fill.offsetWidth;                                  // commit the reset before filling
-    fill.style.transition='width '+ms+'ms linear'; fill.style.width='100%';
-  }
-  // reset a bar back to empty + hidden, ready for its scene
-  function armBar(fill, tbar){ fill.style.transition='none'; fill.style.width='0%'; tbar.classList.remove('show'); }
-
-  // dial sweeps to 20/60; cb fires once it lands on 20
-  function fillDial(cb){
-    var MIN=1, MAX=60, val=20, target=0.04+(val-MIN)/(MAX-MIN)*0.92, t0=performance.now(), d=1700;
-    (function anim(){
-      var p=Math.min(1,(performance.now()-t0)/d), sweep=target*p;
-      marc.style.strokeDashoffset=MCIRC*(1-sweep);
-      var ang=sweep*2*Math.PI-Math.PI/2;
-      mthumb.setAttribute('cx',MCX+MR*Math.cos(ang)); mthumb.setAttribute('cy',MCX+MR*Math.sin(ang));
-      mnum.textContent=Math.max(1,Math.round(val*p));
+  // Step 1: sweep 0 -> 20, hold, reset, repeat.
+  function loopDial(){
+    var t0=performance.now(), d=1700;
+    (function anim(now){
+      var p=Math.min(1,(now-t0)/d);
+      drawDial(DIAL_TARGET*p, Math.max(0,Math.round(20*p)));
       if(p<1) requestAnimationFrame(anim);
-      else if(cb) cb();
-    })();
+      else setTimeout(function(){ resetDial(); setTimeout(loopDial, 500); }, 2400);
+    })(t0);
   }
 
-  function sceneSet(){
-    show(0);
-    fillDial(function(){
-      // tap Set Timer: a subtle, clean press that eases back, then hold a beat
-      setbtn.classList.add('press');
-      later(function(){ setbtn.classList.remove('press'); }, 240);
-      later(sceneScroll, 1400);
-    });
-  }
-  function sceneScroll(){
-    show(1);
-    scrollVisual.classList.remove('locked');     // feed live again after a previous loop
-    armBar(sessFill, sessTbar);
-    // hold the feed still at the top for a beat so it reads as a feed, then let it scroll
-    if(feed){ feed.style.animation='none'; void feed.offsetWidth; later(function(){ feed.style.animation=''; }, 1000); }
-    // let the bar fade in a beat late, then run it down over the rest of the session
-    later(function(){ sessTbar.classList.add('show'); runBar(sessFill, D_SCROLL-BAR_DELAY); }, BAR_DELAY);
-    // time is up: the feed freezes and dims, the lock settles cleanly on top
-    later(function(){ scrollVisual.classList.add('locked'); }, D_SCROLL);
-    // hold that locked beat, then ease into the calm break
-    later(sceneBreak, D_SCROLL+D_LOCK);
-  }
-  function sceneBreak(){
-    show(2);
-    // restart the phone-into-pocket drop from the top each time the break opens
-    if(phone){ phone.style.animation='none'; void phone.offsetWidth; phone.style.animation=''; }
-    // no bar on this scene; just hold the break, then restart at the dial
-    later(function(){ later(sceneSet, D_RESTART); }, D_BREAK);
+  // Step 2: the feed scrolls (CSS), then time is up: it freezes, dims, and the
+  // lock settles on top. Hold that beat, then the feed resumes. Repeat.
+  function loopLock(){
+    scrollVisual.classList.remove('locked');
+    setTimeout(function(){ scrollVisual.classList.add('locked'); }, 5000);
+    setTimeout(loopLock, 8500);
   }
 
-  var running=false;
-  function start(){ if(running)return; running=true; clearTimers(); sceneSet(); }
-  function reset(){ running=false; clearTimers(); }
+  // Step 3: replay the phone-into-pocket tuck on a calm loop, fading it back in
+  // at the top so the reset never reads as a teleport.
+  function loopPocket(){
+    phone.style.transition='none'; phone.style.opacity='0';
+    phone.style.animation='none'; void phone.offsetWidth; phone.style.animation='';
+    requestAnimationFrame(function(){ phone.style.transition='opacity .45s ease'; phone.style.opacity='1'; });
+    setTimeout(loopPocket, 4500);
+  }
 
-  if(reduce){ show(0); fillDial(); return; }
-  var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting) start(); else reset(); }); }, {threshold:0.25});
-  io.observe(stage);
+  var layers=[].slice.call(scrolly.querySelectorAll('.step-layer'));
+  var nodes=[].slice.call(scrolly.querySelectorAll('.spine-node'));
+  var fill=scrolly.querySelector('.spine-fill');
+  var spine=scrolly.querySelector('.spine');
+  var pin=scrolly.querySelector('.scrolly-pin');
+  var N=layers.length;
+
+  // Fallback (reduced motion or narrow screens): plain stacked timeline, all
+  // three steps visible. Still start the loops when the section scrolls in.
+  var pinnedOK = !reduce && matchMedia('(min-width:861px)').matches;
+  if(!pinnedOK){
+    layers.forEach(function(l){ l.classList.add('active'); });
+    if(reduce){ drawDial(DIAL_TARGET,20); return; }
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){
+      if(e.isIntersecting){ resetDial(); loopDial(); loopLock(); loopPocket(); io.disconnect(); }
+    }); }, {threshold:0.15});
+    io.observe(scrolly);
+    return;
+  }
+
+  scrolly.classList.add('on');
+  var cur=-1, started=false;
+  function setStep(i){
+    if(i===cur) return; cur=i;
+    layers.forEach(function(l,k){ l.classList.toggle('active', k===i); });
+    nodes.forEach(function(n,k){ n.classList.toggle('active', k===i); n.classList.toggle('done', k<i); });
+  }
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var total=scrolly.offsetHeight - pin.offsetHeight;
+    if(total<=0) return;
+    var p=(64 - scrolly.getBoundingClientRect().top)/total;
+    p=Math.max(0,Math.min(1,p));
+    if(fill && spine){ fill.style.height=(p*(spine.clientHeight-44))+'px'; }
+    setStep(Math.min(N-1, Math.floor(p*N)));
+    if(!started){ started=true; resetDial(); loopDial(); loopLock(); loopPocket(); }
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 
 // ===== FAQ accordion (mirrors live script.js) =====
