@@ -43,12 +43,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css?v=3">
     <style>
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+        :root{
+            --ink:#0A0A0A; --body:#454545; --muted:#8A8A8A; --hair:#E9E9E9;
+            --paper:#fff; --panel:#FAFAFA; --red:#FF0B00; --red-text:#CC0A00;
+            --head:'Outfit',-apple-system,sans-serif;
         }
+        .support-wrap{ max-width:800px; margin:0 auto; padding:clamp(3rem,7vh,5rem) 24px 5rem; }
+        .back-link{ display:inline-flex; align-items:center; gap:8px; margin-bottom:2.2rem; text-decoration:none;
+            color:var(--muted); font-family:var(--head); font-weight:500; font-size:.95rem; transition:color .2s ease; }
+        .back-link:hover{ color:var(--red-text); }
+        .support-eyebrow{ font-family:var(--head); font-weight:500; font-size:.76rem; letter-spacing:.2em;
+            text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+        .support-wrap h1{ font-family:var(--head); color:var(--ink); font-size:clamp(2.1rem,4.6vw,3rem);
+            letter-spacing:-0.03em; line-height:1.03; margin-bottom:1rem; }
+        .support-lead{ font-size:1.12rem; color:var(--body); max-width:60ch; margin-bottom:3rem; line-height:1.6; }
+        .step{ background:var(--paper); border:1px solid var(--hair); border-radius:20px; padding:1.8rem 2rem;
+            margin-bottom:1.4rem; }
+        .step-head{ display:flex; align-items:center; gap:14px; margin-bottom:1rem; }
+        .step-num{ flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--red); color:#fff;
+            font-family:var(--head); font-weight:700; font-size:1rem; display:inline-flex; align-items:center;
+            justify-content:center; }
+        .step-head h2{ margin:0; font-family:var(--head); color:var(--ink); font-size:1.3rem; letter-spacing:-0.02em; }
+        .step > p{ color:var(--body); margin-bottom:1.2rem; line-height:1.6; }
+        .step ol{ color:var(--body); padding-left:1.3rem; line-height:1.6; }
+        .step ol li{ margin-bottom:.7rem; }
+        .step strong{ color:var(--ink); font-weight:600; }
+        .step .hl{ color:var(--red-text); }
+        .step-foot{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--hair);
+            font-size:.9rem; color:var(--muted); }
+        .why{ border-top:1px solid var(--hair); padding-top:2.5rem; margin-top:1.4rem; }
+        .why h2{ font-family:var(--head); color:var(--ink); font-size:1.5rem; letter-spacing:-0.02em;
+            margin-bottom:1rem; }
+        .why p{ color:var(--body); line-height:1.65; }
+        .contact-note{ margin-top:2rem; color:var(--muted); font-size:.92rem; }
+        .contact-note a{ color:var(--red-text); }
     </style>
 </head>
 
@@ -68,107 +96,78 @@
     </div>
   </nav>
 
-    <div class="policy-container" style="max-width: 800px;">
-        <!-- Back link -->
-        <a href="/troubleshoot"
-            style="display: inline-flex; align-items: center; margin-bottom: 2rem; text-decoration: none; color: rgba(255,255,255,0.6); font-weight: 500; transition: color 0.3s;">
-            <span style="margin-right: 8px;">&larr;</span> Back to Troubleshooting
-        </a>
+    <div class="support-wrap">
+        <a href="/troubleshoot" class="back-link"><span>&larr;</span> Back to Troubleshooting</a>
 
-        <h1>📱 Xiaomi and HyperOS setup guide</h1>
-        <p style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9;">Xiaomi, Redmi and POCO phones close background
-            apps hard to save battery. That stops Scrollless from doing its job unless you turn on a few settings they
-            keep tucked away. Do these four steps once and the app stays running. This page is for Android phones
-            running MIUI or HyperOS.</p>
+        <div class="support-eyebrow">Android setup</div>
+        <h1>Xiaomi and HyperOS setup guide</h1>
+        <p class="support-lead">Xiaomi, Redmi and POCO phones close background apps hard to save battery. That stops
+            Scrollless from doing its job unless you turn on a few settings they keep tucked away. Do these four steps
+            once and the app stays running. This page is for Android phones running MIUI or HyperOS.</p>
 
-        <div class="steps-container">
-            <section class="policy-section"
-                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
-                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="step-number"
-                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">1</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn on the pop-up permission</h2>
-                </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Without this, Scrollless cannot show
-                    the timer or the break screen.</p>
-                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
-                    <li style="margin-bottom: 0.8rem;">Long-press the <strong>Scrollless icon</strong> on your home
-                        screen and tap <strong>App Info</strong> (the "i" icon).</li>
-                    <li style="margin-bottom: 0.8rem;">Tap on <strong>Other Permissions</strong>.</li>
-                    <li>Find <strong>Display pop-up windows while running in the background</strong> and set it to
-                        <strong style="color: #FF0B00;">Always allow</strong>.
-                    </li>
-                </ol>
-            </section>
-
-            <section class="policy-section"
-                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
-                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="step-number"
-                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">2</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn off battery restrictions</h2>
-                </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This stops Xiaomi from closing the app
-                    to save battery.</p>
-                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
-                    <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, tap on
-                        <strong>Battery Saver</strong>.
-                    </li>
-                    <li>Select <strong style="color: #FF0B00;">No Restrictions</strong>.</li>
-                </ol>
-            </section>
-
-            <section class="policy-section"
-                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
-                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="step-number"
-                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">3</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Turn on Autostart</h2>
-                </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This lets Scrollless start on its own
-                    when you turn the phone on.</p>
-                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
-                    <li style="margin-bottom: 0.8rem;">On the same <strong>App Info</strong> screen, toggle
-                        <strong>Autostart</strong> to <strong style="color: #FF0B00;">ON</strong>.
-                    </li>
-                    <li>(Optional) If prompted about battery usage, tap <strong>OK</strong>.</li>
-                </ol>
-            </section>
-
-            <section class="policy-section"
-                style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; margin-bottom: 3rem;">
-                <div class="step-title" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <span class="step-number"
-                        style="background: #FF0B00; width: 32px; height: 32px; font-size: 1rem; border-radius: 50%; margin-right: 12px; color: white;">4</span>
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">Lock the app (recommended)</h2>
-                </div>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">This is the surest way to keep
-                    Scrollless running in the background.</p>
-                <ol style="color: rgba(255,255,255,0.9); padding-left: 1.5rem; line-height: 1.6;">
-                    <li style="margin-bottom: 0.8rem;">Open <strong>Scrollless</strong>.</li>
-                    <li style="margin-bottom: 0.8rem;">Open your <strong>Recent Apps</strong> screen (swipe up and hold
-                        square button).</li>
-                    <li style="margin-bottom: 0.8rem;">Long-press on the <strong>Scrollless</strong> window.</li>
-                    <li>Tap the <strong>Padlock icon</strong>.</li>
-                </ol>
-                <p
-                    style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
-                    Once locked, a small padlock shows next to the app name. The app stays active even when you clear
-                    all apps from recents.</p>
-            </section>
+        <div class="step">
+            <div class="step-head"><span class="step-num">1</span>
+                <h2>Turn on the pop-up permission</h2>
+            </div>
+            <p>Without this, Scrollless cannot show the timer or the break screen.</p>
+            <ol>
+                <li>Long-press the <strong>Scrollless icon</strong> on your home screen and tap <strong>App Info</strong>
+                    (the "i" icon).</li>
+                <li>Tap on <strong>Other Permissions</strong>.</li>
+                <li>Find <strong>Display pop-up windows while running in the background</strong> and set it to
+                    <strong class="hl">Always allow</strong>.
+                </li>
+            </ol>
         </div>
 
-        <section class="policy-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem;">
-            <h2>💡 Why is this needed?</h2>
-            <p style="opacity: 0.8;">Xiaomi, Redmi and POCO phones run MIUI or HyperOS, which closes background apps far
-                more aggressively than Samsung or Google phones do. These steps tell the system to leave Scrollless
-                alone, so it can stay active and keep your apps locked when the timer ends.</p>
+        <div class="step">
+            <div class="step-head"><span class="step-num">2</span>
+                <h2>Turn off battery restrictions</h2>
+            </div>
+            <p>This stops Xiaomi from closing the app to save battery.</p>
+            <ol>
+                <li>On the same <strong>App Info</strong> screen, tap on <strong>Battery Saver</strong>.</li>
+                <li>Select <strong class="hl">No Restrictions</strong>.</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-head"><span class="step-num">3</span>
+                <h2>Turn on Autostart</h2>
+            </div>
+            <p>This lets Scrollless start on its own when you turn the phone on.</p>
+            <ol>
+                <li>On the same <strong>App Info</strong> screen, toggle <strong>Autostart</strong> to
+                    <strong class="hl">ON</strong>.
+                </li>
+                <li>(Optional) If prompted about battery usage, tap <strong>OK</strong>.</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <div class="step-head"><span class="step-num">4</span>
+                <h2>Lock the app (recommended)</h2>
+            </div>
+            <p>This is the surest way to keep Scrollless running in the background.</p>
+            <ol>
+                <li>Open <strong>Scrollless</strong>.</li>
+                <li>Open your <strong>Recent Apps</strong> screen (swipe up and hold square button).</li>
+                <li>Long-press on the <strong>Scrollless</strong> window.</li>
+                <li>Tap the <strong>Padlock icon</strong>.</li>
+            </ol>
+            <p class="step-foot">Once locked, a small padlock shows next to the app name. The app stays active even
+                when you clear all apps from recents.</p>
+        </div>
+
+        <section class="why">
+            <h2>Why is this needed?</h2>
+            <p>Xiaomi, Redmi and POCO phones run MIUI or HyperOS, which closes background apps far more aggressively
+                than Samsung or Google phones do. These steps tell the system to leave Scrollless alone, so it can stay
+                active and keep your apps locked when the timer ends.</p>
         </section>
 
-        <section class="policy-section" style="margin-top: 2rem;">
-            <p style="opacity: 0.6; font-size: 0.9rem;">Still having issues? Reach out to us at <a
-                    href="mailto:scrollless.app@gmail.com" style="color: #FF0B00;">scrollless.app@gmail.com</a>.</p>
-        </section>
+        <p class="contact-note">Still having issues? Reach out to us at <a
+                href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a>.</p>
     </div>
 
     <footer>

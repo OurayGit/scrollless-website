@@ -84,6 +84,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css?v=3">
+    <style>
+        :root{
+            --ink:#0A0A0A; --body:#454545; --muted:#8A8A8A; --hair:#E9E9E9;
+            --paper:#fff; --panel:#FAFAFA; --red:#FF0B00; --red-text:#CC0A00;
+            --head:'Outfit',-apple-system,sans-serif;
+        }
+        .support-wrap{ max-width:760px; margin:0 auto; padding:clamp(3rem,7vh,5rem) 24px 5rem; }
+        .support-eyebrow{ font-family:var(--head); font-weight:500; font-size:.76rem; letter-spacing:.2em;
+            text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+        .support-wrap h1{ font-family:var(--head); color:var(--ink); font-size:clamp(2.2rem,5vw,3.2rem);
+            letter-spacing:-0.03em; line-height:1.02; margin-bottom:1rem; }
+        .support-lead{ font-size:1.15rem; color:var(--body); max-width:52ch; margin-bottom:3.2rem; line-height:1.55; }
+        .support-section{ padding:2.5rem 0; border-top:1px solid var(--hair); }
+        .support-section:first-of-type{ border-top:none; padding-top:0; }
+        .support-section h2{ font-family:var(--head); color:var(--ink); font-size:1.5rem;
+            letter-spacing:-0.02em; margin-bottom:1rem; }
+        .support-section p{ color:var(--body); margin-bottom:1rem; line-height:1.65; }
+        .support-section ul{ padding-left:1.2rem; margin:1rem 0; }
+        .support-section li{ color:var(--body); margin-bottom:.7rem; line-height:1.6; }
+        .support-section strong{ color:var(--ink); font-weight:600; }
+        .support-section a{ color:var(--red-text); }
+        .tip{ display:inline-block; background:var(--red); color:#fff; font-family:var(--head); font-weight:600;
+            font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 13px; border-radius:50px;
+            margin-bottom:1.1rem; }
+        .xiaomi-card{ background:var(--panel); border:1px solid var(--hair); border-radius:20px; padding:2.2rem;
+            margin-top:1.8rem; text-align:center; }
+        .xiaomi-card h3{ font-family:var(--head); color:var(--ink); font-size:1.35rem; margin:0 0 .5rem; }
+        .xiaomi-card p{ color:var(--body); margin-bottom:1.5rem; }
+        .support-section a.xiaomi-btn{ display:inline-block; font-family:var(--head); font-weight:600; font-size:.95rem;
+            text-decoration:none; padding:12px 28px; border-radius:50px; background:var(--red); color:#fff;
+            border:2px solid var(--red); transition:background .25s ease, border-color .25s ease; }
+        .support-section a.xiaomi-btn:hover{ background:var(--ink); border-color:var(--ink); color:#fff; }
+    </style>
 </head>
 
 <body class="lite">
@@ -102,20 +135,22 @@
     </div>
   </nav>
 
-    <div class="policy-container">
+    <div class="support-wrap">
+        <div class="support-eyebrow">Support</div>
         <h1>Troubleshooting</h1>
-        <p class="policy-date">Scrollless support for iPhone and Android</p>
+        <p class="support-lead">Quick fixes for Scrollless on iPhone and Android. Most issues are a permission that
+            got switched off, and a restart clears the rest.</p>
 
-        <section class="policy-section">
-            <h2>⚡ First, restart your phone</h2>
-            <p><strong>Try this before anything else.</strong> Restart your device.</p>
+        <section class="support-section">
+            <span class="tip">Try this first</span>
+            <h2>Restart your phone</h2>
             <p>Most Scrollless issues clear up after a restart. It resolves temporary conflicts and gives the app a
                 clean start. This works the same on iPhone and Android. If the problem comes back, use the section
                 for your phone below.</p>
         </section>
 
-        <section class="policy-section">
-            <h2>🤖 On Android</h2>
+        <section class="support-section">
+            <h2>On Android</h2>
             <p>On Android, Scrollless needs a few permissions to watch your apps and lock them on time. If it stops
                 working, one of these usually got switched off. Open Scrollless and check each one:</p>
             <ul>
@@ -123,24 +158,19 @@
                 <li><strong>Display over other apps:</strong> needed to show the timer and the break screen on top of
                     the app you opened.</li>
                 <li><strong>Battery optimisation set to unrestricted:</strong> if Android is allowed to save battery
-                    on Scrollless, it can kill the app in the background and the blocking stops.</li>
+                    on Scrollless, it can close the app in the background and the blocking stops.</li>
             </ul>
             <p>If any of these are off, turn them back on and the app will work again.</p>
 
-            <div
-                style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 11, 0, 0.3); border-radius: 16px; padding: 2rem; margin-top: 2rem; text-align: center; backdrop-filter: blur(10px);">
-                <h3 style="margin-top: 0; color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem;">On a Xiaomi, Redmi,
-                    or POCO phone?</h3>
-                <p style="opacity: 0.8; margin-bottom: 1.5rem; color: #fff;">These phones close background apps hard,
-                    so they need a few extra settings.</p>
-                <a href="xiaomi.html"
-                    style="display: inline-block; background-color: #FF0B00; color: #fff; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-family: 'Outfit', sans-serif; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 11, 0, 0.3);">Xiaomi
-                    and HyperOS setup guide &rarr;</a>
+            <div class="xiaomi-card">
+                <h3>On a Xiaomi, Redmi, or POCO phone?</h3>
+                <p>These phones close background apps hard, so they need a few extra settings.</p>
+                <a href="xiaomi.html" class="xiaomi-btn">Xiaomi and HyperOS setup guide &rarr;</a>
             </div>
         </section>
 
-        <section class="policy-section">
-            <h2>🍎 On iPhone</h2>
+        <section class="support-section">
+            <h2>On iPhone</h2>
             <p>On iPhone, Scrollless works through Apple Screen Time. It asks for one permission when you first set it
                 up. If the app is not blocking anything, that permission is almost always the cause.</p>
             <ul>
@@ -154,15 +184,15 @@
             </ul>
         </section>
 
-        <section class="policy-section">
-            <h2>🐛 The break screen won't go away</h2>
+        <section class="support-section">
+            <h2>The break screen won't go away</h2>
             <p>Sometimes the break screen stays up even after the break is over. This happens when your phone goes to
                 sleep partway through, so the app does not notice the break has finished.</p>
             <p>Wake the phone and open Scrollless, or restart it, and the break screen will clear.</p>
         </section>
 
-        <section class="policy-section">
-            <h2>📝 Still need help?</h2>
+        <section class="support-section">
+            <h2>Still need help?</h2>
             <p>Email me and I will sort it out: <a
                     href="mailto:scrollless.app@gmail.com">scrollless.app@gmail.com</a>.</p>
             <p>To make it quick, include:</p>
