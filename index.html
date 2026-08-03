@@ -74,12 +74,22 @@
   .btn{ display:inline-block; font-family:var(--head); font-weight:600; font-size:.95rem; text-decoration:none;
     padding:11px 26px; border-radius:50px; background:var(--red); color:#fff; border:2px solid var(--red);
     transition:background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease); white-space:nowrap; cursor:pointer; }
-  .btn:hover{ background:var(--ink); border-color:var(--ink); color:#fff; }
   .btn.big{ font-size:1.08rem; padding:16px 38px; }
   .nav-btn.subtle{ background:transparent; color:var(--ink); border-color:var(--hair); }
-  .nav-btn.subtle:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
-  .hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
-  .hamburger span{ width:24px; height:2px; background:var(--ink); transition:.25s; }
+  /* Hover states are gated to real pointers. On a touchscreen :hover sticks to the
+     last-tapped element, which left the red Download button stuck black after a tap. */
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{ background:var(--ink); border-color:var(--ink); color:#fff; }
+    .nav-btn.subtle:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  }
+  /* Touch gets its own press feedback, so the button never changes colour. */
+  .btn:active{ transform:scale(.98); }
+  .btn:focus-visible, .hamburger:focus-visible{ outline:2px solid var(--red-text); outline-offset:3px; }
+  .hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; z-index:1001; }
+  .hamburger span{ display:block; width:24px; height:2px; background:var(--ink); transition:transform .25s, opacity .25s; }
+  .hamburger.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2){ opacity:0; }
+  .hamburger.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
   /* Hero: asymmetric split */
   .hero{ border-bottom:1px solid var(--hair); }
@@ -255,8 +265,10 @@
   .crow .cc{ display:flex; align-items:center; justify-content:center; padding:1rem .6rem; font-size:1.1rem; }
   .crow .cc.col-us{ box-shadow:inset 1px 0 0 var(--hair); }
   .mk-y{ color:var(--red-text); font-weight:700; }
-  .mk-n{ color:#cfcfcf; font-weight:700; }
-  .mk-p{ color:#bdbdbd; font-weight:700; }
+  /* Comparison markers carry real meaning, so they need to be readable, not just
+     faint. The old #cfcfcf / #bdbdbd sat at ~1.6:1 on white and were near invisible. */
+  .mk-n{ color:#6E6E6E; font-weight:700; }
+  .mk-p{ color:#6E6E6E; font-weight:700; }
   .compare-foot{ font-size:.95rem; color:var(--body); margin-top:1.3rem; }
 
   /* Quotes (wreath) */
@@ -264,7 +276,7 @@
   .review-wreath{ display:flex; align-items:center; justify-content:center; gap:1.2rem; }
   .review-wreath img{ height:150px; width:auto; opacity:.9; flex:0 0 auto; }
   .review-content{ text-align:center; padding:0 .8rem; }
-  .review-stars{ color:var(--red); letter-spacing:2px; margin-bottom:.6rem; }
+  .review-stars{ color:var(--red-text); letter-spacing:2px; margin-bottom:.6rem; }
   .review-text{ font-family:var(--head); font-weight:500; font-size:1.25rem; line-height:1.4; color:var(--ink); max-width:38ch; }
 
   /* Award bar */
@@ -308,7 +320,7 @@
   footer .footer-legal{ display:flex; gap:1.4rem; }
   footer .footer-legal a{ color:#9a9a9a; text-decoration:none; font-size:.85rem; }
   footer .footer-legal a:hover{ color:#fff; }
-  .foot-copy{ font-size:.82rem; color:#6a6a6a; }
+  .foot-copy{ font-size:.82rem; color:#8A8A8A; }
 
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
   .reveal.active{ opacity:1; transform:none; }
@@ -318,7 +330,20 @@
     .dial-stage{ order:-1; }
     .crow{ grid-template-columns:1.4fr .8fr .8fr .9fr; }
     .crow .feat{ padding:.9rem; font-size:.9rem; }
-    .nav-links{ display:none; }
+    /* Slide-in drawer, matching the shared .lite nav on the other pages.
+       Kept visibility:hidden while closed so off-screen links stay out of tab order. */
+    .nav-links{
+      position:fixed; top:64px; right:-100%; width:74%; max-width:320px;
+      height:auto; max-height:calc(100svh - 64px); overflow-y:auto;
+      flex-direction:column; align-items:flex-start; gap:1.4rem;
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-left:1px solid var(--hair); border-bottom:1px solid var(--hair);
+      padding:1.6rem 1.5rem; visibility:hidden;
+      transition:right .3s var(--ease), visibility .3s var(--ease);
+    }
+    .nav-links.active{ right:0; visibility:visible; }
+    .nav-links a{ font-size:1.05rem; }
     .hamburger{ display:flex; }
     .nav .wrap{ padding:0 18px; }
     .nav-left{ gap:0; }
@@ -445,14 +470,14 @@
   <div class="wrap">
     <div class="nav-left">
       <a href="/" class="brand"><img src="/Scrollless%20icon%20black.svg" alt="Scrollless"><span>Scrollless</span></a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="/how-it-works">How it works</a>
         <a href="/blog/stop-doomscrolling">Why Scrollless</a>
         <a href="/troubleshoot">Help</a>
       </div>
     </div>
     <a href="https://play.google.com/store/apps/details?id=ch.scrollless&hl=en" target="_blank" class="btn nav-btn">Download</a>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" aria-label="Menu" aria-controls="nav-links" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -861,6 +886,26 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll);
   update();
+})();
+
+// ===== Hamburger menu (mirrors live script.js) =====
+(function(){
+  var burger=document.querySelector('.hamburger'), links=document.querySelector('.nav-links');
+  if(!burger||!links)return;
+  function setOpen(open){
+    links.classList.toggle('active',open);
+    burger.classList.toggle('active',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  }
+  burger.addEventListener('click',function(e){
+    e.stopPropagation();
+    setOpen(!links.classList.contains('active'));
+  });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setOpen(false); }); });
+  document.addEventListener('click',function(e){
+    if(!burger.contains(e.target)&&!links.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
 })();
 
 // ===== FAQ accordion (mirrors live script.js) =====

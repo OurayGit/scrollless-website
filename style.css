@@ -1967,7 +1967,7 @@ body.lite footer {
 }
 body.lite .social-icon { stroke: var(--color-black); }
 body.lite .footer-legal a { color: var(--color-black); }
-body.lite .copyright { color: #888888; }
+body.lite .copyright { color: #6E6E6E; }
 body.lite .separator { background-color: #888888; }
 
 @media (max-width: 768px) {
