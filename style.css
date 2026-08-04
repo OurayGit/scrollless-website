@@ -1406,9 +1406,10 @@ body.policy-page .separator {
         0 0 0 1px rgba(255, 11, 0, 0.3);
 }
 
-/* Step 3 (No Image) special styling */
+/* Step 3 (No Image) special styling.
+   No text-align override: type inherits the same left alignment as every other
+   step. Only the icon row below stays centred, via flex on .hiw-icons-bg. */
 .hiw-step.text-only {
-    text-align: center;
     justify-content: center;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
     border: 1px solid var(--glass-border);
