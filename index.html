@@ -254,8 +254,12 @@
   .lock .keyhole::after{ content:""; position:absolute; top:8px; left:50%; transform:translateX(-50%); width:5px; height:14px; border-radius:0 0 2px 2px; background:var(--paper); }
 
   /* ===== 3-column comparison ===== */
-  .ctable{ margin-top:2.4rem; border:1px solid var(--hair); border-radius:16px; overflow:hidden; }
-  .crow{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; align-items:stretch; }
+  /* one shared set of column tracks for ALL rows (subgrid), so the header
+     labels can never shift against the mark columns below. The fr line is
+     the fallback for browsers without subgrid. */
+  .ctable{ margin-top:2.4rem; border:1px solid var(--hair); border-radius:16px; overflow:hidden;
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; }
+  .crow{ display:grid; grid-column:1/-1; grid-template-columns:2fr 1fr 1fr 1fr; grid-template-columns:subgrid; align-items:stretch; }
   .crow + .crow{ border-top:1px solid var(--hair); }
   .crow.head{ background:var(--panel); }
   .crow.head .cc{ font-family:var(--head); font-weight:600; font-size:.9rem; color:var(--ink);
@@ -328,8 +332,10 @@
   @media(max-width:860px){
     .hero .wrap{ grid-template-columns:1fr; gap:2.5rem; min-height:auto; padding:2rem 24px 3rem; }
     .dial-stage{ order:-1; }
-    .crow{ grid-template-columns:1.4fr .8fr .8fr .9fr; }
+    .ctable{ grid-template-columns:1.4fr .8fr .8fr .9fr; }
+    .crow{ grid-template-columns:1.4fr .8fr .8fr .9fr; grid-template-columns:subgrid; }
     .crow .feat{ padding:.9rem; font-size:.9rem; }
+    .crow.head .cc{ font-size:.8rem; padding:1rem .4rem; }
     /* Slide-in drawer, matching the shared .lite nav on the other pages.
        Kept visibility:hidden while closed so off-screen links stay out of tab order. */
     .nav-links{
