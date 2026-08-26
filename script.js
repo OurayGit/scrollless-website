@@ -56,13 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Auto-route download buttons to the right app store, then track clicks.
     // The static HTML points at the Play Store, so Android, desktop, and crawlers
-    // get a valid link with no JS. On iPhone/iPad we rewrite to the App Store; on
-    // desktop (no single mobile OS to assume) we show BOTH stores side by side.
+    // get a valid link with no JS. On iPhone/iPad we rewrite to the App Store.
+    // Desktop keeps the single Play Store button and offers the platform choice
+    // as small links next to it (.platforms), so every page has exactly one CTA.
     const APP_STORE_URL = 'https://apps.apple.com/app/id6761528098';
     const ua = navigator.userAgent;
     const isIOS = /iPad|iPhone|iPod/.test(ua) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // iPadOS reports as Mac
-    const isAndroid = /Android/.test(ua);
 
     function trackDownload(store) {
         if (typeof gtag === 'function') {
@@ -88,20 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         link.addEventListener('click', () => trackDownload(isIOS ? 'app_store' : 'play_store'));
     });
-
-    // Desktop only: add an App Store button beside each primary Play Store button
-    // so visitors can choose their platform. Pages that opt into a single CTA
-    // (body.single-cta) skip this and offer the platform choice as small links.
-    if (!isIOS && !isAndroid && !document.body.classList.contains('single-cta')) {
-        document.querySelectorAll('a.download-btn').forEach(playBtn => {
-            const appBtn = playBtn.cloneNode(true);
-            appBtn.href = APP_STORE_URL;
-            appBtn.id = '';
-            appBtn.textContent = 'Download on the App Store';
-            appBtn.addEventListener('click', () => trackDownload('app_store'));
-            playBtn.parentNode.insertBefore(appBtn, playBtn.nextSibling);
-        });
-    }
 
     // Toggle nav button style based on ANY page download button visibility
     const navBtn = document.querySelector('.nav-btn');

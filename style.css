@@ -284,16 +284,25 @@ body.policy-page .navbar {
     box-shadow: 0 15px 45px var(--color-red-glow);
 }
 
-/* Spacing when both store buttons are shown side by side (desktop) */
-.download-btn + .download-btn {
-    margin-left: 1rem;
+/* Platform choice next to the single download button. The button itself points
+   at the Play Store (rewritten to the App Store on iPhone/iPad by script.js);
+   these small links let desktop visitors pick a store without a second CTA. */
+.platforms {
+    display: block;
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    opacity: 0.75;
 }
 
-@media (max-width: 600px) {
-    .download-btn + .download-btn {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
+.platforms a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+}
+
+.platforms a:hover {
+    color: var(--color-red-text);
 }
 
 @keyframes pulse {
@@ -1497,8 +1506,7 @@ body.policy-page .separator {
    Swiss light theme, HOMEPAGE ONLY (body.home)
    White background, black type, single red accent, flat grid.
    Scoped on purpose so the dark pages stay untouched until they
-   are redone. body.single-cta also disables the desktop twin
-   download button (see script.js).
+   are redone.
    ============================================================ */
 body.home {
     background: #ffffff;
