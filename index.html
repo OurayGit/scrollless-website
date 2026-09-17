@@ -960,6 +960,14 @@ document.querySelectorAll('.current-year').forEach(function(el){ el.textContent=
   var APP='https://apps.apple.com/app/id6761528098', ua=navigator.userAgent;
   var isIOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   if(isIOS) document.querySelectorAll('a[href*="play.google.com/store/apps/details?id=ch.scrollless"]').forEach(function(a){ a.href=APP; });
+  // Home is self-contained and never loads script.js, so download tracking has to live here too.
+  document.querySelectorAll('a[href*="play.google.com/store/apps/details?id=ch.scrollless"], a[href*="apps.apple.com/app/id6761528098"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(typeof gtag!=='function') return;
+      var store = a.href.indexOf('apps.apple.com') > -1 ? 'app_store' : 'play_store';
+      gtag('event','download_clicked',{event_category:'conversion',event_label:'download_app_'+store,transport_type:'beacon'});
+    });
+  });
 })();
 </script>
 </body>
